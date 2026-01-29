@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="BRINGS – Personal Courier. Hand Delivered Worldwide. On Time. Discreet. Accountable." />
+  <title>BRINGS — Personal Courier</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a2e;
+      --text:#e9eef7;
+      --muted:#b8c4d9;
+      --line:rgba(255,255,255,.10);
+      --accent:#c9b37e; /* dezentes Gold */
+      --max:980px;
+      --r:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background: radial-gradient(1200px 600px at 20% 10%, rgba(201,179,126,.10), transparent 60%),
+                  radial-gradient(900px 500px at 80% 0%, rgba(120,160,255,.08), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:var(--text); text-decoration:none}
+    a:hover{opacity:.9; text-decoration:underline}
+    .wrap{max-width:var(--max); margin:0 auto; padding:42px 18px 60px}
+    .top{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:26px}
+    .brand{display:flex; flex-direction:column; gap:6px}
+    .logo{letter-spacing:.24em; font-weight:650; font-size:18px}
+    .tag{color:var(--muted); font-size:14px}
+    .nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    .pill{border:1px solid var(--line); padding:8px 12px; border-radius:999px; color:var(--muted); font-size:13px}
+    .pill:hover{color:var(--text); border-color:rgba(255,255,255,.22)}
+    .hero{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border-radius:var(--r);
+      padding:28px 22px;
+      margin-bottom:18px;
+    }
+    h1{margin:0 0 10px; font-size:34px; letter-spacing:.02em}
+    .sub{color:var(--muted); margin:0 0 14px; font-size:16px}
+    .claim{margin:0; font-size:15px}
+    .claim b{color:var(--accent); font-weight:650}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    .card{
+      grid-column: span 6;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      border-radius:var(--r);
+      padding:18px 18px;
+    }
+    .card h2{margin:0 0 8px; font-size:16px; letter-spacing:.02em}
+    .card p{margin:0; color:var(--muted); font-size:14px}
+    .wide{grid-column: span 12}
+    .list{margin:10px 0 0; padding:0 0 0 18px; color:var(--muted); font-size:14px}
+    .footer{
+      margin-top:22px;
+      padding-top:16px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      font-size:13px;
+    }
+    .cta{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:14px
+    }
+    .btn{
+      display:inline-block;
+      border:1px solid rgba(201,179,126,.45);
+      background: rgba(201,179,126,.08);
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:13px;
+      color:var(--text);
+    }
+    .btn:hover{border-color:rgba(201,179,126,.70)}
+    @media (max-width:780px){
+      .card{grid-column: span 12}
+      h1{font-size:30px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <div class="logo">BRINGS</div>
+        <div class="tag">Personal Courier — Hand Delivered Worldwide</div>
+      </div>
+      <div class="nav">
+        <a class="pill" href="#service">Service</a>
+        <a class="pill" href="#coverage">Coverage</a>
+        <a class="pill" href="#pricing">Pricing</a>
+        <a class="pill" href="#contact">Contact</a>
+        <a class="pill" href="impressum.html">Impressum</a>
+        <a class="pill" href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <h1>On Time. Discreet. Accountable.</h1>
+      <p class="sub">Short notice available (24–48h). Germany + EU active. Worldwide on request.</p>
+      <p class="claim">We deliver what cannot be replaced. <b>Anytime, anywhere.</b></p>
+
+      <div class="cta" id="contact">
+        <!-- Platzhalter: E-Mail + Tel später in Impressum/Datenschutz auch abbilden -->
+        <a class="btn" href="mailto:contact@brings.global">contact@brings.global</a>
+        <a class="btn" href="tel:+49XXXXXXXXXX">+49 XXXXXXXXXX</a>
+      </div>
+    </section>
+
+    <div class="grid" id="service">
+      <div class="card">
+        <h2>What we do</h2>
+        <p>Personal hand-carry courier for time-critical and confidential deliveries. Direct handover — no chain of custody, no standard logistics.</p>
+      </div>
+      <div class="card">
+        <h2>Who it’s for</h2>
+        <p>Law firms, notaries, family offices, advisors — and private clients in sensitive situations where discretion matters.</p>
+      </div>
+
+      <div class="card wide" id="coverage">
+        <h2>Coverage</h2>
+        <p>Germany · EU/Europe · Americas · Asia · Australia/NZ — worldwide on request.</p>
+        <ul class="list">
+          <li>Germany + EU: active operations</li>
+          <li>Intercontinental: on request & pre-check</li>
+        </ul>
+      </div>
+
+      <div class="card wide" id="pricing">
+        <h2>Pricing principle</h2>
+        <p>Priced individually based on responsibility, time sensitivity and travel requirements. A minimum engagement applies.</p>
+        <ul class="list">
+          <li>This is not parcel shipping.</li>
+          <li>This is personal responsibility.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>© <span id="y"></span> BRINGS</div>
+      <div>
+        <a href="impressum.html">Impressum</a> ·
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -471,6 +471,10 @@ function closeModal(){
 
 document.querySelectorAll("[data-open]").forEach(b=>{
   b.onclick=()=>openModal(b.dataset.open);
+  document.getElementById("lang-en").onclick = () => applyLanguage("en");
+document.getElementById("lang-de").onclick = () => applyLanguage("de");
+applyLanguage("en");
+
 });
 </script>
 

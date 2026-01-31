@@ -298,377 +298,339 @@
   </div>
 
   <script>
-    // ----- Year
-    document.getElementById("y").textContent = new Date().getFullYear();
+  // Year
+  const y = document.getElementById("y");
+  if (y) y.textContent = new Date().getFullYear();
 
-    // ----- i18n strings
-    const I18N = {
-      en: {
-        strap: "Worldwide Personal Courier",
-        nav_service: "Service",
-        nav_coverage: "Coverage",
-        nav_pricing: "Pricing",
-        nav_contact: "Contact",
-        
-        hero_h1: "On Time. Discreet. Accountable.",
-        hero_claim: "We deliver what cannot be replaced. <b>Anytime, anywhere.</b>",
-        cta_service: "View Service",
-        cta_coverage: "View Coverage",
-        cta_contact: "Contact",
-        footer_imprint: "Imprint",
-        footer_privacy: "Privacy",
-        close: "Close"
-      },
-      de: {
-        strap: "Weltweiter persönlicher Kurier",
-        nav_service: "Service",
-        nav_coverage: "Einsatzgebiete",
-        nav_pricing: "Preise",
-        nav_contact: "Kontakt",
-        kicker: "Kurzfristig verfügbar (24–48h). Deutschland + EU aktiv. Weltweit auf Anfrage.",
-        hero_h1: "Pünktlich. Diskret. Verlässlich.",
-        hero_claim: "Wir übergeben, was nicht ersetzbar ist. <b>Jederzeit. Überall.</b>",
-        cta_service: "Service ansehen",
-        cta_coverage: "Einsatzgebiete ansehen",
-        cta_contact: "Kontakt",
-        footer_imprint: "Impressum",
-        footer_privacy: "Datenschutz",
-        close: "Schließen"
-      }
-    };
+  // Elements
+  const backdrop = document.getElementById("backdrop");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalBody  = document.getElementById("modalBody");
+  const closeBtn   = document.getElementById("closeBtn");
 
-    let LANG = "en";
+  // Safety check
+  if (!backdrop || !modalTitle || !modalBody || !closeBtn) {
+    console.error("Modal elements missing. Check backdrop/modalTitle/modalBody/closeBtn in HTML.");
+  }
 
-    function setLanguage(lang){
-      LANG = lang;
-      document.getElementById("lang-en").classList.toggle("active", lang === "en");
-      document.getElementById("lang-de").classList.toggle("active", lang === "de");
+  // Language (EN default)
+  let LANG = "en";
 
-      document.querySelectorAll("[data-i18n]").forEach(el=>{
-        const key = el.getAttribute("data-i18n");
-        if (I18N[lang][key] !== undefined){
-          el.innerHTML = I18N[lang][key];
-        }
-      });
+  // Basic i18n (only what's needed; you can expand later)
+  const I18N = {
+    en: {
+      close: "Close",
+      strap: "Worldwide Personal Courier",
+      hero_h1: "On Time. Discreet. Accountable.",
+      hero_claim: 'We deliver what cannot be replaced. <b>Anytime, anywhere.</b>',
+      nav_service: "Service",
+      nav_coverage: "Coverage",
+      nav_pricing: "Pricing",
+      nav_contact: "Contact",
+      footer_imprint: "Imprint",
+      footer_privacy: "Privacy",
+    },
+    de: {
+      close: "Schließen",
+      strap: "Weltweiter persönlicher Kurier",
+      hero_h1: "Pünktlich. Diskret. Verlässlich.",
+      hero_claim: 'Wir übergeben, was nicht ersetzbar ist. <b>Jederzeit. Überall.</b>',
+      nav_service: "Service",
+      nav_coverage: "Einsatzgebiete",
+      nav_pricing: "Preise",
+      nav_contact: "Kontakt",
+      footer_imprint: "Impressum",
+      footer_privacy: "Datenschutz",
+    }
+  };
+
+  function setLanguage(lang) {
+    LANG = lang;
+    // Toggle buttons if present
+    const enBtn = document.getElementById("lang-en");
+    const deBtn = document.getElementById("lang-de");
+    if (enBtn && deBtn) {
+      enBtn.classList.toggle("active", lang === "en");
+      deBtn.classList.toggle("active", lang === "de");
     }
 
-    document.getElementById("lang-en").addEventListener("click", ()=>setLanguage("en"));
-    document.getElementById("lang-de").addEventListener("click", ()=>setLanguage("de"));
+    // Update i18n elements
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (I18N[lang] && I18N[lang][key] !== undefined) el.innerHTML = I18N[lang][key];
+    });
 
-    // ----- Modal content (EN/DE)
-    function modalContent(kind){
-      if (LANG === "de"){
-        if (kind === "service"){
-          return {
-            title: "Service",
-            body: `
-  <p>Persönlicher Hand-Carry-Kurier für zeitkritische und vertrauliche Übergaben.</p>
-  <div class="grid">
-    <div class="box" style="grid-column: span 12;">
-      <h3>Kern</h3>
-      <ul class="small">
-        <li>Direkte Übergabe — von Mensch zu Mensch</li>
-        <li>Klare Verantwortung bis zur bestätigten Übergabe</li>
-      </ul>
-    </div>
-    <div class="box" style="grid-column: span 12;">
-      <h3>Nicht angeboten</h3>
-      <ul class="small">
-        <li>Kein Paketversand</li>
-        <li>Keine Massenlogistik</li>
-      </ul>
-    </div>
-  </div>
-`
+    // Update close text
+    closeBtn.textContent = I18N[lang].close;
+  }
 
-              <p class="note small"><b>Prinzip:</b> Direkte persönliche Verantwortung bis zur bestätigten Übergabe.</p>
-            `
-          };
-        }
-        if (kind === "coverage"){
-          return {
-            title: "Einsatzgebiete",
-            body: `
-  <p>Deutschland und EU sind aktiv. Weltweit auf Anfrage.</p>
-  <div class="grid">
-    <div class="box">
-      <h3>Deutschland</h3>
-      <p class="small">Einsätze je nach Route und Zeitfenster.</p>
-    </div>
-    <div class="box">
-      <h3>Europa (EU/CH/UK/NO)</h3>
-      <p class="small">Persönliche Übergabe inkl. Reiseplanung.</p>
-    </div>
-    <div class="box" style="grid-column: span 12;">
-      <h3>Weltweit (auf Anfrage)</h3>
-      <p class="small">Interkontinental nach Vorprüfung.</p>
-    </div>
-  </div>
-  <p class="note small"><b>Verfügbarkeit:</b> kurzfristig möglich (24–48h), abhängig von Route und Abfluglage.</p>
-`
+  // Modal content (cleaned per your rules: no duplication)
+  function modalContent(kind) {
+    if (LANG === "de") {
+      if (kind === "service") return {
+        title: "Service",
+        body: `
+          <p>Persönlicher Hand-Carry-Kurier für zeitkritische und vertrauliche Übergaben.</p>
+          <div class="grid">
+            <div class="box" style="grid-column: span 12;">
+              <h3>Kern</h3>
+              <ul class="small">
+                <li>Direkte Übergabe — von Mensch zu Mensch</li>
+                <li>Klare Verantwortung bis zur bestätigten Übergabe</li>
+              </ul>
+            </div>
+            <div class="box" style="grid-column: span 12;">
+              <h3>Nicht angeboten</h3>
+              <ul class="small">
+                <li>Kein Paketversand</li>
+                <li>Keine Massenlogistik</li>
+              </ul>
+            </div>
+          </div>`
+      };
 
-              <p class="note small"><b>Verfügbarkeit:</b> Kurzfristig (24–48h) je nach Route und Abfluglage.</p>
-            `
-          };
-        }
-        if (kind === "pricing"){
-          return {
-            title: "Preise",
-            body: `
-              <p>Unsere Leistungen werden individuell kalkuliert – abhängig von Verantwortung, Zeitkritik und Reiseaufwand. Ein Mindesthonorar gilt.</p>
+      if (kind === "coverage") return {
+        title: "Einsatzgebiete",
+        body: `
+          <p>Deutschland und EU sind aktiv. Weltweit auf Anfrage.</p>
+          <div class="grid">
+            <div class="box">
+              <h3>Deutschland</h3>
+              <p class="small">Einsätze je nach Route und Zeitfenster.</p>
+            </div>
+            <div class="box">
+              <h3>Europa (EU/CH/UK/NO)</h3>
+              <p class="small">Persönliche Übergabe inkl. Reiseplanung.</p>
+            </div>
+            <div class="box" style="grid-column: span 12;">
+              <h3>Weltweit (auf Anfrage)</h3>
+              <p class="small">Interkontinental nach Vorprüfung.</p>
+            </div>
+          </div>
+          <p class="note small"><b>Verfügbarkeit:</b> kurzfristig möglich (24–48h), abhängig von Route und Abfluglage.</p>`
+      };
 
-              <div class="grid">
-                <div class="box">
-                  <h3>Preisprinzip</h3>
-                  <ul class="small">
-                    <li>Zeit + Verantwortung</li>
-                    <li>Short Notice Zuschläge möglich</li>
-                    <li>Keine Paketpreise / keine Standardlogistik</li>
-                  </ul>
-                </div>
-                <div class="box">
-                  <h3>Orientierung (Beispiel)</h3>
-                  <p class="small">Auf Wunsch zeigen wir ein Preisbeispiel als Orientierung — ohne starre Preisliste.</p>
-                  <button class="btn secondary" data-open="pricingExample" type="button">Pricing Example ansehen</button>
-                </div>
-              </div>
+      if (kind === "pricing") return {
+        title: "Preise",
+        body: `
+          <p>Individuelle Kalkulation nach Verantwortung, Zeitkritik und Reiseaufwand. Ein Mindesthonorar gilt.</p>
+          <div class="grid">
+            <div class="box">
+              <h3>Preisprinzip</h3>
+              <ul class="small">
+                <li>Zeit + Verantwortung</li>
+                <li>Short-Notice-Zuschläge möglich</li>
+                <li>Keine Paketpreise / keine Standardlogistik</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>Preisbeispiel</h3>
+              <p class="small">Zur Orientierung (keine Preisliste):</p>
+              <button class="btn secondary" data-open="pricingExample" type="button">Ansehen</button>
+            </div>
+          </div>
+          <p class="note small"><b>Spesen:</b> Flüge, Hotel, Transfers etc. trägt der Auftraggeber (sofern nicht anders vereinbart).</p>`
+      };
 
-              <p class="note small"><b>Hinweis:</b> Reise- und Spesenkosten (z. B. Flüge, Bahn, Hotel, lokale Transfers) trägt der Auftraggeber, sofern nicht anders vereinbart.</p>
-            `
-          };
-        }
-        if (kind === "pricingExample"){
-          return {
-            title: "Pricing Example (Orientierung)",
-            body: `
-              <p>Dieses Beispiel dient <b>nur zur Orientierung</b>. Der Endpreis hängt vom konkreten Auftrag ab (Zeitfenster, Route, Verantwortung, Übergabemodus).</p>
-              <div class="grid">
-                <div class="box">
-                  <h3>Deutschland</h3>
-                  <ul class="small">
-                    <li>ab ca. <b>450–750 €</b> pro Auftrag</li>
-                    <li>Tagespauschale: ca. <b>900–1.200 €</b></li>
-                  </ul>
-                </div>
-                <div class="box">
-                  <h3>Europa (EU/CH/UK)</h3>
-                  <ul class="small">
-                    <li>ab ca. <b>1.200–1.800 €</b></li>
-                    <li>Tageshonorar: ca. <b>900–1.200 €</b></li>
-                  </ul>
-                </div>
-                <div class="box" style="grid-column: span 12;">
-                  <h3>Weltweit (auf Anfrage)</h3>
-                  <ul class="small">
-                    <li>ab ca. <b>3.500 €</b></li>
-                    <li>Tageshonorare + Reisezeit nach Bedarf</li>
-                  </ul>
-                </div>
-              </div>
-              <p class="note small"><b>Spesen:</b> Flüge, Hotel, Transfers und sonstige Reisekosten werden dem Auftraggeber weiterberechnet (sofern nicht anders vereinbart).</p>
-              <p class="small">Dies ist kein Paketversand. Dies ist persönliche Verantwortung.</p>
-            `
-          };
-        }
-        if (kind === "contact"){
-          return {
-            title: "Kontakt",
-            body: `
-              <p>Bitte senden Sie eine kurze Anfrage mit Einsatzort, Zielort, gewünschtem Zeitfenster und Art der Sendung.</p>
-              <div class="grid">
-                <div class="box" style="grid-column: span 12;">
-                  <h3>E-Mail</h3>
-                  <p class="small"><a href="mailto:contact@brings.global">contact@brings.global</a></p>
-                  <p class="small">Hinweis: Keine Standardlogistik / kein Paketversand.</p>
-                </div>
-              </div>
-              <p class="note small">Klarnamen und Telefonnummern werden auf der Website bewusst nicht veröffentlicht. Identität & Details klären wir bilateral nach Erstkontakt.</p>
-            `
-          };
-        }
-      } else {
-        // EN
-        if (kind === "service"){
-          return {
-            title: "Service",
-            body: `
-  <p>Personal hand-carry courier for time-critical and confidential handovers.</p>
-  <div class="grid">
-    <div class="box" style="grid-column: span 12;">
-      <h3>Core</h3>
-      <ul class="small">
-        <li>Direct handover — person to person</li>
-        <li>Clear responsibility until confirmed handover</li>
-      </ul>
-    </div>
-    <div class="box" style="grid-column: span 12;">
-      <h3>Not offered</h3>
-      <ul class="small">
-        <li>No parcel shipping</li>
-        <li>No mass logistics</li>
-      </ul>
-    </div>
-  </div>
-`
+      if (kind === "pricingExample") return {
+        title: "Pricing Example (Orientierung)",
+        body: `
+          <p>Nur zur Orientierung. Endpreis hängt vom Auftrag ab.</p>
+          <div class="grid">
+            <div class="box">
+              <h3>Deutschland</h3>
+              <ul class="small">
+                <li>ab ca. <b>450–750 €</b> pro Auftrag</li>
+                <li>Tagespauschale: ca. <b>900–1.200 €</b></li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>Europa (EU/CH/UK)</h3>
+              <ul class="small">
+                <li>ab ca. <b>1.200–1.800 €</b></li>
+                <li>Tageshonorar: ca. <b>900–1.200 €</b></li>
+              </ul>
+            </div>
+            <div class="box" style="grid-column: span 12;">
+              <h3>Weltweit (auf Anfrage)</h3>
+              <ul class="small">
+                <li>ab ca. <b>3.500 €</b></li>
+                <li>Tageshonorare + Reisezeit nach Bedarf</li>
+              </ul>
+            </div>
+          </div>
+          <p class="note small"><b>Spesen:</b> Flüge/Hotel/Transfers werden weiterberechnet (sofern nicht anders vereinbart).</p>`
+      };
 
-              <p class="note small"><b>Principle:</b> Clear personal responsibility until confirmed handover.</p>
-            `
-          };
-        }
-        if (kind === "coverage"){
-          return {
-            title: "Coverage",
-            body: `
-  <p>Germany and EU are active. Worldwide on request.</p>
-  <div class="grid">
-    <div class="box">
-      <h3>Germany</h3>
-      <p class="small">Assignments depending on route and time window.</p>
-    </div>
-    <div class="box">
-      <h3>Europe (EU/CH/UK/NO)</h3>
-      <p class="small">Hand-delivery including travel planning.</p>
-    </div>
-    <div class="box" style="grid-column: span 12;">
-      <h3>Worldwide (on request)</h3>
-      <p class="small">Intercontinental assignments subject to pre-check.</p>
-    </div>
-  </div>
-  <p class="note small"><b>Availability:</b> short notice possible (24–48h), depending on route and flight situation.</p>
-`
+      if (kind === "contact") return {
+        title: "Kontakt",
+        body: `
+          <p>Bitte senden Sie eine kurze Anfrage mit Einsatzort, Zielort, Zeitfenster und Art der Sendung.</p>
+          <div class="grid">
+            <div class="box" style="grid-column: span 12;">
+              <h3>E-Mail</h3>
+              <p class="small"><a href="mailto:contact@brings.global">contact@brings.global</a></p>
+            </div>
+          </div>
+          <p class="note small">Klarnamen und Telefonnummern werden auf der Website bewusst nicht veröffentlicht.</p>`
+      };
+    } else {
+      if (kind === "service") return {
+        title: "Service",
+        body: `
+          <p>Personal hand-carry courier for time-critical and confidential handovers.</p>
+          <div class="grid">
+            <div class="box" style="grid-column: span 12;">
+              <h3>Core</h3>
+              <ul class="small">
+                <li>Direct handover — person to person</li>
+                <li>Clear responsibility until confirmed handover</li>
+              </ul>
+            </div>
+            <div class="box" style="grid-column: span 12;">
+              <h3>Not offered</h3>
+              <ul class="small">
+                <li>No parcel shipping</li>
+                <li>No mass logistics</li>
+              </ul>
+            </div>
+          </div>`
+      };
 
-              <p class="note small"><b>Availability:</b> Short notice (24–48h) depending on route and flight situation.</p>
-            `
-          };
-        }
-        if (kind === "pricing"){
-          return {
-            title: "Pricing",
-            body: `
-              <p>Pricing is individual and based on responsibility, time sensitivity and travel requirements. A minimum engagement applies.</p>
+      if (kind === "coverage") return {
+        title: "Coverage",
+        body: `
+          <p>Germany and EU are active. Worldwide on request.</p>
+          <div class="grid">
+            <div class="box">
+              <h3>Germany</h3>
+              <p class="small">Assignments depending on route and time window.</p>
+            </div>
+            <div class="box">
+              <h3>Europe (EU/CH/UK/NO)</h3>
+              <p class="small">Hand-delivery including travel planning.</p>
+            </div>
+            <div class="box" style="grid-column: span 12;">
+              <h3>Worldwide (on request)</h3>
+              <p class="small">Intercontinental assignments subject to pre-check.</p>
+            </div>
+          </div>
+          <p class="note small"><b>Availability:</b> short notice possible (24–48h), depending on route and flight situation.</p>`
+      };
 
-              <div class="grid">
-                <div class="box">
-                  <h3>Pricing principle</h3>
-                  <ul class="small">
-                    <li>Time + responsibility</li>
-                    <li>Short notice surcharges may apply</li>
-                    <li>No parcel rates / no standard logistics</li>
-                  </ul>
-                </div>
-                <div class="box">
-                  <h3>Orientation (example)</h3>
-                  <p class="small">For clarity, we provide a single indicative example — not a fixed price list.</p>
-                  <button class="btn secondary" data-open="pricingExample" type="button">View pricing example</button>
-                </div>
-              </div>
+      if (kind === "pricing") return {
+        title: "Pricing",
+        body: `
+          <p>Pricing is individual and based on responsibility, time sensitivity and travel requirements. A minimum engagement applies.</p>
+          <div class="grid">
+            <div class="box">
+              <h3>Pricing principle</h3>
+              <ul class="small">
+                <li>Time + responsibility</li>
+                <li>Short notice surcharges may apply</li>
+                <li>No parcel rates / no standard logistics</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>Pricing example</h3>
+              <p class="small">Indicative orientation (not a price list):</p>
+              <button class="btn secondary" data-open="pricingExample" type="button">View</button>
+            </div>
+          </div>
+          <p class="note small"><b>Expenses:</b> flights, hotels, transfers etc. are charged to the client unless agreed otherwise.</p>`
+      };
 
-              <p class="note small"><b>Travel expenses:</b> flights, hotels, local transfers and other travel costs are charged to the client unless agreed otherwise.</p>
-            `
-          };
-        }
-        if (kind === "pricingExample"){
-          return {
-            title: "Pricing Example (Indicative)",
-            body: `
-              <p>This example is provided <b>for orientation only</b>. Final pricing depends on assignment specifics (time window, route, responsibility, handover requirements).</p>
-              <div class="grid">
-                <div class="box">
-                  <h3>Germany</h3>
-                  <ul class="small">
-                    <li>from approx. <b>€450–€750</b> per assignment</li>
-                    <li>day rate: approx. <b>€900–€1,200</b></li>
-                  </ul>
-                </div>
-                <div class="box">
-                  <h3>Europe (EU/CH/UK)</h3>
-                  <ul class="small">
-                    <li>from approx. <b>€1,200–€1,800</b></li>
-                    <li>day rate: approx. <b>€900–€1,200</b></li>
-                  </ul>
-                </div>
-                <div class="box" style="grid-column: span 12;">
-                  <h3>Worldwide (on request)</h3>
-                  <ul class="small">
-                    <li>from approx. <b>€3,500</b></li>
-                    <li>day rates and travel time apply as required</li>
-                  </ul>
-                </div>
-              </div>
-              <p class="note small"><b>Expenses:</b> flights, hotel, transfers and other travel costs are charged to the client unless agreed otherwise.</p>
-              <p class="small">This is not parcel shipping. This is personal responsibility.</p>
-            `
-          };
-        }
-        if (kind === "contact"){
-          return {
-            title: "Contact",
-            body: `
-              <p>Please send a short request including origin, destination, desired time window and the nature of the delivery.</p>
-              <div class="grid">
-                <div class="box" style="grid-column: span 12;">
-                  <h3>Email</h3>
-                  <p class="small"><a href="mailto:contact@brings.global">contact@brings.global</a></p>
-                  <p class="small">Note: No standard logistics / no parcel shipping.</p>
-                </div>
-              </div>
-              <p class="note small">Names and phone numbers are intentionally not published on the website. Identity & details are confirmed bilaterally after first contact.</p>
-            `
-          };
-        }
-      }
+      if (kind === "pricingExample") return {
+        title: "Pricing Example (Indicative)",
+        body: `
+          <p>Orientation only. Final pricing depends on assignment specifics.</p>
+          <div class="grid">
+            <div class="box">
+              <h3>Germany</h3>
+              <ul class="small">
+                <li>from approx. <b>€450–€750</b> per assignment</li>
+                <li>day rate: approx. <b>€900–€1,200</b></li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>Europe (EU/CH/UK)</h3>
+              <ul class="small">
+                <li>from approx. <b>€1,200–€1,800</b></li>
+                <li>day rate: approx. <b>€900–€1,200</b></li>
+              </ul>
+            </div>
+            <div class="box" style="grid-column: span 12;">
+              <h3>Worldwide (on request)</h3>
+              <ul class="small">
+                <li>from approx. <b>€3,500</b></li>
+                <li>day rates and travel time apply as required</li>
+              </ul>
+            </div>
+          </div>
+          <p class="note small"><b>Expenses:</b> flights/hotel/transfers are charged unless agreed otherwise.</p>`
+      };
 
-      // fallback
-      return { title: "", body: "<p></p>" };
+      if (kind === "contact") return {
+        title: "Contact",
+        body: `
+          <p>Please email a short request including origin, destination, time window, and delivery type.</p>
+          <div class="grid">
+            <div class="box" style="grid-column: span 12;">
+              <h3>Email</h3>
+              <p class="small"><a href="mailto:contact@brings.global">contact@brings.global</a></p>
+            </div>
+          </div>
+          <p class="note small">Names and phone numbers are intentionally not published on the website.</p>`
+      };
     }
+    return { title: "", body: "<p></p>" };
+  }
 
-    // ----- Modal wiring
-    const backdrop = document.getElementById("backdrop");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalBody = document.getElementById("modalBody");
-    const closeBtn = document.getElementById("closeBtn");
+  function openModal(kind) {
+    if (!backdrop) return;
+    const c = modalContent(kind);
+    modalTitle.textContent = c.title;
+    modalBody.innerHTML = c.body;
 
-    function openModal(kind){
-      const c = modalContent(kind);
-      modalTitle.textContent = c.title;
-      modalBody.innerHTML = c.body;
-
-      // attach handlers for nested buttons inside modal (e.g., pricingExample)
-      modalBody.querySelectorAll("[data-open]").forEach(btn=>{
-        btn.addEventListener("click", (e)=>{
-          const next = e.currentTarget.getAttribute("data-open");
-          openModal(next);
-        });
-      });
-
-      backdrop.style.display = "block";
-      backdrop.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeModal(){
-      backdrop.style.display = "none";
-      backdrop.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-    }
-
-    document.querySelectorAll("[data-open]").forEach(btn=>{
-      btn.addEventListener("click", (e)=>{
-        const kind = e.currentTarget.getAttribute("data-open");
-        openModal(kind);
+    // Wire nested buttons inside modal (pricingExample)
+    modalBody.querySelectorAll("[data-open]").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        openModal(e.currentTarget.getAttribute("data-open"));
       });
     });
 
-    closeBtn.addEventListener("click", closeModal);
-    backdrop.addEventListener("click", (e)=>{
-      if (e.target === backdrop) closeModal();
-    });
-    document.addEventListener("keydown", (e)=>{
-      if (e.key === "Escape" && backdrop.style.display === "block") closeModal();
-    });
+    backdrop.style.display = "block";
+    backdrop.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
 
-    // ----- Default language
-    setLanguage("en");
-  </script>
+  function closeModal() {
+    if (!backdrop) return;
+    backdrop.style.display = "none";
+    backdrop.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  // Attach open handlers to nav buttons (and anywhere with data-open)
+  document.querySelectorAll("[data-open]").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      openModal(e.currentTarget.getAttribute("data-open"));
+    });
+  });
+
+  closeBtn.addEventListener("click", closeModal);
+  backdrop.addEventListener("click", (e) => { if (e.target === backdrop) closeModal(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && backdrop.style.display === "block") closeModal(); });
+
+  // Language toggles
+  const enBtn = document.getElementById("lang-en");
+  const deBtn = document.getElementById("lang-de");
+  if (enBtn) enBtn.addEventListener("click", () => setLanguage("en"));
+  if (deBtn) deBtn.addEventListener("click", () => setLanguage("de"));
+
+  // Init
+  setLanguage("en");
+</script>
+
 </body>
 </html>

@@ -1,164 +1,680 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="BRINGS – Personal Courier. Hand Delivered Worldwide. On Time. Discreet. Accountable." />
-  <title>BRINGS — Personal Courier</title>
+  <meta name="description" content="BRINGS — Worldwide Personal Courier. On Time. Discreet. Accountable." />
+  <title>BRINGS — Worldwide Personal Courier</title>
+
   <style>
     :root{
       --bg:#0b1220;
-      --card:#0f1a2e;
+      --panel:#0f1a2e;
+      --panel2:rgba(255,255,255,.02);
       --text:#e9eef7;
       --muted:#b8c4d9;
-      --line:rgba(255,255,255,.10);
-      --accent:#c9b37e; /* dezentes Gold */
+      --line:rgba(255,255,255,.12);
+      --accent:#c9b37e;      /* warm, subtle */
+      --accent2:#7aa0ff;     /* cool, subtle */
       --max:980px;
       --r:18px;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
     }
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      background: radial-gradient(1200px 600px at 20% 10%, rgba(201,179,126,.10), transparent 60%),
-                  radial-gradient(900px 500px at 80% 0%, rgba(120,160,255,.08), transparent 60%),
-                  var(--bg);
+      background:
+        radial-gradient(1200px 600px at 20% 10%, rgba(201,179,126,.10), transparent 60%),
+        radial-gradient(900px 500px at 80% 0%, rgba(122,160,255,.08), transparent 60%),
+        var(--bg);
       color:var(--text);
       line-height:1.55;
+      letter-spacing:.01em;
     }
     a{color:var(--text); text-decoration:none}
-    a:hover{opacity:.9; text-decoration:underline}
-    .wrap{max-width:var(--max); margin:0 auto; padding:42px 18px 60px}
-    .top{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:26px}
-    .brand{display:flex; flex-direction:column; gap:6px}
-    .logo{letter-spacing:.24em; font-weight:650; font-size:18px}
-    .tag{color:var(--muted); font-size:14px}
-    .nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
-    .pill{border:1px solid var(--line); padding:8px 12px; border-radius:999px; color:var(--muted); font-size:13px}
-    .pill:hover{color:var(--text); border-color:rgba(255,255,255,.22)}
+    a:hover{text-decoration:underline; opacity:.95}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 56px}
+
+    /* Top bar */
+    .top{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(11,18,32,.92), rgba(11,18,32,.70));
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .top-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      min-width:220px;
+    }
+    .logo{
+      font-weight:700;
+      letter-spacing:.26em;
+      font-size:16px;
+    }
+    .strap{
+      color:var(--muted);
+      font-size:12.5px;
+    }
+    .nav{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .pill{
+      border:1px solid rgba(255,255,255,.14);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--muted);
+      font-size:12.5px;
+      background: rgba(255,255,255,.01);
+      cursor:pointer;
+    }
+    .pill:hover{color:var(--text); border-color:rgba(255,255,255,.25)}
+    .lang{
+      display:flex; gap:8px; align-items:center;
+      border-left:1px solid rgba(255,255,255,.10);
+      padding-left:10px;
+      margin-left:2px;
+    }
+    .lang button{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.01);
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:12.5px;
+      cursor:pointer;
+    }
+    .lang button.active{
+      border-color: rgba(201,179,126,.55);
+      color: var(--text);
+      background: rgba(201,179,126,.10);
+    }
+
+    /* Hero */
     .hero{
-      border:1px solid var(--line);
+      margin-top:22px;
+      border:1px solid rgba(255,255,255,.10);
       background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
       border-radius:var(--r);
-      padding:28px 22px;
-      margin-bottom:18px;
+      padding:26px 22px;
     }
-    h1{margin:0 0 10px; font-size:34px; letter-spacing:.02em}
-    .sub{color:var(--muted); margin:0 0 14px; font-size:16px}
-    .claim{margin:0; font-size:15px}
-    .claim b{color:var(--accent); font-weight:650}
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:14px;
-      margin-top:14px;
-    }
-    .card{
-      grid-column: span 6;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.02);
-      border-radius:var(--r);
-      padding:18px 18px;
-    }
-    .card h2{margin:0 0 8px; font-size:16px; letter-spacing:.02em}
-    .card p{margin:0; color:var(--muted); font-size:14px}
-    .wide{grid-column: span 12}
-    .list{margin:10px 0 0; padding:0 0 0 18px; color:var(--muted); font-size:14px}
-    .footer{
-      margin-top:22px;
-      padding-top:16px;
-      border-top:1px solid var(--line);
+    .kicker{
       color:var(--muted);
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      font-size:13px;
+      font-size:13.5px;
+      margin:0 0 10px;
     }
-    .cta{
-      display:flex; gap:10px; flex-wrap:wrap; margin-top:14px
+    h1{
+      margin:0 0 10px;
+      font-size:34px;
+      letter-spacing:.02em;
+    }
+    .claim{
+      margin:0;
+      color:var(--muted);
+      font-size:14.5px;
+    }
+    .claim b{color:var(--accent); font-weight:650}
+    .cta-row{
+      margin-top:16px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
     }
     .btn{
       display:inline-block;
       border:1px solid rgba(201,179,126,.45);
       background: rgba(201,179,126,.08);
+      color:var(--text);
       padding:10px 14px;
       border-radius:999px;
-      font-size:13px;
-      color:var(--text);
+      font-size:12.8px;
+      cursor:pointer;
+    }
+    .btn.secondary{
+      border-color: rgba(255,255,255,.16);
+      background: rgba(255,255,255,.02);
+      color: var(--muted);
     }
     .btn:hover{border-color:rgba(201,179,126,.70)}
+    .btn.secondary:hover{border-color:rgba(255,255,255,.25); color:var(--text)}
+
+    /* Footer */
+    .footer{
+      margin-top:24px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.10);
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      font-size:12.8px;
+    }
+
+    /* Modal */
+    .modal-backdrop{
+      position:fixed; inset:0;
+      display:none;
+      background: rgba(0,0,0,.55);
+      z-index:50;
+      padding:18px;
+      overflow:auto;
+    }
+    .modal{
+      max-width:840px;
+      margin:60px auto;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:22px;
+      background: linear-gradient(180deg, rgba(15,26,46,.98), rgba(15,26,46,.92));
+      box-shadow: var(--shadow);
+      padding:18px 18px 16px;
+    }
+    .modal-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .modal h2{
+      margin:0;
+      font-size:16px;
+      letter-spacing:.02em;
+    }
+    .x{
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.02);
+      color: var(--muted);
+      border-radius:999px;
+      padding:8px 10px;
+      cursor:pointer;
+      font-size:12px;
+    }
+    .x:hover{border-color:rgba(255,255,255,.25); color:var(--text)}
+    .modal p, .modal li{
+      color:var(--muted);
+      margin:10px 0;
+      font-size:13.5px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+      margin-top:10px;
+    }
+    .box{
+      grid-column: span 6;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.02);
+      border-radius:18px;
+      padding:14px 14px;
+    }
+    .box h3{margin:0 0 6px; font-size:13.5px; color:var(--text)}
+    .small{font-size:12.8px}
+    .note{
+      border-left:3px solid rgba(201,179,126,.45);
+      padding-left:10px;
+      margin-top:10px;
+    }
+
     @media (max-width:780px){
-      .card{grid-column: span 12}
       h1{font-size:30px}
+      .brand{min-width:auto}
+      .box{grid-column: span 12}
+      .modal{margin:30px auto}
     }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="top">
+  <!-- TOP -->
+  <div class="top">
+    <div class="top-inner">
       <div class="brand">
         <div class="logo">BRINGS</div>
-        <div class="tag">Personal Courier — Hand Delivered Worldwide</div>
+        <div class="strap" data-i18n="strap">Worldwide Personal Courier</div>
       </div>
+
       <div class="nav">
-        <a class="pill" href="#service">Service</a>
-        <a class="pill" href="#coverage">Coverage</a>
-        <a class="pill" href="#pricing">Pricing</a>
-        <a class="pill" href="#contact">Contact</a>
-        <a class="pill" href="impressum.html">Impressum</a>
-        <a class="pill" href="datenschutz.html">Datenschutz</a>
+        <button class="pill" data-open="service" data-i18n="nav_service">Service</button>
+        <button class="pill" data-open="coverage" data-i18n="nav_coverage">Coverage</button>
+        <button class="pill" data-open="pricing" data-i18n="nav_pricing">Pricing</button>
+        <button class="pill" data-open="contact" data-i18n="nav_contact">Contact</button>
+
+        <div class="lang" aria-label="language">
+          <button id="lang-en" class="active" type="button">EN</button>
+          <button id="lang-de" type="button">DE</button>
+        </div>
       </div>
     </div>
+  </div>
 
+  <!-- PAGE -->
+  <div class="wrap">
     <section class="hero">
-      <h1>On Time. Discreet. Accountable.</h1>
-      <p class="sub">Short notice available (24–48h). Germany + EU active. Worldwide on request.</p>
-      <p class="claim">We deliver what cannot be replaced. <b>Anytime, anywhere.</b></p>
+      <p class="kicker" data-i18n="kicker">Short notice available (24–48h). Germany + EU active. Worldwide on request.</p>
+      <h1 data-i18n="hero_h1">On Time. Discreet. Accountable.</h1>
+      <p class="claim" data-i18n="hero_claim">
+        We deliver what cannot be replaced. <b>Anytime, anywhere.</b>
+      </p>
 
-      <div class="cta" id="contact">
-        <!-- Platzhalter: E-Mail + Tel später in Impressum/Datenschutz auch abbilden -->
-        <a class="btn" href="mailto:contact@brings.global">contact@brings.global</a>
-        <a class="btn" href="tel:+49XXXXXXXXXX">+49 XXXXXXXXXX</a>
+      <div class="cta-row">
+        <button class="btn" data-open="service" data-i18n="cta_service">View Service</button>
+        <button class="btn secondary" data-open="coverage" data-i18n="cta_coverage">View Coverage</button>
+        <button class="btn secondary" data-open="contact" data-i18n="cta_contact">Contact</button>
       </div>
     </section>
-
-    <div class="grid" id="service">
-      <div class="card">
-        <h2>What we do</h2>
-        <p>Personal hand-carry courier for time-critical and confidential deliveries. Direct handover — no chain of custody, no standard logistics.</p>
-      </div>
-      <div class="card">
-        <h2>Who it’s for</h2>
-        <p>Law firms, notaries, family offices, advisors — and private clients in sensitive situations where discretion matters.</p>
-      </div>
-
-      <div class="card wide" id="coverage">
-        <h2>Coverage</h2>
-        <p>Germany · EU/Europe · Americas · Asia · Australia/NZ — worldwide on request.</p>
-        <ul class="list">
-          <li>Germany + EU: active operations</li>
-          <li>Intercontinental: on request & pre-check</li>
-        </ul>
-      </div>
-
-      <div class="card wide" id="pricing">
-        <h2>Pricing principle</h2>
-        <p>Priced individually based on responsibility, time sensitivity and travel requirements. A minimum engagement applies.</p>
-        <ul class="list">
-          <li>This is not parcel shipping.</li>
-          <li>This is personal responsibility.</li>
-        </ul>
-      </div>
-    </div>
 
     <div class="footer">
       <div>© <span id="y"></span> BRINGS</div>
       <div>
-        <a href="impressum.html">Impressum</a> ·
-        <a href="datenschutz.html">Datenschutz</a>
+        <a href="impressum.html" data-i18n="footer_imprint">Imprint</a> ·
+        <a href="datenschutz.html" data-i18n="footer_privacy">Privacy</a>
       </div>
     </div>
   </div>
+
+  <!-- MODALS -->
+  <div class="modal-backdrop" id="backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h2 id="modalTitle"></h2>
+        <button class="x" id="closeBtn" type="button" data-i18n="close">Close</button>
+      </div>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
   <script>
+    // ----- Year
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // ----- i18n strings
+    const I18N = {
+      en: {
+        strap: "Worldwide Personal Courier",
+        nav_service: "Service",
+        nav_coverage: "Coverage",
+        nav_pricing: "Pricing",
+        nav_contact: "Contact",
+        kicker: "Short notice available (24–48h). Germany + EU active. Worldwide on request.",
+        hero_h1: "On Time. Discreet. Accountable.",
+        hero_claim: "We deliver what cannot be replaced. <b>Anytime, anywhere.</b>",
+        cta_service: "View Service",
+        cta_coverage: "View Coverage",
+        cta_contact: "Contact",
+        footer_imprint: "Imprint",
+        footer_privacy: "Privacy",
+        close: "Close"
+      },
+      de: {
+        strap: "Weltweiter persönlicher Kurier",
+        nav_service: "Service",
+        nav_coverage: "Einsatzgebiete",
+        nav_pricing: "Preise",
+        nav_contact: "Kontakt",
+        kicker: "Kurzfristig verfügbar (24–48h). Deutschland + EU aktiv. Weltweit auf Anfrage.",
+        hero_h1: "Pünktlich. Diskret. Verlässlich.",
+        hero_claim: "Wir übergeben, was nicht ersetzbar ist. <b>Jederzeit. Überall.</b>",
+        cta_service: "Service ansehen",
+        cta_coverage: "Einsatzgebiete ansehen",
+        cta_contact: "Kontakt",
+        footer_imprint: "Impressum",
+        footer_privacy: "Datenschutz",
+        close: "Schließen"
+      }
+    };
+
+    let LANG = "en";
+
+    function setLanguage(lang){
+      LANG = lang;
+      document.getElementById("lang-en").classList.toggle("active", lang === "en");
+      document.getElementById("lang-de").classList.toggle("active", lang === "de");
+
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        if (I18N[lang][key] !== undefined){
+          el.innerHTML = I18N[lang][key];
+        }
+      });
+    }
+
+    document.getElementById("lang-en").addEventListener("click", ()=>setLanguage("en"));
+    document.getElementById("lang-de").addEventListener("click", ()=>setLanguage("de"));
+
+    // ----- Modal content (EN/DE)
+    function modalContent(kind){
+      if (LANG === "de"){
+        if (kind === "service"){
+          return {
+            title: "Service",
+            body: `
+              <p>BRINGS ist ein persönlicher Kurierdienst für zeitkritische und vertrauliche Übergaben. Wir arbeiten nicht als Paketdienst und nicht als Systemlogistik.</p>
+              <div class="grid">
+                <div class="box">
+                  <h3>Was wir tun</h3>
+                  <ul class="small">
+                    <li>Persönliche Übergabe von Hand zu Hand</li>
+                    <li>Hand-Carry für Dokumente und ausgewählte Gegenstände</li>
+                    <li>Diskrete Übergaben ohne Übergabeketten</li>
+                  </ul>
+                </div>
+                <div class="box">
+                  <h3>Für wen</h3>
+                  <ul class="small">
+                    <li>Kanzleien & Notariate</li>
+                    <li>Family Offices & Vermögensverwalter</li>
+                    <li>Beratung & internationale Privatpersonen in sensiblen Situationen</li>
+                  </ul>
+                </div>
+                <div class="box" style="grid-column: span 12;">
+                  <h3>Was wir nicht sind</h3>
+                  <p class="small">Kein Paketversand. Keine Massenlogistik. Keine Übergabe über Dritte ohne klare Verantwortung.</p>
+                </div>
+              </div>
+              <p class="note small"><b>Prinzip:</b> Direkte persönliche Verantwortung bis zur bestätigten Übergabe.</p>
+            `
+          };
+        }
+        if (kind === "coverage"){
+          return {
+            title: "Einsatzgebiete",
+            body: `
+              <p>Deutschland und EU sind aktiv. Interkontinentale Einsätze erfolgen auf Anfrage und nach Vorprüfung.</p>
+              <div class="grid">
+                <div class="box">
+                  <h3>Deutschland</h3>
+                  <p class="small">Kurzfristige Übergaben, Same/Next Day je nach Einsatz.</p>
+                </div>
+                <div class="box">
+                  <h3>Europa (EU/CH/UK/NO)</h3>
+                  <p class="small">Persönliche Übergaben inkl. Reiseplanung.</p>
+                </div>
+                <div class="box" style="grid-column: span 12;">
+                  <h3>Weltweit auf Anfrage</h3>
+                  <p class="small">Interkontinental: nur bei klarer Notwendigkeit, mit definiertem Einsatz- und Haftungsrahmen.</p>
+                </div>
+              </div>
+              <p class="note small"><b>Verfügbarkeit:</b> Kurzfristig (24–48h) je nach Route und Abfluglage.</p>
+            `
+          };
+        }
+        if (kind === "pricing"){
+          return {
+            title: "Preise",
+            body: `
+              <p>Unsere Leistungen werden individuell kalkuliert – abhängig von Verantwortung, Zeitkritik und Reiseaufwand. Ein Mindesthonorar gilt.</p>
+
+              <div class="grid">
+                <div class="box">
+                  <h3>Preisprinzip</h3>
+                  <ul class="small">
+                    <li>Zeit + Verantwortung</li>
+                    <li>Short Notice Zuschläge möglich</li>
+                    <li>Keine Paketpreise / keine Standardlogistik</li>
+                  </ul>
+                </div>
+                <div class="box">
+                  <h3>Orientierung (Beispiel)</h3>
+                  <p class="small">Auf Wunsch zeigen wir ein Preisbeispiel als Orientierung — ohne starre Preisliste.</p>
+                  <button class="btn secondary" data-open="pricingExample" type="button">Pricing Example ansehen</button>
+                </div>
+              </div>
+
+              <p class="note small"><b>Hinweis:</b> Reise- und Spesenkosten (z. B. Flüge, Bahn, Hotel, lokale Transfers) trägt der Auftraggeber, sofern nicht anders vereinbart.</p>
+            `
+          };
+        }
+        if (kind === "pricingExample"){
+          return {
+            title: "Pricing Example (Orientierung)",
+            body: `
+              <p>Dieses Beispiel dient <b>nur zur Orientierung</b>. Der Endpreis hängt vom konkreten Auftrag ab (Zeitfenster, Route, Verantwortung, Übergabemodus).</p>
+              <div class="grid">
+                <div class="box">
+                  <h3>Deutschland</h3>
+                  <ul class="small">
+                    <li>ab ca. <b>450–750 €</b> pro Auftrag</li>
+                    <li>Tagespauschale: ca. <b>900–1.200 €</b></li>
+                  </ul>
+                </div>
+                <div class="box">
+                  <h3>Europa (EU/CH/UK)</h3>
+                  <ul class="small">
+                    <li>ab ca. <b>1.200–1.800 €</b></li>
+                    <li>Tageshonorar: ca. <b>900–1.200 €</b></li>
+                  </ul>
+                </div>
+                <div class="box" style="grid-column: span 12;">
+                  <h3>Weltweit (auf Anfrage)</h3>
+                  <ul class="small">
+                    <li>ab ca. <b>3.500 €</b></li>
+                    <li>Tageshonorare + Reisezeit nach Bedarf</li>
+                  </ul>
+                </div>
+              </div>
+              <p class="note small"><b>Spesen:</b> Flüge, Hotel, Transfers und sonstige Reisekosten werden dem Auftraggeber weiterberechnet (sofern nicht anders vereinbart).</p>
+              <p class="small">Dies ist kein Paketversand. Dies ist persönliche Verantwortung.</p>
+            `
+          };
+        }
+        if (kind === "contact"){
+          return {
+            title: "Kontakt",
+            body: `
+              <p>Bitte senden Sie eine kurze Anfrage mit Einsatzort, Zielort, gewünschtem Zeitfenster und Art der Sendung.</p>
+              <div class="grid">
+                <div class="box" style="grid-column: span 12;">
+                  <h3>E-Mail</h3>
+                  <p class="small"><a href="mailto:contact@brings.global">contact@brings.global</a></p>
+                  <p class="small">Hinweis: Keine Standardlogistik / kein Paketversand.</p>
+                </div>
+              </div>
+              <p class="note small">Klarnamen und Telefonnummern werden auf der Website bewusst nicht veröffentlicht. Identität & Details klären wir bilateral nach Erstkontakt.</p>
+            `
+          };
+        }
+      } else {
+        // EN
+        if (kind === "service"){
+          return {
+            title: "Service",
+            body: `
+              <p>BRINGS is a personal courier for time-critical and confidential handovers. We are not parcel shipping and not a logistics platform.</p>
+              <div class="grid">
+                <div class="box">
+                  <h3>What we do</h3>
+                  <ul class="small">
+                    <li>Direct handover — person to person</li>
+                    <li>Hand-carry for documents and selected items</li>
+                    <li>Discreet delivery without chain-of-custody handoffs</li>
+                  </ul>
+                </div>
+                <div class="box">
+                  <h3>Who it’s for</h3>
+                  <ul class="small">
+                    <li>Law firms & notaries</li>
+                    <li>Family offices & advisors</li>
+                    <li>Private clients in sensitive situations</li>
+                  </ul>
+                </div>
+                <div class="box" style="grid-column: span 12;">
+                  <h3>What we are not</h3>
+                  <p class="small">Not parcel shipping. Not mass logistics. Not multi-party handoff chains without clear accountability.</p>
+                </div>
+              </div>
+              <p class="note small"><b>Principle:</b> Clear personal responsibility until confirmed handover.</p>
+            `
+          };
+        }
+        if (kind === "coverage"){
+          return {
+            title: "Coverage",
+            body: `
+              <p>Germany and EU are active. Intercontinental assignments are available on request and subject to pre-check.</p>
+              <div class="grid">
+                <div class="box">
+                  <h3>Germany</h3>
+                  <p class="small">Short notice assignments; same/next day depending on route.</p>
+                </div>
+                <div class="box">
+                  <h3>Europe (EU/CH/UK/NO)</h3>
+                  <p class="small">Hand-delivered assignments including travel planning.</p>
+                </div>
+                <div class="box" style="grid-column: span 12;">
+                  <h3>Worldwide on request</h3>
+                  <p class="small">Intercontinental: only when necessary, with a defined operating and liability framework.</p>
+                </div>
+              </div>
+              <p class="note small"><b>Availability:</b> Short notice (24–48h) depending on route and flight situation.</p>
+            `
+          };
+        }
+        if (kind === "pricing"){
+          return {
+            title: "Pricing",
+            body: `
+              <p>Pricing is individual and based on responsibility, time sensitivity and travel requirements. A minimum engagement applies.</p>
+
+              <div class="grid">
+                <div class="box">
+                  <h3>Pricing principle</h3>
+                  <ul class="small">
+                    <li>Time + responsibility</li>
+                    <li>Short notice surcharges may apply</li>
+                    <li>No parcel rates / no standard logistics</li>
+                  </ul>
+                </div>
+                <div class="box">
+                  <h3>Orientation (example)</h3>
+                  <p class="small">For clarity, we provide a single indicative example — not a fixed price list.</p>
+                  <button class="btn secondary" data-open="pricingExample" type="button">View pricing example</button>
+                </div>
+              </div>
+
+              <p class="note small"><b>Travel expenses:</b> flights, hotels, local transfers and other travel costs are charged to the client unless agreed otherwise.</p>
+            `
+          };
+        }
+        if (kind === "pricingExample"){
+          return {
+            title: "Pricing Example (Indicative)",
+            body: `
+              <p>This example is provided <b>for orientation only</b>. Final pricing depends on assignment specifics (time window, route, responsibility, handover requirements).</p>
+              <div class="grid">
+                <div class="box">
+                  <h3>Germany</h3>
+                  <ul class="small">
+                    <li>from approx. <b>€450–€750</b> per assignment</li>
+                    <li>day rate: approx. <b>€900–€1,200</b></li>
+                  </ul>
+                </div>
+                <div class="box">
+                  <h3>Europe (EU/CH/UK)</h3>
+                  <ul class="small">
+                    <li>from approx. <b>€1,200–€1,800</b></li>
+                    <li>day rate: approx. <b>€900–€1,200</b></li>
+                  </ul>
+                </div>
+                <div class="box" style="grid-column: span 12;">
+                  <h3>Worldwide (on request)</h3>
+                  <ul class="small">
+                    <li>from approx. <b>€3,500</b></li>
+                    <li>day rates and travel time apply as required</li>
+                  </ul>
+                </div>
+              </div>
+              <p class="note small"><b>Expenses:</b> flights, hotel, transfers and other travel costs are charged to the client unless agreed otherwise.</p>
+              <p class="small">This is not parcel shipping. This is personal responsibility.</p>
+            `
+          };
+        }
+        if (kind === "contact"){
+          return {
+            title: "Contact",
+            body: `
+              <p>Please send a short request including origin, destination, desired time window and the nature of the delivery.</p>
+              <div class="grid">
+                <div class="box" style="grid-column: span 12;">
+                  <h3>Email</h3>
+                  <p class="small"><a href="mailto:contact@brings.global">contact@brings.global</a></p>
+                  <p class="small">Note: No standard logistics / no parcel shipping.</p>
+                </div>
+              </div>
+              <p class="note small">Names and phone numbers are intentionally not published on the website. Identity & details are confirmed bilaterally after first contact.</p>
+            `
+          };
+        }
+      }
+
+      // fallback
+      return { title: "", body: "<p></p>" };
+    }
+
+    // ----- Modal wiring
+    const backdrop = document.getElementById("backdrop");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalBody = document.getElementById("modalBody");
+    const closeBtn = document.getElementById("closeBtn");
+
+    function openModal(kind){
+      const c = modalContent(kind);
+      modalTitle.textContent = c.title;
+      modalBody.innerHTML = c.body;
+
+      // attach handlers for nested buttons inside modal (e.g., pricingExample)
+      modalBody.querySelectorAll("[data-open]").forEach(btn=>{
+        btn.addEventListener("click", (e)=>{
+          const next = e.currentTarget.getAttribute("data-open");
+          openModal(next);
+        });
+      });
+
+      backdrop.style.display = "block";
+      backdrop.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal(){
+      backdrop.style.display = "none";
+      backdrop.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll("[data-open]").forEach(btn=>{
+      btn.addEventListener("click", (e)=>{
+        const kind = e.currentTarget.getAttribute("data-open");
+        openModal(kind);
+      });
+    });
+
+    closeBtn.addEventListener("click", closeModal);
+    backdrop.addEventListener("click", (e)=>{
+      if (e.target === backdrop) closeModal();
+    });
+    document.addEventListener("keydown", (e)=>{
+      if (e.key === "Escape" && backdrop.style.display === "block") closeModal();
+    });
+
+    // ----- Default language
+    setLanguage("en");
   </script>
 </body>
 </html>

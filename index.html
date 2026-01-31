@@ -323,6 +323,109 @@ function applyLanguage(lang){
   document.getElementById("lang-de").classList.toggle("active", lang === "de");
 }
 
+let LANG = "en";
+
+const TEXT = {
+  en: {
+    subline: "Worldwide Personal Courier",
+    headline: "On Time. Discreet. Accountable.",
+    claim: "We deliver what cannot be replaced. <b>Anytime, anywhere.</b>",
+    imprint: "Imprint",
+    privacy: "Privacy",
+    close: "Close",
+    modals: {
+      serviceTitle: "Service",
+      serviceBody: `
+        <p>Personal hand-carry courier for time-critical and confidential handovers.</p>
+        <p><b>Not offered:</b> No parcel shipping. No mass logistics.</p>
+        <p class="note"><b>Principle:</b> Direct handover — person to person. Clear responsibility until confirmed handover.</p>
+      `,
+      coverageTitle: "Coverage",
+      coverageBody: `
+        <p>Germany and EU are active. Worldwide on request.</p>
+        <p class="note"><b>Availability:</b> short notice possible (24–48h), depending on route and flight situation.</p>
+      `,
+      pricingTitle: "Pricing",
+      pricingBody: `
+        <p>Pricing is individual and based on responsibility, time sensitivity and travel requirements. A minimum engagement applies.</p>
+        <p><button type="button" id="openPricingExample">View pricing example</button></p>
+        <p class="note"><b>Expenses:</b> flights, hotels, transfers and other travel costs are charged to the client unless agreed otherwise.</p>
+      `,
+      pricingExampleTitle: "Pricing Example (Indicative)",
+      pricingExampleBody: `
+        <p>Orientation only. Final pricing depends on assignment specifics.</p>
+        <ul>
+          <li><b>Germany:</b> from approx. €450–€750 per assignment / day rate approx. €900–€1,200</li>
+          <li><b>Europe (EU/CH/UK):</b> from approx. €1,200–€1,800 / day rate approx. €900–€1,200</li>
+          <li><b>Worldwide (on request):</b> from approx. €3,500 (day rates and travel time apply)</li>
+        </ul>
+        <p class="note"><b>Expenses:</b> flights/hotel/transfers are charged unless agreed otherwise.</p>
+        <p>This is not parcel shipping. This is personal responsibility.</p>
+      `,
+      contactTitle: "Contact",
+      contactBody: `
+        <p>Please email a short request including origin, destination, time window, and delivery type.</p>
+        <p><b>Email:</b> <a href="mailto:contact@brings.global">contact@brings.global</a></p>
+        <p class="note">Names and phone numbers are intentionally not published on the website. Identity & details are confirmed bilaterally after first contact.</p>
+      `
+    }
+  },
+  de: {
+    subline: "Weltweiter persönlicher Kurier",
+    headline: "Pünktlich. Diskret. Verlässlich.",
+    claim: "Wir übergeben, was nicht ersetzbar ist. <b>Jederzeit. Überall.</b>",
+    imprint: "Impressum",
+    privacy: "Datenschutz",
+    close: "Schließen",
+    modals: {
+      serviceTitle: "Service",
+      serviceBody: `
+        <p>Persönlicher Hand-Carry-Kurier für zeitkritische und vertrauliche Übergaben.</p>
+        <p><b>Nicht angeboten:</b> Kein Paketversand. Keine Massenlogistik.</p>
+        <p class="note"><b>Prinzip:</b> Direkte Übergabe — von Mensch zu Mensch. Klare Verantwortung bis zur bestätigten Übergabe.</p>
+      `,
+      coverageTitle: "Einsatzgebiete",
+      coverageBody: `
+        <p>Deutschland und EU sind aktiv. Weltweit auf Anfrage.</p>
+        <p class="note"><b>Verfügbarkeit:</b> kurzfristig möglich (24–48h), abhängig von Route und Abfluglage.</p>
+      `,
+      pricingTitle: "Preise",
+      pricingBody: `
+        <p>Individuelle Kalkulation nach Verantwortung, Zeitkritik und Reiseaufwand. Ein Mindesthonorar gilt.</p>
+        <p><button type="button" id="openPricingExample">Preisbeispiel ansehen</button></p>
+        <p class="note"><b>Spesen:</b> Flüge, Hotel, Transfers und sonstige Reisekosten trägt der Auftraggeber (sofern nicht anders vereinbart).</p>
+      `,
+      pricingExampleTitle: "Pricing Example (Orientierung)",
+      pricingExampleBody: `
+        <p>Nur zur Orientierung. Endpreis hängt vom Auftrag ab.</p>
+        <ul>
+          <li><b>Deutschland:</b> ab ca. 450–750 € pro Auftrag / Tagespauschale ca. 900–1.200 €</li>
+          <li><b>Europa (EU/CH/UK):</b> ab ca. 1.200–1.800 € / Tageshonorar ca. 900–1.200 €</li>
+          <li><b>Weltweit (auf Anfrage):</b> ab ca. 3.500 € (Tageshonorare + Reisezeit nach Bedarf)</li>
+        </ul>
+        <p class="note"><b>Spesen:</b> Flüge/Hotel/Transfers werden weiterberechnet (sofern nicht anders vereinbart).</p>
+        <p>Dies ist kein Paketversand. Dies ist persönliche Verantwortung.</p>
+      `,
+      contactTitle: "Kontakt",
+      contactBody: `
+        <p>Bitte senden Sie eine kurze Anfrage mit Einsatzort, Zielort, Zeitfenster und Art der Sendung.</p>
+        <p><b>E-Mail:</b> <a href="mailto:contact@brings.global">contact@brings.global</a></p>
+        <p class="note">Klarnamen und Telefonnummern werden auf der Website bewusst nicht veröffentlicht. Identität & Details klären wir bilateral nach Erstkontakt.</p>
+      `
+    }
+  }
+};
+
+function applyLanguage(lang){
+  LANG = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    el.innerHTML = TEXT[lang][key];
+  });
+  document.getElementById("lang-en").classList.toggle("active", lang === "en");
+  document.getElementById("lang-de").classList.toggle("active", lang === "de");
+}
+
 function openModal(type){
   const M = TEXT[LANG].modals;
 
@@ -342,6 +445,14 @@ function openModal(type){
     titleEl.textContent = M.contactTitle;
     bodyEl.innerHTML = M.contactBody;
   }
+
+  // Wire pricing example button inside pricing modal
+  const pe = document.getElementById("openPricingExample");
+  if (pe) pe.onclick = () => openModal("pricingExample");
+
+  backdrop.style.display="flex";
+}
+
 
   // Wire pricing example button inside pricing modal
   const pe = document.getElementById("openPricingExample");

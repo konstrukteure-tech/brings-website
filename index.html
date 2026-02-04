@@ -20,8 +20,8 @@ html,body{height:100%;margin:0}
 
 body{
   font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  background:var(--bg);
+  color:var(--text);
 }
 
 /* NAV */
@@ -43,8 +43,10 @@ body{
   justify-content:space-between;
   align-items:center;
 }
-.menu{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
-.menu button, .lang button{
+.menu{
+  display:flex; gap:8px; align-items:center; flex-wrap:wrap
+}
+.menu button,.lang button{
   background:none;
   border:1px solid var(--line);
   color:var(--muted);
@@ -68,7 +70,11 @@ body{
   align-items:center;
   justify-content:center;
 }
-.center{transform:translateY(-24px); max-width:820px; width:100%}
+.center{
+  transform:translateY(-24px);
+  max-width:820px;
+  width:100%;
+}
 
 /* HERO */
 .hero{
@@ -93,173 +99,4 @@ footer{
   position:fixed; bottom:14px; width:100%;
   text-align:center; font-size:12px; color:var(--muted);
 }
-footer a{color:var(--muted)}
-
-/* MODAL */
-.backdrop{
-  position:fixed; inset:0;
-  background:rgba(0,0,0,.6);
-  display:none;
-  z-index:20;
-  padding:20px;
-}
-.modal{
-  background:var(--panel);
-  max-width:840px;
-  margin:60px auto;
-  padding:20px;
-  border-radius:22px;
-  border:1px solid var(--line);
-}
-.modal h2{margin-top:0}
-.close{
-  float:right;
-  border:1px solid var(--line);
-  padding:6px 10px;
-  border-radius:999px;
-  cursor:pointer;
-  color:var(--muted);
-}
-.box{
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:12px;
-  margin:10px 0;
-}
-.note{
-  border-left:3px solid var(--accent);
-  padding-left:10px;
-  margin-top:10px;
-  color:var(--muted);
-}
-</style>
-</head>
-
-<body>
-
-<!-- NAV -->
-<div class="top">
-  <div class="nav">
-    <div class="brand">BRINGS</div>
-    <div class="menu">
-      <button data-open="service">Service</button>
-      <button data-open="coverage">Coverage</button>
-      <button data-open="pricing">Pricing</button>
-      <button data-open="contact">Contact</button>
-      <div class="lang">
-        <button id="en" class="active">EN</button>
-        <button id="de">DE</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- HERO -->
-<div class="wrap">
-  <div class="center">
-    <div class="hero">
-      <div class="hero-brand">BRINGS</div>
-      <div class="hero-sub" id="subline">Worldwide Personal Courier</div>
-      <h1 id="headline">On Time. Discreet. Accountable.</h1>
-      <p id="claim">We deliver what cannot be replaced. <b>Anytime, anywhere.</b></p>
-    </div>
-  </div>
-</div>
-
-<footer>
-  <a href="impressum.html" id="imprint">Imprint</a> ·
-  <a href="datenschutz.html" id="privacy">Privacy</a>
-</footer>
-
-<!-- MODAL -->
-<div class="backdrop" id="backdrop">
-  <div class="modal">
-    <span class="close" id="close">Close</span>
-    <h2 id="modalTitle"></h2>
-    <div id="modalBody"></div>
-  </div>
-</div>
-
-<script>
-let LANG="en";
-
-const TEXT={
-en:{
-subline:"Worldwide Personal Courier",
-headline:"On Time. Discreet. Accountable.",
-claim:"We deliver what cannot be replaced. <b>Anytime, anywhere.</b>",
-imprint:"Imprint",privacy:"Privacy",close:"Close",
-service:{t:"Service",b:`<p>Personal hand-carry courier.</p>
-<div class="box"><b>Not offered:</b> No parcel shipping. No mass logistics.</div>`},
-coverage:{t:"Coverage",b:`<p>Germany & EU active. Worldwide on request.</p>
-<div class="note">Availability: 24–48h short notice.</div>`},
-pricing:{t:"Pricing",b:`<p>Individual pricing based on responsibility and travel.</p>
-<div class="box"><button data-open="pricingExample">View pricing example</button></div>
-<div class="note">Expenses (flights, hotel, transfers) charged to client.</div>`},
-pricingExample:{t:"Pricing Example",b:`<ul>
-<li>Germany: from €450–750</li>
-<li>Europe: from €1,200–1,800</li>
-<li>Worldwide: from €3,500</li>
-</ul>`},
-contact:{t:"Contact",b:`<p>Email: <a href="mailto:contact@brings.global">contact@brings.global</a></p>
-<p>Phone: +49 173 884 7374</p>
-<div class="note">Names and phone numbers are intentionally limited. Details confirmed after first contact.</div>`}
-},
-de:{
-subline:"Weltweiter persönlicher Kurier",
-headline:"Pünktlich. Diskret. Verlässlich.",
-claim:"Wir übergeben, was nicht ersetzbar ist. <b>Jederzeit. Überall.</b>",
-imprint:"Impressum",privacy:"Datenschutz",close:"Schließen",
-service:{t:"Service",b:`<p>Persönlicher Hand-Carry-Kurier.</p>
-<div class="box"><b>Nicht angeboten:</b> Kein Paketversand. Keine Massenlogistik.</div>`},
-coverage:{t:"Einsatzgebiete",b:`<p>Deutschland & EU aktiv. Weltweit auf Anfrage.</p>
-<div class="note">Verfügbarkeit: kurzfristig (24–48h).</div>`},
-pricing:{t:"Preise",b:`<p>Individuelle Kalkulation nach Verantwortung & Reise.</p>
-<div class="box"><button data-open="pricingExample">Preisbeispiel ansehen</button></div>
-<div class="note">Spesen trägt der Auftraggeber.</div>`},
-pricingExample:{t:"Preisbeispiel",b:`<ul>
-<li>Deutschland: ab 450–750 €</li>
-<li>Europa: ab 1.200–1.800 €</li>
-<li>Weltweit: ab 3.500 €</li>
-</ul>`},
-contact:{t:"Kontakt",b:`<p>E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a></p>
-<p>Telefon: +49 173 884 7374</p>
-<div class="note">Telefon nur für dringende Fälle oder bei eingeschränktem E-Mail-Zugriff.</div>`}
-}
-};
-
-function applyLang(l){
-LANG=l;
-document.getElementById("en").classList.toggle("active",l==="en");
-document.getElementById("de").classList.toggle("active",l==="de");
-["subline","headline","claim","imprint","privacy","close"].forEach(id=>{
-document.getElementById(id).innerHTML=TEXT[l][id];
-});
-}
-
-const backdrop=document.getElementById("backdrop");
-const titleEl=document.getElementById("modalTitle");
-const bodyEl=document.getElementById("modalBody");
-
-function openModal(key){
-titleEl.innerHTML=TEXT[LANG][key].t;
-bodyEl.innerHTML=TEXT[LANG][key].b;
-backdrop.style.display="block";
-}
-
-function closeModal(){backdrop.style.display="none";}
-
-document.addEventListener("click",e=>{
-const o=e.target.closest("[data-open]");
-if(o){openModal(o.dataset.open);}
-if(e.target.id==="close") closeModal();
-});
-
-document.getElementById("en").onclick=()=>applyLang("en");
-document.getElementById("de").onclick=()=>applyLang("de");
-
-applyLang("en");
-</script>
-
-</body>
-</html>
+footer a

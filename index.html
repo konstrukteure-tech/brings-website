@@ -198,4 +198,68 @@ pricing:{t:"Pricing",b:`<p>Individual pricing based on responsibility and travel
 <div class="note">Expenses (flights, hotel, transfers) charged to client.</div>`},
 pricingExample:{t:"Pricing Example",b:`<ul>
 <li>Germany: from €450–750</li>
-<li
+<li>Europe: from €1,200–1,800</li>
+<li>Worldwide: from €3,500</li>
+</ul>`},
+contact:{t:"Contact",b:`<p>Email: <a href="mailto:contact@brings.global">contact@brings.global</a></p>
+<p>Phone: +49 173 884 7374</p>
+<div class="note">Names and phone numbers are intentionally limited. Details confirmed after first contact.</div>`}
+},
+de:{
+subline:"Weltweiter persönlicher Kurier",
+headline:"Pünktlich. Diskret. Verlässlich.",
+claim:"Wir übergeben, was nicht ersetzbar ist. <b>Jederzeit. Überall.</b>",
+imprint:"Impressum",privacy:"Datenschutz",close:"Schließen",
+service:{t:"Service",b:`<p>Persönlicher Hand-Carry-Kurier.</p>
+<div class="box"><b>Nicht angeboten:</b> Kein Paketversand. Keine Massenlogistik.</div>`},
+coverage:{t:"Einsatzgebiete",b:`<p>Deutschland & EU aktiv. Weltweit auf Anfrage.</p>
+<div class="note">Verfügbarkeit: kurzfristig (24–48h).</div>`},
+pricing:{t:"Preise",b:`<p>Individuelle Kalkulation nach Verantwortung & Reise.</p>
+<div class="box"><button data-open="pricingExample">Preisbeispiel ansehen</button></div>
+<div class="note">Spesen trägt der Auftraggeber.</div>`},
+pricingExample:{t:"Preisbeispiel",b:`<ul>
+<li>Deutschland: ab 450–750 €</li>
+<li>Europa: ab 1.200–1.800 €</li>
+<li>Weltweit: ab 3.500 €</li>
+</ul>`},
+contact:{t:"Kontakt",b:`<p>E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a></p>
+<p>Telefon: +49 173 884 7374</p>
+<div class="note">Telefon nur für dringende Fälle oder bei eingeschränktem E-Mail-Zugriff.</div>`}
+}
+};
+
+function applyLang(l){
+LANG=l;
+document.getElementById("en").classList.toggle("active",l==="en");
+document.getElementById("de").classList.toggle("active",l==="de");
+["subline","headline","claim","imprint","privacy","close"].forEach(id=>{
+document.getElementById(id).innerHTML=TEXT[l][id];
+});
+}
+
+const backdrop=document.getElementById("backdrop");
+const titleEl=document.getElementById("modalTitle");
+const bodyEl=document.getElementById("modalBody");
+
+function openModal(key){
+titleEl.innerHTML=TEXT[LANG][key].t;
+bodyEl.innerHTML=TEXT[LANG][key].b;
+backdrop.style.display="block";
+}
+
+function closeModal(){backdrop.style.display="none";}
+
+document.addEventListener("click",e=>{
+const o=e.target.closest("[data-open]");
+if(o){openModal(o.dataset.open);}
+if(e.target.id==="close") closeModal();
+});
+
+document.getElementById("en").onclick=()=>applyLang("en");
+document.getElementById("de").onclick=()=>applyLang("de");
+
+applyLang("en");
+</script>
+
+</body>
+</html>

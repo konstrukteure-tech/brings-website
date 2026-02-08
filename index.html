@@ -596,6 +596,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
   applyLang("en");
 });
+  // === Fallback: direct handlers for Safari / GH Pages ===
+document.querySelectorAll('[data-open]').forEach(el => {
+  el.addEventListener('click', (e) => {
+    e.preventDefault();
+    const key = el.getAttribute('data-open');
+    openModal(key);
+  });
+});
+
 </script>
 
 </body>

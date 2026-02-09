@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>BRINGS — Worldwide Personal Courier</title>
 
 <style>
@@ -14,218 +14,44 @@
   --line:rgba(255,255,255,.12);
   --accent:#c9b37e;
 }
+
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
+
 body{
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
 
-/* NAV */
+/* kill default link blue */
+a{color:var(--text); text-decoration:underline}
+a:hover{color:var(--accent)}
+footer a{color:var(--muted); text-decoration:none}
+footer a:hover{color:var(--text); text-decoration:underline}
+
+/* TOP NAV */
 .top{
-  position:fixed; top:0; left:0; right:0;
+  position:fixed;
+  top:0; left:0; right:0;
   height:70px;
-  display:flex; align-items:center; justify-content:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   background:rgba(11,18,32,.92);
   border-bottom:1px solid var(--line);
   z-index:10;
 }
 .nav{
-  max-width:1100px; width:100%; padding:0 20px;
-  display:flex; justify-content:space-between; align-items:center;
+  width:100%;
+  max-width:1100px;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
 }
-.menu,.lang{display:flex; gap:8px; align-items:center}
-.menu button,.lang button{
-  background:none; border:1px solid var(--line);
-  color:var(--muted); padding:8px 12px;
-  border-radius:999px; cursor:pointer; font-size:12.5px;
-}
-.menu button:hover,.lang button:hover{color:var(--text)}
-.lang button.active{border-color:var(--accent); color:var(--text)}
-
-/* CENTER */
-.wrap{
-  min-height:100vh; padding-top:70px;
-  display:flex; align-items:center; justify-content:center;
-}
-.hero{
-  max-width:820px; width:100%;
-  border:1px solid var(--line); border-radius:20px;
-  padding:64px 36px; text-align:center;
-  background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
-}
-.hero-brand{
-  font-size:64px; font-weight:800; letter-spacing:.4em;
-}
-.hero-sub{color:var(--muted); margin:12px 0 28px}
-.hero h1{margin:0 0 12px; font-size:28px}
-.hero p{margin:0; color:var(--muted)}
-.hero b{color:var(--accent)}
-
-/* MODAL */
-.backdrop{
-  position:fixed; inset:0;
-  background:rgba(0,0,0,.6);
-  display:none; align-items:center; justify-content:center;
-  z-index:9999; padding:20px;
-}
-.modal{
-  background:var(--panel);
-  max-width:860px; width:100%;
-  padding:28px; border-radius:20px;
-  border:1px solid var(--line);
-}
-.modal h2{margin-top:0}
-.close{float:right; cursor:pointer; color:var(--muted)}
-.grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
-.box{border:1px solid var(--line); border-radius:14px; padding:16px}
-.small{font-size:13px; color:var(--muted)}
-.note{margin-top:14px}
-
-/* FOOTER */
-footer{
-  position:fixed; bottom:14px; width:100%;
-  text-align:center; font-size:12px; color:var(--muted);
-}
-footer a{color:var(--muted); text-decoration:none}
-footer a:hover{color:var(--text)}
-</style>
-</head>
-
-<body>
-
-<!-- NAV -->
-<div class="top">
-  <div class="nav">
-    <div class="brand">BRINGS</div>
-    <div class="menu">
-      <button data-open="service">Service</button>
-      <button data-open="pricing">Pricing</button>
-      <button data-open="contact">Contact</button>
-      <div class="lang">
-        <button id="btnEN" class="active">EN</button>
-        <button id="btnDE">DE</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- HERO -->
-<div class="wrap">
-  <div class="hero">
-    <div class="hero-brand">BRINGS</div>
-    <div class="hero-sub">Worldwide Personal Courier</div>
-    <h1>On Time. Discreet. Accountable.</h1>
-    <p>We deliver what cannot be replaced. <b>Anytime, anywhere.</b></p>
-  </div>
-</div>
-
-<footer>
-  <a href="impressum.html">Imprint</a> ·
-  <a href="datenschutz.html">Privacy</a>
-</footer>
-
-<!-- MODAL -->
-<div class="backdrop" id="backdrop">
-  <div class="modal">
-    <span class="close" onclick="closeModal()">Close</span>
-    <h2 id="modalTitle"></h2>
-    <div id="modalBody"></div>
-  </div>
-</div>
-
-<script>
-const TEXT={
-en:{
- service:{
-  title:"Service",
-  body:`<p>Personal hand-carry courier service for time-critical and sensitive assignments.</p>
-  <p class="small">Not parcel shipping. Not mass logistics. Each assignment is handled personally.</p>`
- },
- pricing:{
-  title:"Pricing",
-  body:`<p>Billing is based on <b>agreed daily rates</b>.</p>
-  <ul class="small">
-   <li><b>Germany:</b> €950 / day</li>
-   <li><b>Europe:</b> €1,200 / day</li>
-   <li><b>Worldwide:</b> €1,600 / day</li>
-  </ul>
-  <p class="small"><b>Minimum:</b> one daily rate · <b>Cancellation:</b> 0.5 daily rate after confirmation</p>
-  <p class="small"><b>Availability:</b> DE 6h · EU 12h · World 48h</p>
-  <p class="small"><b>Travel time = working time</b>. Expenses borne by client.</p>
-  <p class="small">Individual agreements possible. Binding only upon assignment confirmation.</p>`
- },
- contact:{
-  title:"Contact",
-  body:`<p>Requests are free and non-binding.</p>
-  <p><b>Email:</b> <a href="mailto:contact@brings.global">contact@brings.global</a><br>
-     <b>Phone:</b> +49 173 884 7374 (temporary)</p>
-  <ol class="small">
-   <li>Client</li><li>Billing address</li><li>Origin / destination</li>
-   <li>Recipient</li><li>Local contact</li><li>Time window</li>
-   <li>Type of item</li><li>Urgency</li><li>Call-back</li>
-  </ol>`
- }
-},
-de:{
- service:{
-  title:"Service",
-  body:`<p>Persönlicher Hand-Carry-Kurier für zeitkritische und vertrauliche Aufträge.</p>
-  <p class="small">Kein Paketversand. Keine Massenlogistik.</p>`
- },
- pricing:{
-  title:"Preise",
-  body:`<p>Abrechnung auf Basis <b>vereinbarter Tagessätze</b>.</p>
-  <ul class="small">
-   <li><b>Deutschland:</b> €950 / Tag</li>
-   <li><b>Europa:</b> €1.200 / Tag</li>
-   <li><b>Weltweit:</b> €1.600 / Tag</li>
-  </ul>
-  <p class="small"><b>Mindesthonorar:</b> 1 Tagessatz · <b>Storno:</b> 0,5 Tagessatz nach Beauftragung</p>
-  <p class="small"><b>Verfügbarkeit:</b> DE 6h · EU 12h · Weltweit 48h</p>
-  <p class="small"><b>Reisezeit = Arbeitszeit</b>. Spesen trägt der Auftraggeber.</p>
-  <p class="small">Individualvereinbarungen möglich. Verbindlich erst im Auftragsfall.</p>`
- },
- contact:{
-  title:"Kontakt",
-  body:`<p>Anfragen sind kostenfrei und unverbindlich.</p>
-  <p><b>E-Mail:</b> <a href="mailto:contact@brings.global">contact@brings.global</a><br>
-     <b>Telefon:</b> +49 173 884 7374 (vorläufig)</p>
-  <ol class="small">
-   <li>Auftraggeber</li><li>Rechnungsadresse</li><li>Start / Ziel</li>
-   <li>Empfänger</li><li>Ansprechpartner</li><li>Zeitfenster</li>
-   <li>Art der Sendung</li><li>Dringlichkeit</li><li>Rückruf</li>
-  </ol>`
- }
-}
-};
-
-let lang="en";
-const backdrop=document.getElementById("backdrop");
-const titleEl=document.getElementById("modalTitle");
-const bodyEl=document.getElementById("modalBody");
-
-function openModal(key){
- titleEl.textContent=TEXT[lang][key].title;
- bodyEl.innerHTML=TEXT[lang][key].body;
- backdrop.style.display="flex";
-}
-function closeModal(){backdrop.style.display="none"}
-
-document.addEventListener("click",e=>{
- const b=e.target.closest("[data-open]");
- if(b){e.preventDefault();openModal(b.dataset.open)}
- if(e.target===backdrop) closeModal();
-});
-
-document.getElementById("btnEN").onclick=()=>{
- lang="en"; btnEN.classList.add("active"); btnDE.classList.remove("active");
-};
-document.getElementById("btnDE").onclick=()=>{
- lang="de"; btnDE.classList.add("active"); btnEN.classList.remove("active");
-};
-</script>
-
-</body>
-</html>
+.brand{
+  letter-spacing:.35em;
+  font-weight:750;
+  white-space:

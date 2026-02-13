@@ -234,10 +234,26 @@ main { min-height: 100vh; }
 
 .brand, .hero-brand { white-space: nowrap; }
 
-.brand .brings, @supports (-webkit-background-clip: text) {
-  .brand .brings, }
+.brand .brings, .hero-brand .brings {
+  font-weight: 700;
+  letter-spacing:0.10em !important; /* tighter */
+  /* subtle metallic sheen with fallback */
+  color: rgba(245,245,245,0.92);
+  background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(225,225,225,0.92) 40%, rgba(255,255,255,0.92) 75%, rgba(205,205,205,0.92) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+@supports (-webkit-background-clip: text) {
+  .brand .brings, .hero-brand .brings { color: transparent; }
+}
 
-.brand .by, /* bottom-left line */
+.brand .by, .hero-brand .by {
+  font-weight: 400;
+  font-size: .36em !important; /* 4+ steps smaller */
+  letter-spacing: normal !important;
+}
+
+/* bottom-left line */
 .brand-footerline {
   position: fixed;
   left: 18px;
@@ -277,13 +293,16 @@ main { min-height: 100vh; }
 /* Top-left brand bigger and aligned with footer */
 .nav{ padding-left: var(--edge) !important; padding-right: var(--edge) !important; }
 .brand{ font-size: 32px !important; }
-/* keep small */
+.brand .by{ font-size: .40em !important; } /* keep small */
 
 /* Center card: match background to screen (no lighter panel) */
 .card{ background: transparent !important; box-shadow: none !important; }
 .card::before{ display:none !important; }
 
 /* Center brand much larger (approx 4x vs previous nav) */
+.hero-brand .brings{ font-size: clamp(72px, 8vw, 110px) !important; letter-spacing: .12em !important; }
+.hero-brand .by{ font-size: .22em !important; }
+
 .hero-subline{
   margin-top: 12px;
   font-size: 14px;
@@ -336,107 +355,6 @@ main { min-height: 100vh; }
   pointer-events:none !important;
 }
 
-
-
-/* ===== v14 FINAL (single source of truth) ===== */
-:root{ --edge:28px; }
-
-/* NAV layout */
-.nav{
-  padding-left: var(--edge) !important;
-  padding-right: var(--edge) !important;
-  justify-content: space-between !important;
-}
-.nav .nav-links, .nav .menu, .nav .right, .nav-items{
-  margin-left:auto !important;
-}
-
-/* brand top-left */
-.brand{
-  font-size: 48px !important;
-  white-space: nowrap !important;
-}
-.brand .brings{
-  font-weight:700 !important;
-  letter-spacing:.14em !important;
-}
-.brand .by{
-  font-weight:400 !important;
-  font-size:.25em !important;   /* 1/4 */
-  letter-spacing:normal !important;
-  margin-left:.55em;
-}
-
-/* center card background = page background */
-.card{
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-.card::before,.card::after{ display:none !important; content:none !important; }
-
-/* center brand */
-.hero-brand{
-  white-space:nowrap !important;
-  line-height:1.0 !important;
-}
-.hero-brand .brings{
-  font-weight:700 !important;
-  font-size: clamp(160px, 14vw, 240px) !important;   /* ~3x */
-  letter-spacing:.14em !important;
-  /* subtle metallic */
-  color: rgba(245,245,245,0.92) !important; /* fallback */
-  background: linear-gradient(180deg,
-    rgba(255,255,255,0.95) 0%,
-    rgba(220,220,220,0.95) 40%,
-    rgba(255,255,255,0.95) 75%,
-    rgba(200,200,200,0.95) 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-}
-@supports (-webkit-background-clip:text){
-  .hero-brand .brings{ color: transparent !important; }
-}
-.hero-brand .by{
-  font-weight:400 !important;
-  font-size:.25em !important;   /* 1/4 */
-  letter-spacing:normal !important;
-  margin-left:.60em;
-}
-
-/* subline under brand */
-.hero-subline{
-  display:block !important;
-  margin-top: 14px !important;
-  font-size: 16px !important;
-  opacity: .85 !important;
-}
-
-/* bottom-left copy: same size both lines */
-.footer-copy{
-  position: fixed !important;
-  left: var(--edge) !important;
-  bottom: 22px !important;
-  text-align:left !important;
-  max-width: 720px !important;
-  z-index: 9999 !important;
-}
-.footer-copy .k, .footer-copy .s{
-  font-size: 1.35em !important;
-  line-height: 1.25 !important;
-}
-.footer-copy .k{ font-weight: 700 !important; }
-.footer-copy .s{ font-weight: 400 !important; opacity: .92 !important; margin-top: 8px !important; }
-.footer-copy .accent{ color: var(--accent) !important; font-weight: 700 !important; }
-
-/* kill any stray extra bottom line */
-.brand-footerline{ display:none !important; }
-
-/* viewport fill */
-html, body, main{ min-height: 100vh !important; }
-
-/* keep everything above overlays */
-.footer-copy, .brand, .hero-brand{ position: relative; z-index: 9999 !important; }
 </style>
 </head>
 
@@ -828,7 +746,6 @@ window.addEventListener("DOMContentLoaded", () => {
   applyLang("en");
 });
 </script>
-
 <div class="footer-copy">
   <div class="k">On Time · Discreet · Accountable</div>
   <div class="s">We deliver what cannot be replaced. <span class="accent">Anytime, anywhere.</span></div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>BRINGS by tenzer — Worldwide Personal Courier</title>
+<title>BRINGS by tenzer — Worldwide Private Courier</title>
 
 <style>
 :root{
@@ -286,6 +286,44 @@ main { min-height: 100vh; }
   opacity:.9;
 }
 
+
+/* v11 adjustments */
+:root{ --edge: 28px; }
+
+/* Top-left brand bigger and aligned with footer */
+.nav{ padding-left: var(--edge) !important; padding-right: var(--edge) !important; }
+.brand{ font-size: 32px !important; }
+.brand .by{ font-size: .40em !important; } /* keep small */
+
+/* Center card: match background to screen (no lighter panel) */
+.card{ background: transparent !important; box-shadow: none !important; }
+.card::before{ display:none !important; }
+
+/* Center brand much larger (approx 4x vs previous nav) */
+.hero-brand .brings{ font-size: clamp(72px, 8vw, 110px) !important; letter-spacing: .12em !important; }
+.hero-brand .by{ font-size: .22em !important; }
+
+.hero-subline{
+  margin-top: 12px;
+  font-size: 14px;
+  opacity: .85;
+}
+
+/* Bottom-left copy aligned with brand and larger */
+.footer-copy{
+  position: fixed;
+  left: var(--edge) !important;
+  bottom: 22px;
+  text-align:left;
+  max-width: 640px;
+}
+.footer-copy .k{ font-weight:700; font-size: 1.9em !important; }
+.footer-copy .s{ margin-top: 10px; font-size: 1.25em !important; opacity: .9; }
+.footer-copy .accent{ color: var(--accent) !important; font-weight: 700; }
+
+/* Remove any leftover hero text blocks if present */
+.hero-vals,.hero-sub{ display:none !important; }
+
 </style>
 </head>
 
@@ -314,7 +352,8 @@ main { min-height: 100vh; }
   <div class="center">
     <section class="hero">
       <div class="hero-brand"><span class="brings">BRINGS</span><span class="by"> by tenzer</span></div>
-      <div class="hero-sub" data-i18n="subline">Worldwide Personal Courier</div>
+        <div class="hero-subline">Worldwide Private Courier</div>
+      <div class="hero-sub" data-i18n="subline">Worldwide Private Courier</div>
       <h1 data-i18n="headline"></h1>
       <p data-i18n="claim"></b></p>
     </section>
@@ -347,7 +386,7 @@ window.addEventListener("DOMContentLoaded", () => {
       nav_coverage: "Coverage",
       nav_pricing: "Pricing",
       nav_contact: "Contact",
-      subline: "Worldwide Personal Courier",
+      subline: "Worldwide Private Courier",
       headline: "",
       claim: "</b>",
       imprint: "Imprint",
@@ -431,7 +470,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <p class="note small">Names and phone numbers are intentionally kept minimal. Details are confirmed bilaterally after first contact.</p>`,
         imprintTitle: "Imprint",
         imprintBody: `
-          <p><b>BRINGS by tenzer — Worldwide Personal Courier</b></p>
+          <p><b>BRINGS by tenzer — Worldwide Private Courier</b></p>
           <p class="small">
             Service provider:<br>
             Thorsten Tenzer<br>
@@ -676,22 +715,9 @@ window.addEventListener("DOMContentLoaded", () => {
   applyLang("en");
 });
 </script>
-
-
-  <div class="brand-footerline">
-    <span class="w">Worldwide Hand Delivery</span>
-    <span class="sep">·</span>
-    <span class="v">on-time</span>
-    <span class="sep">·</span>
-    <span class="v">accountable</span>
-    <span class="sep">·</span>
-    <span class="v">discreet</span>
-  </div>
-
-
 <div class="footer-copy">
   <div class="k">On Time · Discreet · Accountable</div>
-  <div class="s">We deliver what cannot be replaced. Anytime, anywhere.</div>
+  <div class="s">We deliver what cannot be replaced. <span class="accent">Anytime, anywhere.</span></div>
 </div>
 
 </body>

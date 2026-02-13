@@ -236,7 +236,7 @@ main { min-height: 100vh; }
 
 .brand .brings, .hero-brand .brings {
   font-weight: 700;
-  letter-spacing: -0.14em !important; /* tighter */
+  letter-spacing:0.10em !important; /* tighter */
   /* subtle metallic sheen with fallback */
   color: rgba(245,245,245,0.92);
   background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(225,225,225,0.92) 40%, rgba(255,255,255,0.92) 75%, rgba(205,205,205,0.92) 100%);
@@ -268,6 +268,24 @@ main { min-height: 100vh; }
 /* ensure old hero pieces don't show */
 .hero-sub, .hero-vals { display: none !important; }
 
+
+.footer-copy{
+  position: fixed;
+  left: 28px;
+  bottom: 22px;
+  text-align:left;
+  max-width:520px;
+}
+.footer-copy .k{
+  font-weight:700;
+  font-size:.95em;
+}
+.footer-copy .s{
+  margin-top:6px;
+  font-size:.88em;
+  opacity:.9;
+}
+
 </style>
 </head>
 
@@ -297,8 +315,8 @@ main { min-height: 100vh; }
     <section class="hero">
       <div class="hero-brand"><span class="brings">BRINGS</span><span class="by"> by tenzer</span></div>
       <div class="hero-sub" data-i18n="subline">Worldwide Personal Courier</div>
-      <h1 data-i18n="headline">On Time. Discreet. Accountable.</h1>
-      <p data-i18n="claim">We deliver what cannot be replaced. <b>Anytime, anywhere.</b></p>
+      <h1 data-i18n="headline"></h1>
+      <p data-i18n="claim"></b></p>
     </section>
   </div>
 </div>
@@ -330,8 +348,8 @@ window.addEventListener("DOMContentLoaded", () => {
       nav_pricing: "Pricing",
       nav_contact: "Contact",
       subline: "Worldwide Personal Courier",
-      headline: "On Time. Discreet. Accountable.",
-      claim: "We deliver what cannot be replaced. <b>Anytime, anywhere.</b>",
+      headline: "",
+      claim: "</b>",
       imprint: "Imprint",
       privacy: "Privacy",
       close: "Close",
@@ -669,6 +687,12 @@ window.addEventListener("DOMContentLoaded", () => {
     <span class="sep">·</span>
     <span class="v">discreet</span>
   </div>
+
+
+<div class="footer-copy">
+  <div class="k">On Time · Discreet · Accountable</div>
+  <div class="s">We deliver what cannot be replaced. Anytime, anywhere.</div>
+</div>
 
 </body>
 </html>

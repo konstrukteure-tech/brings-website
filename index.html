@@ -226,42 +226,47 @@ footer{
   .box{grid-column: span 12}
 }
 
-.brand .brings, .hero-brand .brings{font-weight:700; letter-spacing:-0.10em}
-.brand .by{font-weight:400; font-size:.78em; letter-spacing:.10em}
-.hero-brand .by{font-weight:400; font-size:.78em; letter-spacing:.10em}
-
-
-/* brand tuning (minimal, no layout changes) */
-.brand, .hero-brand{white-space:nowrap}
-.brand .brings, .hero-brand .brings{font-weight:700; letter-spacing:-0.10em}
-.brand .by, .hero-brand .by{font-weight:400; font-size:.40em; letter-spacing:normal}
-
-
-
-/* viewport fill */
+.brand .brings, 
+/* v9 brand overrides (single source of truth) */
 html, body { min-height: 100%; }
 body { min-height: 100vh; }
 main { min-height: 100vh; }
 
-/* bottom-left line (minimal) */
-.brand-footerline{
+.brand, .hero-brand { white-space: nowrap; }
+
+.brand .brings, .hero-brand .brings {
+  font-weight: 700;
+  letter-spacing: -0.14em !important; /* tighter */
+  /* subtle metallic sheen with fallback */
+  color: rgba(245,245,245,0.92);
+  background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(225,225,225,0.92) 40%, rgba(255,255,255,0.92) 75%, rgba(205,205,205,0.92) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+@supports (-webkit-background-clip: text) {
+  .brand .brings, .hero-brand .brings { color: transparent; }
+}
+
+.brand .by, .hero-brand .by {
+  font-weight: 400;
+  font-size: .36em !important; /* 4+ steps smaller */
+  letter-spacing: normal !important;
+}
+
+/* bottom-left line */
+.brand-footerline {
   position: fixed;
   left: 18px;
   bottom: 14px;
-  font-size: .82em;
+  font-size: .78em !important; /* smaller */
   opacity: .85;
   white-space: nowrap;
   pointer-events: none;
 }
-.brand-footerline .sep{ padding: 0 .35em; }
+.brand-footerline .sep { padding: 0 .35em; }
 
-/* subtle metallic sheen for BRINGS (very light) */
-.brand .brings, .hero-brand .brings{
-  background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(230,230,230,0.95) 40%, rgba(255,255,255,0.95) 75%, rgba(210,210,210,0.95) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
+/* ensure old hero pieces don't show */
+.hero-sub, .hero-vals { display: none !important; }
 
 </style>
 </head>

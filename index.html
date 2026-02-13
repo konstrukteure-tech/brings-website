@@ -226,10 +226,42 @@ footer{
   .box{grid-column: span 12}
 }
 
-/* brand weight/size tuning (no layout change) */
-.brand .brings, .hero-brand .brings{font-weight:700}
+.brand .brings, .hero-brand .brings{font-weight:700; letter-spacing:-0.10em}
 .brand .by{font-weight:400; font-size:.78em; letter-spacing:.10em}
 .hero-brand .by{font-weight:400; font-size:.78em; letter-spacing:.10em}
+
+
+/* brand tuning (minimal, no layout changes) */
+.brand, .hero-brand{white-space:nowrap}
+.brand .brings, .hero-brand .brings{font-weight:700; letter-spacing:-0.10em}
+.brand .by, .hero-brand .by{font-weight:400; font-size:.40em; letter-spacing:normal}
+
+
+
+/* viewport fill */
+html, body { min-height: 100%; }
+body { min-height: 100vh; }
+main { min-height: 100vh; }
+
+/* bottom-left line (minimal) */
+.brand-footerline{
+  position: fixed;
+  left: 18px;
+  bottom: 14px;
+  font-size: .82em;
+  opacity: .85;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.brand-footerline .sep{ padding: 0 .35em; }
+
+/* subtle metallic sheen for BRINGS (very light) */
+.brand .brings, .hero-brand .brings{
+  background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(230,230,230,0.95) 40%, rgba(255,255,255,0.95) 75%, rgba(210,210,210,0.95) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
 </style>
 </head>
@@ -379,19 +411,19 @@ window.addEventListener("DOMContentLoaded", () => {
           <p><b>BRINGS by tenzer — Worldwide Personal Courier</b></p>
           <p class="small">
             Service provider:<br>
-            [Your full legal name / business name]<br>
-            [Street + No.]<br>
-            [Postal code, City]<br>
+            Thorsten Tenzer<br>
+            Töpferweg 81<br>
+            23558 Lübeck<br>
             Germany
           </p>
           <p class="small">
             Contact:<br>
             Email: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
-            Phone: +49 173 884 7374 (temporary)
+            Phone: +49 173 884 73 74(temporary)
           </p>
           <p class="small">
             Responsible for content:<br>
-            [Your name], address as above
+            Thorsten Tenzer, address as above
           </p>
           <p class="note small">
             This website does not offer parcel shipping or mass logistics services. Services are provided individually upon request and subject to availability and agreement.
@@ -402,7 +434,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <p><b>Privacy Policy (short)</b></p>
           <p class="small">
             Controller:<br>
-            [Your full legal name / business name], [Address], Germany<br>
+            Thorsten Tenzer, Töpferweg 81, 23558 Lübeck, Deutschland, Germany<br>
             Email: <a href="mailto:contact@brings.global">contact@brings.global</a>
           </p>
           <p class="small">
@@ -415,7 +447,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <p class="small">
             You have rights under the GDPR (access, rectification, erasure, objection, etc.) and may lodge a complaint with a supervisory authority.
           </p>
-          <p class="small">Last update: [date]</p>
+          <p class="small">Last update: </p>
         `
       }
     },
@@ -511,15 +543,15 @@ window.addEventListener("DOMContentLoaded", () => {
           <p><b>BRINGS by tenzer — Weltweiter persönlicher Kurier</b></p>
           <p class="small">
             Diensteanbieter:<br>
-            [Vollständiger Name / Unternehmensname]<br>
-            [Straße + Nr.]<br>
-            [PLZ Ort]<br>
+            Thorsten Tenzer<br>
+            Töpferweg 81<br>
+            23558 Lübeck<br>
             Deutschland
           </p>
           <p class="small">
             Kontakt:<br>
             E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
-            Telefon: +49 173 884 7374 (vorläufig)
+            Telefon: +49 173 884 73 74(vorläufig)
           </p>
           <p class="small">
             Verantwortlich für den Inhalt:<br>
@@ -621,6 +653,17 @@ window.addEventListener("DOMContentLoaded", () => {
   applyLang("en");
 });
 </script>
+
+
+  <div class="brand-footerline">
+    <span class="w">Worldwide Hand Delivery</span>
+    <span class="sep">·</span>
+    <span class="v">on-time</span>
+    <span class="sep">·</span>
+    <span class="v">accountable</span>
+    <span class="sep">·</span>
+    <span class="v">discreet</span>
+  </div>
 
 </body>
 </html>

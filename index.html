@@ -226,8 +226,18 @@ footer{
   .box{grid-column: span 12}
 }
 
+.brand .brings, 
+/* v9 brand overrides (single source of truth) */
+html, body { min-height: 100%; }
+body { min-height: 100vh; }
+main { min-height: 100vh; }
 
-/* bottom-left line */
+.brand, .hero-brand { white-space: nowrap; }
+
+.brand .brings, @supports (-webkit-background-clip: text) {
+  .brand .brings, }
+
+.brand .by, /* bottom-left line */
 .brand-footerline {
   position: fixed;
   left: 18px;
@@ -267,16 +277,13 @@ footer{
 /* Top-left brand bigger and aligned with footer */
 .nav{ padding-left: var(--edge) !important; padding-right: var(--edge) !important; }
 .brand{ font-size: 32px !important; }
-
+/* keep small */
 
 /* Center card: match background to screen (no lighter panel) */
 .card{ background: transparent !important; box-shadow: none !important; }
 .card::before{ display:none !important; }
 
 /* Center brand much larger (approx 4x vs previous nav) */
-
-
-
 .hero-subline{
   margin-top: 12px;
   font-size: 14px;
@@ -330,50 +337,37 @@ footer{
 }
 
 
-/* v13 sizing + alignment */
-:root{ --edge: 28px; }
 
-/* make top menu right-aligned */
-.nav{ justify-content: space-between !important; }
-.nav .right, .nav .menu, .nav-links, .nav-items{ margin-left:auto !important; }
+/* ===== v14 FINAL (single source of truth) ===== */
+:root{ --edge:28px; }
 
-
-
-
-/* remove card panel look entirely (same as background) */
-.card{
-  background: transparent !important;
-  border-color: transparent !important;
-}
-.card{ outline: none !important; }
-
-/* footer: make both lines same size */
-.footer-copy .k,
-.footer-copy .s{
-  font-size: 1.25em !important;
-  line-height: 1.25 !important;
-}
-.footer-copy .k{ font-weight:700; }
-.footer-copy .s{ font-weight:400; }
-/* ===== FINAL BRAND BLOCK (single source of truth) ===== */
-
-:root{ --edge: 28px; }
-
-/* top area */
+/* NAV layout */
 .nav{
   padding-left: var(--edge) !important;
   padding-right: var(--edge) !important;
   justify-content: space-between !important;
 }
-.nav .nav-links,
-.nav .menu,
-.nav .right,
-.nav-items{
-  margin-left: auto !important;
-  text-align: right !important;
+.nav .nav-links, .nav .menu, .nav .right, .nav-items{
+  margin-left:auto !important;
 }
 
-/* make card same as screen */
+/* brand top-left */
+.brand{
+  font-size: 48px !important;
+  white-space: nowrap !important;
+}
+.brand .brings{
+  font-weight:700 !important;
+  letter-spacing:.14em !important;
+}
+.brand .by{
+  font-weight:400 !important;
+  font-size:.25em !important;   /* 1/4 */
+  letter-spacing:normal !important;
+  margin-left:.55em;
+}
+
+/* center card background = page background */
 .card{
   background: transparent !important;
   border: none !important;
@@ -381,30 +375,15 @@ footer{
 }
 .card::before,.card::after{ display:none !important; content:none !important; }
 
-/* TOP-LEFT brand big + aligned with bottom-left text */
-.brand{
-  font-size: 48px !important;
-  white-space: nowrap !important;
-}
-.brand .brings{
-  font-weight: 700 !important;
-  letter-spacing: .14em !important;
-}
-.brand .by{
-  font-weight: 400 !important;
-  font-size: .25em !important;   /* 1/4 */
-  letter-spacing: normal !important;
-}
-
-/* CENTER brand ~3x, by = 1/4 */
+/* center brand */
 .hero-brand{
-  white-space: nowrap !important;
-  line-height: 1.0 !important;
+  white-space:nowrap !important;
+  line-height:1.0 !important;
 }
 .hero-brand .brings{
-  font-weight: 700 !important;
-  font-size: clamp(160px, 14vw, 240px) !important;  /* ~3x */
-  letter-spacing: .14em !important;
+  font-weight:700 !important;
+  font-size: clamp(160px, 14vw, 240px) !important;   /* ~3x */
+  letter-spacing:.14em !important;
   /* subtle metallic */
   color: rgba(245,245,245,0.92) !important; /* fallback */
   background: linear-gradient(180deg,
@@ -419,45 +398,45 @@ footer{
   .hero-brand .brings{ color: transparent !important; }
 }
 .hero-brand .by{
-  font-weight: 400 !important;
-  font-size: .25em !important;   /* 1/4 */
-  letter-spacing: normal !important;
+  font-weight:400 !important;
+  font-size:.25em !important;   /* 1/4 */
+  letter-spacing:normal !important;
+  margin-left:.60em;
 }
 
-/* SUBLINE under center brand */
+/* subline under brand */
 .hero-subline{
-  display: block !important;
+  display:block !important;
   margin-top: 14px !important;
   font-size: 16px !important;
   opacity: .85 !important;
 }
 
-/* BOTTOM-LEFT copy: aligned with top-left, bigger, remove any extra bottom line */
-.brand-footerline{ display:none !important; }
-
+/* bottom-left copy: same size both lines */
 .footer-copy{
   position: fixed !important;
   left: var(--edge) !important;
   bottom: 22px !important;
-  text-align: left !important;
-  max-width: 680px !important;
+  text-align:left !important;
+  max-width: 720px !important;
   z-index: 9999 !important;
 }
-.footer-copy .k,
-.footer-copy .s{
-  font-size: 1.35em !important;  /* same size */
+.footer-copy .k, .footer-copy .s{
+  font-size: 1.35em !important;
   line-height: 1.25 !important;
 }
 .footer-copy .k{ font-weight: 700 !important; }
-.footer-copy .s{ font-weight: 400 !important; opacity: .92 !important; }
-.footer-copy .accent{
-  font-weight: 700 !important;
-  color: var(--accent) !important; /* like before */
-}
+.footer-copy .s{ font-weight: 400 !important; opacity: .92 !important; margin-top: 8px !important; }
+.footer-copy .accent{ color: var(--accent) !important; font-weight: 700 !important; }
 
-/* ensure page fills screen */
-html,body,main{ min-height: 100vh !important; }
+/* kill any stray extra bottom line */
+.brand-footerline{ display:none !important; }
 
+/* viewport fill */
+html, body, main{ min-height: 100vh !important; }
+
+/* keep everything above overlays */
+.footer-copy, .brand, .hero-brand{ position: relative; z-index: 9999 !important; }
 </style>
 </head>
 
@@ -849,6 +828,7 @@ window.addEventListener("DOMContentLoaded", () => {
   applyLang("en");
 });
 </script>
+
 <div class="footer-copy">
   <div class="k">On Time · Discreet · Accountable</div>
   <div class="s">We deliver what cannot be replaced. <span class="accent">Anytime, anywhere.</span></div>

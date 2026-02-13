@@ -324,6 +324,70 @@ main { min-height: 100vh; }
 /* Remove any leftover hero text blocks if present */
 .hero-vals,.hero-sub{ display:none !important; }
 
+
+/* v12 visibility hardening (no layout redesign) */
+.card, .hero, .hero-card, .panel { position: relative; z-index: 10 !important; }
+.card::before, .card::after,
+.hero::before, .hero::after,
+.hero-card::before, .hero-card::after,
+.panel::before, .panel::after{
+  display:none !important;
+  content:none !important;
+}
+
+.footer-copy{
+  z-index: 9999 !important;
+}
+
+.nav, header, .topbar{
+  position: relative;
+  z-index: 9999 !important;
+}
+
+/* ensure center brand renders above everything */
+.hero-brand, .hero-brand *{
+  position: relative;
+  z-index: 9999 !important;
+}
+
+/* if any global overlay exists, keep content above */
+.overlay, .glass, .mask{
+  pointer-events:none !important;
+}
+
+
+/* v13 sizing + alignment */
+:root{ --edge: 28px; }
+
+/* make top menu right-aligned */
+.nav{ justify-content: space-between !important; }
+.nav .right, .nav .menu, .nav-links, .nav-items{ margin-left:auto !important; }
+
+/* hero brand scale: BRINGS ~3x, by tenzer ~1/4 of brings */
+.hero-brand .brings{
+  font-size: clamp(96px, 10vw, 150px) !important; /* bigger */
+  letter-spacing: .12em !important;
+}
+.hero-brand .by{
+  font-size: .25em !important; /* 1/4 of brings */
+}
+
+/* remove card panel look entirely (same as background) */
+.card{
+  background: transparent !important;
+  border-color: transparent !important;
+}
+.card{ outline: none !important; }
+
+/* footer: make both lines same size */
+.footer-copy .k,
+.footer-copy .s{
+  font-size: 1.25em !important;
+  line-height: 1.25 !important;
+}
+.footer-copy .k{ font-weight:700; }
+.footer-copy .s{ font-weight:400; }
+
 </style>
 </head>
 

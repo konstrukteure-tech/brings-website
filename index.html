@@ -234,24 +234,12 @@ main { min-height: 100vh; }
 
 .brand, .hero-brand { white-space: nowrap; }
 
-.brand .brings, .hero-brand .brings {
-  font-weight: 700;
-  letter-spacing:0.10em !important; /* tighter */
-  /* subtle metallic sheen with fallback */
-  color: rgba(245,245,245,0.92);
-  background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(225,225,225,0.92) 40%, rgba(255,255,255,0.92) 75%, rgba(205,205,205,0.92) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
+
 @supports (-webkit-background-clip: text) {
   .brand .brings, .hero-brand .brings { color: transparent; }
 }
 
-.brand .by, .hero-brand .by {
-  font-weight: 400;
-  font-size: .36em !important; /* 4+ steps smaller */
-  letter-spacing: normal !important;
-}
+
 
 /* bottom-left line */
 .brand-footerline {
@@ -293,7 +281,7 @@ main { min-height: 100vh; }
 /* Top-left brand bigger and aligned with footer */
 .nav{ padding-left: var(--edge) !important; padding-right: var(--edge) !important; }
 .brand{ font-size: 32px !important; }
-.brand .by{ font-size: .40em !important; } /* keep small */
+
 
 /* Center card: match background to screen (no lighter panel) */
 .card{ background: transparent !important; box-shadow: none !important; }
@@ -301,7 +289,7 @@ main { min-height: 100vh; }
 
 /* Center brand much larger (approx 4x vs previous nav) */
 .hero-brand .brings{ font-size: clamp(72px, 8vw, 110px) !important; letter-spacing: .12em !important; }
-.hero-brand .by{ font-size: .22em !important; }
+
 
 .hero-subline{
   margin-top: 12px;
@@ -363,14 +351,8 @@ main { min-height: 100vh; }
 .nav{ justify-content: space-between !important; }
 .nav .right, .nav .menu, .nav-links, .nav-items{ margin-left:auto !important; }
 
-/* hero brand scale: BRINGS ~3x, by tenzer ~1/4 of brings */
-.hero-brand .brings{
-  font-size: clamp(96px, 10vw, 150px) !important; /* bigger */
-  letter-spacing: .12em !important;
-}
-.hero-brand .by{
-  font-size: .25em !important; /* 1/4 of brings */
-}
+
+
 
 /* remove card panel look entirely (same as background) */
 .card{

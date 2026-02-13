@@ -226,20 +226,6 @@ footer{
   .box{grid-column: span 12}
 }
 
-.brand .brings, 
-/* v9 brand overrides (single source of truth) */
-html, body { min-height: 100%; }
-body { min-height: 100vh; }
-main { min-height: 100vh; }
-
-.brand, .hero-brand { white-space: nowrap; }
-
-
-@supports (-webkit-background-clip: text) {
-  .brand .brings, .hero-brand .brings { color: transparent; }
-}
-
-
 
 /* bottom-left line */
 .brand-footerline {
@@ -288,7 +274,7 @@ main { min-height: 100vh; }
 .card::before{ display:none !important; }
 
 /* Center brand much larger (approx 4x vs previous nav) */
-.hero-brand .brings{ font-size: clamp(72px, 8vw, 110px) !important; letter-spacing: .12em !important; }
+
 
 
 .hero-subline{
@@ -369,6 +355,108 @@ main { min-height: 100vh; }
 }
 .footer-copy .k{ font-weight:700; }
 .footer-copy .s{ font-weight:400; }
+/* ===== FINAL BRAND BLOCK (single source of truth) ===== */
+
+:root{ --edge: 28px; }
+
+/* top area */
+.nav{
+  padding-left: var(--edge) !important;
+  padding-right: var(--edge) !important;
+  justify-content: space-between !important;
+}
+.nav .nav-links,
+.nav .menu,
+.nav .right,
+.nav-items{
+  margin-left: auto !important;
+  text-align: right !important;
+}
+
+/* make card same as screen */
+.card{
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.card::before,.card::after{ display:none !important; content:none !important; }
+
+/* TOP-LEFT brand big + aligned with bottom-left text */
+.brand{
+  font-size: 48px !important;
+  white-space: nowrap !important;
+}
+.brand .brings{
+  font-weight: 700 !important;
+  letter-spacing: .14em !important;
+}
+.brand .by{
+  font-weight: 400 !important;
+  font-size: .25em !important;   /* 1/4 */
+  letter-spacing: normal !important;
+}
+
+/* CENTER brand ~3x, by = 1/4 */
+.hero-brand{
+  white-space: nowrap !important;
+  line-height: 1.0 !important;
+}
+.hero-brand .brings{
+  font-weight: 700 !important;
+  font-size: clamp(160px, 14vw, 240px) !important;  /* ~3x */
+  letter-spacing: .14em !important;
+  /* subtle metallic */
+  color: rgba(245,245,245,0.92) !important; /* fallback */
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0.95) 0%,
+    rgba(220,220,220,0.95) 40%,
+    rgba(255,255,255,0.95) 75%,
+    rgba(200,200,200,0.95) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+}
+@supports (-webkit-background-clip:text){
+  .hero-brand .brings{ color: transparent !important; }
+}
+.hero-brand .by{
+  font-weight: 400 !important;
+  font-size: .25em !important;   /* 1/4 */
+  letter-spacing: normal !important;
+}
+
+/* SUBLINE under center brand */
+.hero-subline{
+  display: block !important;
+  margin-top: 14px !important;
+  font-size: 16px !important;
+  opacity: .85 !important;
+}
+
+/* BOTTOM-LEFT copy: aligned with top-left, bigger, remove any extra bottom line */
+.brand-footerline{ display:none !important; }
+
+.footer-copy{
+  position: fixed !important;
+  left: var(--edge) !important;
+  bottom: 22px !important;
+  text-align: left !important;
+  max-width: 680px !important;
+  z-index: 9999 !important;
+}
+.footer-copy .k,
+.footer-copy .s{
+  font-size: 1.35em !important;  /* same size */
+  line-height: 1.25 !important;
+}
+.footer-copy .k{ font-weight: 700 !important; }
+.footer-copy .s{ font-weight: 400 !important; opacity: .92 !important; }
+.footer-copy .accent{
+  font-weight: 700 !important;
+  color: var(--accent) !important; /* like before */
+}
+
+/* ensure page fills screen */
+html,body,main{ min-height: 100vh !important; }
 
 </style>
 </head>

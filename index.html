@@ -355,6 +355,16 @@ main { min-height: 100vh; }
   pointer-events:none !important;
 }
 
+
+
+/* v15 layout alignment (safe) */
+.nav{
+  max-width: none !important;
+  padding-left: 28px !important;
+  padding-right: 28px !important;
+}
+.brand{ letter-spacing:.30em; } /* slightly tighter */
+.menu{ justify-content:flex-end !important; margin-left:auto !important; }
 </style>
 </head>
 
@@ -417,6 +427,8 @@ window.addEventListener("DOMContentLoaded", () => {
       nav_coverage: "Coverage",
       nav_pricing: "Pricing",
       nav_contact: "Contact",
+      footer_s: "`We deliver what cannot be replaced. <span class=\"accent\">Anytime, anywhere.</span>`",
+      footer_k: "On Time \u00b7 Discreet \u00b7 Accountable",
       subline: "Worldwide Private Courier",
       headline: "",
       claim: "</b>",
@@ -549,9 +561,11 @@ window.addEventListener("DOMContentLoaded", () => {
       nav_coverage: "Einsatzgebiete",
       nav_pricing: "Preise",
       nav_contact: "Kontakt",
-      subline: "Weltweiter persönlicher Kurier",
-      headline: "Pünktlich. Diskret. Verlässlich.",
-      claim: "Wir übergeben, was nicht ersetzbar ist. <b>Jederzeit. Überall.</b>",
+      footer_s: "`Wir \u00fcbergeben, was nicht ersetzbar ist. <span class=\"accent\">Jederzeit. \u00dcberall.</span>`",
+      footer_k: "P\u00fcnktlich \u00b7 Diskret \u00b7 Verl\u00e4sslich",
+      subline: "Personal Courier",
+      headline: "",
+      claim: "",
       imprint: "Impressum",
       privacy: "Datenschutz",
       close: "Schließen",
@@ -747,9 +761,8 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <div class="footer-copy">
-  <div class="k">On Time · Discreet · Accountable</div>
-  <div class="s">We deliver what cannot be replaced. <span class="accent">Anytime, anywhere.</span></div>
+  <div class="k" data-i18n="footer_k"></div>
+  <div class="s" data-i18n="footer_s"></div>
 </div>
-
 </body>
 </html>

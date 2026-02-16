@@ -3,58 +3,124 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BRINGS — Imprint</title>
+  <title>Imprint / Impressum — BRINGS</title>
   <meta name="theme-color" content="#0b1220" />
+  <link rel="icon" href="favicon.ico" />
   <style>
-    :root{--bg:#0b1220;--text:#e7ecf7;--muted:#a8b3cc;--muted2:#7e89a6;--line:rgba(255,255,255,.10);--line2:rgba(255,255,255,.14);--accent:#c7d3ff;--shadow:0 18px 60px rgba(0,0,0,.55);--r:18px;--max:920px}
-    *{box-sizing:border-box} body{margin:0;color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-    background:radial-gradient(1200px 700px at 20% -10%, rgba(199,211,255,.16), transparent 60%),radial-gradient(900px 520px at 80% 0%, rgba(219,228,255,.10), transparent 55%),var(--bg)}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:28px 18px 60px}
-    .top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
-    .brand{display:flex;gap:10px;align-items:baseline;white-space:nowrap}
-    .brand .mark{font-weight:650;letter-spacing:.7px;font-size:14px;color:var(--accent)}
-    .brand .sub{font-size:12px;color:var(--muted2)}
-    .card{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
-    .head{padding:14px 16px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.08)}
-    h1{margin:0;font-size:15px;color:var(--accent);font-weight:650;letter-spacing:.3px}
-    .body{padding:16px}
-    p{color:var(--muted);font-size:13px;line-height:1.65;margin:0 0 10px}
-    .box{border:1px solid var(--line2);background:rgba(255,255,255,.03);border-radius:14px;padding:12px}
-    .kv{display:grid;grid-template-columns:180px 1fr;gap:8px 12px}
-    @media (max-width:640px){.kv{grid-template-columns:1fr}}
-    .k{color:var(--muted2);font-size:12.5px}
-    .v{color:var(--text);font-size:13px}
-    .links{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
-    .link{border:1px solid var(--line);background:rgba(255,255,255,.03);padding:8px 10px;border-radius:999px}
-  </style>
+:root{
+  --bg:#0b1220;
+  --panel:#0f1a2e;
+  --text:#e7ecf7;
+  --muted:#a8b3cc;
+  --muted2:#7e89a6;
+  --line:rgba(255,255,255,.10);
+  --line2:rgba(255,255,255,.14);
+  --accent:#c7d3ff;
+  --shadow:0 18px 60px rgba(0,0,0,.55);
+  --r:18px;
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  min-height:100vh;
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(900px 520px at 22% 0%, rgba(199,211,255,.14), transparent 60%),
+    radial-gradient(900px 520px at 80% 10%, rgba(219,228,255,.10), transparent 60%),
+    linear-gradient(180deg, rgba(11,18,32,1) 0%, rgba(9,14,26,1) 100%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 18px 56px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.brand{display:flex;gap:10px;align-items:baseline;white-space:nowrap}
+.brand .mark{font-weight:650;letter-spacing:.7px;font-size:14px;color:var(--accent)}
+.brand .sub{font-size:12px;color:var(--muted2)}
+.lang{display:flex;gap:8px}
+.pill{border:1px solid var(--line2);background:rgba(255,255,255,.04);color:var(--text);padding:8px 10px;border-radius:999px;font-size:12px;cursor:pointer;user-select:none}
+.pill[aria-pressed="true"]{border-color:rgba(199,211,255,.55);background:rgba(199,211,255,.10)}
+.card{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.head{padding:14px 16px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.10);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+h1{margin:0;font-size:15px;color:var(--accent);font-weight:650;letter-spacing:.3px}
+.body{padding:16px}
+h2{margin:18px 0 8px;font-size:13px;color:var(--text);font-weight:650}
+p,li{color:var(--muted);font-size:13px;line-height:1.65}
+ul{margin:0;padding-left:18px}
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.link{border:1px solid var(--line);background:rgba(255,255,255,.03);padding:8px 10px;border-radius:999px}
+.kv{display:grid;grid-template-columns:180px 1fr;gap:8px 12px}
+@media (max-width:640px){.kv{grid-template-columns:1fr}}
+.k{color:var(--muted2);font-size:12.5px}
+.v{color:var(--text);font-size:13px}
+.note{color:var(--muted2);font-size:12.5px;line-height:1.55;margin-top:10px}
+[data-lang]{display:none}
+[data-lang].active{display:block}
+</style>
 </head>
 <body>
   <div class="wrap">
     <div class="top">
       <div class="brand"><div class="mark">BRINGS</div><div class="sub">by tenzer</div></div>
-      <div class="links">
-        <a class="link" href="index.html">Home</a>
-        <a class="link" href="privacy.html">Privacy</a>
+      <div class="lang">
+        <button class="pill" id="btnEN" type="button" aria-pressed="true">EN</button>
+        <button class="pill" id="btnDE" type="button" aria-pressed="false">DE</button>
       </div>
     </div>
 
     <div class="card">
-      <div class="head"><h1>Imprint</h1></div>
+      <div class="head">
+        <h1 data-lang="en" class="active">Imprint</h1>
+        <h1 data-lang="de">Impressum</h1>
+        <div class="links"><a class="link" href="index.html" data-lang="en" class="active">Home</a><a class="link" href="index.html" data-lang="de">Start</a><a class="link" href="privacy.html" data-lang="en" class="active">Privacy</a><a class="link" href="datenschutz.html" data-lang="de">Datenschutz</a><a class="link" href="imprint.html" data-lang="en" class="active">Imprint</a><a class="link" href="impressum.html" data-lang="de">Impressum</a></div>
+      </div>
       <div class="body">
-        <div class="box">
-          <div class="kv">
-            <div class="k">Operator</div><div class="v">Thorsten Tenzer</div>
-            <div class="k">Address</div><div class="v">Töpferweg 81, 23558 Lübeck, Germany</div>
-            <div class="k">Email</div><div class="v">contact@brings.global</div>
-            <div class="k">Phone</div><div class="v">+49 173 884 7374</div>
-          </div>
-        </div>
-        <p style="color:var(--muted2);font-size:12.5px;line-height:1.55;margin-top:10px">
-          Add VAT-ID / register details if/when applicable.
-        </p>
+        <div data-lang="en" class="active">
+<div class="kv">
+  <div class="k">Operator</div><div class="v">Thorsten Tenzer</div>
+  <div class="k">Address</div><div class="v">Töpferweg 81, 23558 Lübeck, Germany</div>
+  <div class="k">Email</div><div class="v">contact@brings.global</div>
+  <div class="k">Phone</div><div class="v">+49 173 884 7374</div>
+</div>
+<p class="note">Add VAT-ID / register details if/when applicable.</p>
+</div>
+        <div data-lang="de">
+<div class="kv">
+  <div class="k">Betreiber</div><div class="v">Thorsten Tenzer</div>
+  <div class="k">Anschrift</div><div class="v">Töpferweg 81, 23558 Lübeck, Deutschland</div>
+  <div class="k">E-Mail</div><div class="v">contact@brings.global</div>
+  <div class="k">Telefon</div><div class="v">+49 173 884 7374</div>
+</div>
+<p class="note">USt-IdNr. / Registerangaben ergänzen, falls vorhanden.</p>
+</div>
       </div>
     </div>
   </div>
+
+  <script>
+    (function(){
+      "use strict";
+      var btnEN=document.getElementById("btnEN");
+      var btnDE=document.getElementById("btnDE");
+      function setLang(lang){
+        btnEN.setAttribute("aria-pressed", lang==="en"?"true":"false");
+        btnDE.setAttribute("aria-pressed", lang==="de"?"true":"false");
+        var nodes=document.querySelectorAll("[data-lang]");
+        for(var i=0;i<nodes.length;i++) {
+          var n=nodes[i];
+          n.classList.toggle("active", n.getAttribute("data-lang")===lang);
+        }
+        try{localStorage.setItem("brings_lang",lang);}catch(e){}
+      }
+      btnEN.addEventListener("click",function(){setLang("en");});
+      btnDE.addEventListener("click",function(){setLang("de");});
+      var saved="en";
+      try{saved=localStorage.getItem("brings_lang")||"en";}catch(e){}
+      setLang(saved==="de"?"de":"en");
+    })();
+  </script>
 </body>
 </html>

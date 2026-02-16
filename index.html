@@ -6,73 +6,96 @@
   <title>BRINGS by tenzer — Worldwide Private Courier</title>
   <meta name="description" content="BRINGS — Worldwide Private Courier. Discreet. Accountable. On time." />
   <meta name="theme-color" content="#0b1220" />
+  <link rel="icon" href="favicon.ico" />
   <style>
-    :root{
-      --bg:#0b1220; --panel:#0f1a2e; --text:#e7ecf7; --muted:#a8b3cc; --muted2:#7e89a6;
-      --line:rgba(255,255,255,.10); --line2:rgba(255,255,255,.14); --accent:#c7d3ff;
-      --shadow:0 18px 60px rgba(0,0,0,.55); --r:18px; --max:1120px;
-    }
-    *{box-sizing:border-box} html,body{height:100%}
-    body{
-      margin:0; color:var(--text); font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(199,211,255,.16), transparent 60%),
-        radial-gradient(900px 520px at 80% 0%, rgba(219,228,255,.10), transparent 55%),
-        radial-gradient(900px 520px at 60% 110%, rgba(199,211,255,.08), transparent 55%),
-        var(--bg);
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 56px}
-    .top{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px}
-    .brand{display:flex; gap:10px; align-items:baseline; white-space:nowrap}
-    .brand .mark{font-weight:650; letter-spacing:.7px; font-size:14px; color:var(--accent)}
-    .brand .sub{font-size:12px; color:var(--muted2)}
-    .lang{display:flex; gap:8px}
-    .pill{border:1px solid var(--line2); background:rgba(255,255,255,.04); color:var(--text); padding:8px 10px;
-      border-radius:999px; font-size:12px; cursor:pointer; user-select:none}
-    .pill[aria-pressed="true"]{border-color:rgba(199,211,255,.55); background:rgba(199,211,255,.10)}
-    .hero{border:1px solid var(--line); border-radius:22px; overflow:hidden; box-shadow:var(--shadow);
+    
+:root{
+  --bg:#0b1220;
+  --panel:#0f1a2e;
+  --text:#e7ecf7;
+  --muted:#a8b3cc;
+  --muted2:#7e89a6;
+  --line:rgba(255,255,255,.10);
+  --line2:rgba(255,255,255,.14);
+  --accent:#c7d3ff;
+  --shadow:0 18px 60px rgba(0,0,0,.55);
+  --r:18px;
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  min-height:100vh;
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(900px 520px at 22% 0%, rgba(199,211,255,.14), transparent 60%),
+    radial-gradient(900px 520px at 80% 10%, rgba(219,228,255,.10), transparent 60%),
+    linear-gradient(180deg, rgba(11,18,32,1) 0%, rgba(9,14,26,1) 100%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 18px 56px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.brand{display:flex;gap:10px;align-items:baseline;white-space:nowrap}
+.brand .mark{font-weight:650;letter-spacing:.7px;font-size:14px;color:var(--accent)}
+.brand .sub{font-size:12px;color:var(--muted2)}
+.lang{display:flex;gap:8px}
+.pill{border:1px solid var(--line2);background:rgba(255,255,255,.04);color:var(--text);padding:8px 10px;border-radius:999px;font-size:12px;cursor:pointer;user-select:none}
+.pill[aria-pressed="true"]{border-color:rgba(199,211,255,.55);background:rgba(199,211,255,.10)}
+.card{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.head{padding:14px 16px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.10);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+h1{margin:0;font-size:15px;color:var(--accent);font-weight:650;letter-spacing:.3px}
+.body{padding:16px}
+h2{margin:18px 0 8px;font-size:13px;color:var(--text);font-weight:650}
+p,li{color:var(--muted);font-size:13px;line-height:1.65}
+ul{margin:0;padding-left:18px}
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.link{border:1px solid var(--line);background:rgba(255,255,255,.03);padding:8px 10px;border-radius:999px}
+.kv{display:grid;grid-template-columns:180px 1fr;gap:8px 12px}
+@media (max-width:640px){.kv{grid-template-columns:1fr}}
+.k{color:var(--muted2);font-size:12.5px}
+.v{color:var(--text);font-size:13px}
+.note{color:var(--muted2);font-size:12.5px;line-height:1.55;margin-top:10px}
+[data-lang]{display:none}
+[data-lang].active{display:block}
+
+    .hero{border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);
       background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03))}
-    .grid{display:grid; grid-template-columns: 1.15fr .85fr; min-height:440px}
+    .grid{display:grid;grid-template-columns:1.15fr .85fr;min-height:440px}
     @media (max-width:980px){.grid{grid-template-columns:1fr}}
-    .left{padding:34px 30px 26px; background:linear-gradient(180deg, rgba(15,26,46,.95), rgba(11,21,39,.92))}
-    .right{padding:30px; background:linear-gradient(180deg, rgba(11,21,39,.92), rgba(15,26,46,.90)); border-left:1px solid var(--line)}
-    @media (max-width:980px){.right{border-left:none; border-top:1px solid var(--line)}}
-    .tags{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px}
-    .tag{border:1px solid var(--line2); background:rgba(255,255,255,.04); padding:7px 10px; border-radius:999px; font-size:12px; color:var(--muted)}
-    .tag strong{color:var(--accent); font-weight:650}
-    h1{margin:0 0 10px; font-size:40px; line-height:1.06; font-weight:680}
-    @media (max-width:520px){h1{font-size:34px}}
-    .sub{margin:0 0 18px; font-size:14px; color:var(--muted); line-height:1.55; max-width:64ch}
-    .chips{display:flex; gap:10px; flex-wrap:wrap; margin:0 0 16px}
-    .chip{display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line2); background:rgba(255,255,255,.03);
-      padding:9px 12px; border-radius:999px; font-size:12px}
-    .dot{width:8px;height:8px;border-radius:99px;background:rgba(199,211,255,.85); box-shadow:0 0 0 4px rgba(199,211,255,.08)}
-    .cta{display:flex; gap:10px; flex-wrap:wrap}
-    .btn{border:1px solid var(--line2); background:rgba(255,255,255,.05); color:var(--text); padding:10px 12px;
-      border-radius:12px; font-size:13px; display:inline-block}
-    .btn.primary{border-color:rgba(199,211,255,.55); background:rgba(199,211,255,.12)}
-    .panelTitle{margin:0 0 10px; font-size:14px; color:var(--accent); font-weight:650; letter-spacing:.3px}
-    .small{margin:0 0 14px; font-size:13px; color:var(--muted); line-height:1.55}
-    .card{border:1px solid var(--line); background:rgba(255,255,255,.03); border-radius:14px; padding:12px}
-    .card h3{margin:0 0 6px; font-size:13px; font-weight:650}
-    .card p{margin:0; font-size:12.5px; color:var(--muted); line-height:1.55}
-    .stack{display:grid; gap:10px}
-    .hr{height:1px; background:var(--line); margin:14px 0}
-    footer{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between; color:var(--muted2); font-size:12px}
-    .links{display:flex; gap:10px; flex-wrap:wrap}
-    .link{border:1px solid var(--line); background:rgba(255,255,255,.03); padding:8px 10px; border-radius:999px}
-    [data-lang]{display:none} [data-lang].active{display:block}
+    .left{padding:34px 30px 26px;background:linear-gradient(180deg, rgba(15,26,46,.95), rgba(11,21,39,.92))}
+    .right{padding:30px;background:linear-gradient(180deg, rgba(11,21,39,.92), rgba(15,26,46,.90));border-left:1px solid var(--line)}
+    @media (max-width:980px){.right{border-left:none;border-top:1px solid var(--line)}}
+    .tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+    .tag{border:1px solid var(--line2);background:rgba(255,255,255,.04);padding:7px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
+    .tag strong{color:var(--accent);font-weight:650}
+    h0{display:none}
+    .h1{margin:0 0 10px;font-size:40px;line-height:1.06;font-weight:680}
+    @media (max-width:520px){.h1{font-size:34px}}
+    .sub{margin:0 0 18px;font-size:14px;color:var(--muted);line-height:1.55;max-width:64ch}
+    .chips{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px}
+    .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line2);background:rgba(255,255,255,.03);padding:9px 12px;border-radius:999px;font-size:12px}
+    .dot{width:8px;height:8px;border-radius:99px;background:rgba(199,211,255,.85);box-shadow:0 0 0 4px rgba(199,211,255,.08)}
+    .cta{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{border:1px solid var(--line2);background:rgba(255,255,255,.05);color:var(--text);padding:10px 12px;border-radius:12px;font-size:13px;display:inline-block}
+    .btn.primary{border-color:rgba(199,211,255,.55);background:rgba(199,211,255,.12)}
+    .panelTitle{margin:0 0 10px;font-size:14px;color:var(--accent);font-weight:650;letter-spacing:.3px}
+    .small{margin:0 0 14px;font-size:13px;color:var(--muted);line-height:1.55}
+    .stack{display:grid;gap:10px}
+    .box{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:14px;padding:12px}
+    .box h3{margin:0 0 6px;font-size:13px;font-weight:650}
+    .box p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.55}
+    .hr{height:1px;background:var(--line);margin:14px 0}
+    footer{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;color:var(--muted2);font-size:12px}
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="top">
-      <div class="brand">
-        <div class="mark">BRINGS</div>
-        <div class="sub">by tenzer</div>
-      </div>
+      <div class="brand"><div class="mark">BRINGS</div><div class="sub">by tenzer</div></div>
       <div class="lang" role="group" aria-label="Language">
         <button class="pill" id="btnEN" type="button" aria-pressed="true">EN</button>
         <button class="pill" id="btnDE" type="button" aria-pressed="false">DE</button>
@@ -89,7 +112,7 @@
           </div>
 
           <div data-lang="en" class="active">
-            <h1>Worldwide Private Courier</h1>
+            <div class="h1">Worldwide Private Courier</div>
             <p class="sub">Personal courier service for urgent, sensitive, and high-trust deliveries — discreet, accountable, and on time.</p>
 
             <div class="chips" aria-label="Values">
@@ -105,12 +128,11 @@
             </div>
 
             <div class="hr"></div>
-
             <p class="small"><b>Availability:</b> 6 / 12 / 24 hours · <b>Zones:</b> Germany · EU · Worldwide</p>
           </div>
 
           <div data-lang="de">
-            <h1>Weltweiter Private Courier</h1>
+            <div class="h1">Weltweiter Private Courier</div>
             <p class="sub">Persönlicher Kurierdienst für dringende, sensible und vertrauensbasierte Sendungen — discreet, accountable, on time.</p>
 
             <div class="chips" aria-label="Werte">
@@ -126,7 +148,6 @@
             </div>
 
             <div class="hr"></div>
-
             <p class="small"><b>Verfügbarkeit:</b> 6 / 12 / 24 Stunden · <b>Zonen:</b> Deutschland · EU · Weltweit</p>
           </div>
         </div>
@@ -136,9 +157,9 @@
             <p class="panelTitle">Coverage</p>
             <p class="small">One accountable courier, documented handover, minimal exposure.</p>
             <div class="stack">
-              <div class="card"><h3>Germany</h3><p>Domestic urgent deliveries and sensitive originals.</p></div>
-              <div class="card"><h3>EU</h3><p>Cross-border handovers with documented chain of custody.</p></div>
-              <div class="card"><h3>Worldwide</h3><p>Hand-carry when shipping is not enough. Realistic ETAs only.</p></div>
+              <div class="box"><h3>Germany</h3><p>Domestic urgent deliveries and sensitive originals.</p></div>
+              <div class="box"><h3>EU</h3><p>Cross-border handovers with documented chain of custody.</p></div>
+              <div class="box"><h3>Worldwide</h3><p>Hand-carry when shipping is not enough. Realistic ETAs only.</p></div>
             </div>
           </div>
 
@@ -146,9 +167,9 @@
             <p class="panelTitle">Abdeckung</p>
             <p class="small">Ein verantwortlicher Kurier, dokumentierte Übergabe, minimale Exposition.</p>
             <div class="stack">
-              <div class="card"><h3>Deutschland</h3><p>Inland: eilig, sensibel, sauber dokumentiert.</p></div>
-              <div class="card"><h3>EU</h3><p>Grenzübertritt mit dokumentierter Chain-of-Custody.</p></div>
-              <div class="card"><h3>Weltweit</h3><p>Hand-Carry, wenn Versand nicht reicht. Nur realistische ETAs.</p></div>
+              <div class="box"><h3>Deutschland</h3><p>Inland: eilig, sensibel, sauber dokumentiert.</p></div>
+              <div class="box"><h3>EU</h3><p>Grenzübertritt mit dokumentierter Chain-of-Custody.</p></div>
+              <div class="box"><h3>Weltweit</h3><p>Hand-Carry, wenn Versand nicht reicht. Nur realistische ETAs.</p></div>
             </div>
           </div>
         </div>
@@ -156,10 +177,7 @@
     </div>
 
     <footer>
-      <div>
-        <span style="color:var(--accent); font-weight:650;">BRINGS</span>
-        <span style="color:var(--muted2);">by tenzer</span>
-      </div>
+      <div><span style="color:var(--accent);font-weight:650;">BRINGS</span> <span style="color:var(--muted2);">by tenzer</span></div>
       <div class="links">
         <a class="link" href="privacy.html" data-lang="en" class="active">Privacy</a>
         <a class="link" href="datenschutz.html" data-lang="de">Datenschutz</a>
@@ -172,23 +190,23 @@
   <script>
     (function(){
       "use strict";
-      var btnEN = document.getElementById("btnEN");
-      var btnDE = document.getElementById("btnDE");
+      var btnEN=document.getElementById("btnEN");
+      var btnDE=document.getElementById("btnDE");
       function setLang(lang){
-        btnEN.setAttribute("aria-pressed", lang==="en" ? "true":"false");
-        btnDE.setAttribute("aria-pressed", lang==="de" ? "true":"false");
-        var nodes = document.querySelectorAll("[data-lang]");
-        for (var i=0;i<nodes.length;i++) {
-          var n = nodes[i];
-          n.classList.toggle("active", n.getAttribute("data-lang") === lang);
+        btnEN.setAttribute("aria-pressed", lang==="en"?"true":"false");
+        btnDE.setAttribute("aria-pressed", lang==="de"?"true":"false");
+        var nodes=document.querySelectorAll("[data-lang]");
+        for(var i=0;i<nodes.length;i++) {
+          var n=nodes[i];
+          n.classList.toggle("active", n.getAttribute("data-lang")===lang);
         }
-        try{ localStorage.setItem("brings_lang", lang); }catch(e){}
+        try{localStorage.setItem("brings_lang",lang);}catch(e){}
       }
-      btnEN.addEventListener("click", function(){ setLang("en"); });
-      btnDE.addEventListener("click", function(){ setLang("de"); });
-      var saved = "en";
-      try{ saved = localStorage.getItem("brings_lang") || "en"; }catch(e){}
-      setLang(saved === "de" ? "de" : "en");
+      btnEN.addEventListener("click",function(){setLang("en");});
+      btnDE.addEventListener("click",function(){setLang("de");});
+      var saved="en";
+      try{saved=localStorage.getItem("brings_lang")||"en";}catch(e){}
+      setLang(saved==="de"?"de":"en");
     })();
   </script>
 </body>

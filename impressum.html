@@ -1,53 +1,83 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Impressum — BRINGS by tenzer</title>
-  <style>
-    body{margin:0;font-family: Arial, sans-serif;line-height:1.6;background:#0b1220;color:#e9eef7}
-    .wrap{max-width:900px;margin:0 auto;padding:42px 18px}
-    a{color:#e9eef7}
-    h1{margin:0 0 14px}
-    .box{border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px;background:rgba(255,255,255,.02)}
-    p{color:#b8c4d9;margin:0 0 10px}
-    .muted{color:#b8c4d9}
-    .top{margin-bottom:18px}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BRINGS — Impressum</title>
+<style>
+:root{ --bg:#0b1220; --panel:#0f1a2e; --text:#e9eef7; --muted:#b8c4d9; --line:rgba(255,255,255,.12); --accent:#c9b37e; }
+*{box-sizing:border-box} html,body{height:100%;margin:0}
+body{font-family: Arial, sans-serif; background: var(--bg); color: var(--text);}
+a{color:var(--text); text-decoration:underline}
+a:hover{color:var(--accent)}
+.top{position:fixed;top:0;left:0;right:0;height:70px;display:flex;align-items:center;justify-content:center;
+background:rgba(11,18,32,.92);border-bottom:1px solid var(--line);z-index:10}
+.nav{width:100%;max-width:none;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{letter-spacing:.30em;font-weight:700;white-space:nowrap;font-size:32px}
+.brand .by{font-weight:400;font-size:.40em;letter-spacing:normal}
+.brand .brings{font-weight:700;letter-spacing:0.10em;color: rgba(245,245,245,0.92);
+background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(225,225,225,0.92) 40%, rgba(255,255,255,0.92) 75%, rgba(205,205,205,0.92) 100%);
+-webkit-background-clip:text;background-clip:text}
+@supports (-webkit-background-clip:text){ .brand .brings{color:transparent;} }
+.menu{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.btn{background:rgba(255,255,255,.01);border:1px solid var(--line);color:var(--muted);padding:8px 12px;border-radius:999px;
+cursor:pointer;font-size:12.5px;line-height:1}
+.btn:hover{color:var(--text);border-color:rgba(255,255,255,.22)}
+.wrap{min-height:100vh;padding-top:70px;display:flex;align-items:flex-start;justify-content:center}
+.center{max-width:860px;width:100%;padding:28px 20px 90px}
+.card{border:1px solid rgba(255,255,255,.10);background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+border-radius:20px;padding:22px 20px}
+h1{margin:0 0 10px;font-size:18px;letter-spacing:.02em}
+p,li{margin:10px 0;color:var(--muted);font-size:13.5px;line-height:1.55}
+.small{font-size:12.8px}
+.note{border-left:3px solid rgba(201,179,126,.55);padding-left:10px;margin-top:10px}
+footer{position:fixed;bottom:14px;width:100%;text-align:center;font-size:12px;color:var(--muted);z-index:5}
+footer a{color:var(--muted); text-decoration:none}
+footer a:hover{color:var(--text); text-decoration:underline}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="top"><a href="index.html">← Zur Startseite</a></div>
-    <h1>Impressum</h1>
-
-    <div class="box">
-      <p><b>Diensteanbieter</b> (gemäß § 5 DDG):</p>
-      <p>
-        <b>Thorsten Tenzer</b><br/>
-        Töpferweg 81<br/>
-        23558 Lübeck<br/>
-        Deutschland
-      </p>
-
-      <p><b>Kontakt</b></p>
-      <p>
-        E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a><br/>
-        Telefon: <a href="tel:+491738847374">+49 173 884 73 74</a>
-      </p>
-
-      <p><b>Register / Umsatzsteuer</b> (falls vorhanden)</p>
-      <p class="muted">
-        Handelsregister:  (falls zutreffend)<br/>
-        USt-IdNr.:  (falls zutreffend)
-      </p>
-
-      <p><b>Inhaltlich Verantwortlicher</b> (falls abweichend)</p>
-      <p class="muted"> (falls zutreffend)</p>
-
-      <p class="muted">
-        Hinweis: Dieses Impressum wurde als Arbeitsvorlage erstellt und muss mit den tatsächlichen Angaben vervollständigt werden.
-      </p>
+<div class="top">
+  <div class="nav">
+    <div class="brand"><span class="brings">BRINGS</span><span class="by"> by tenzer</span></div>
+    <div class="menu">
+      <a class="btn" href="index.html">Home</a>
     </div>
   </div>
+</div>
+
+<div class="wrap">
+  <div class="center">
+    <section class="card">
+      <h1>Impressum</h1>
+      
+<p><b>BRINGS by tenzer — Weltweiter persönlicher Kurier</b></p>
+<p class="small">
+Diensteanbieter:<br>
+Thorsten Tenzer<br>
+Töpferweg 81<br>
+23558 Lübeck<br>
+Deutschland
+</p>
+<p class="small">
+Kontakt:<br>
+E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
+Telefon: +49 173 884 7374
+</p>
+<p class="small">
+Verantwortlich für den Inhalt:<br>
+Thorsten Tenzer, Anschrift wie oben
+</p>
+<p class="note small">
+Diese Website bietet keinen Paketversand und keine Massenlogistik. Leistungen erfolgen individuell auf Anfrage, vorbehaltlich Verfügbarkeit und Vereinbarung.
+</p>
+
+    </section>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html">Home</a>
+</footer>
 </body>
 </html>

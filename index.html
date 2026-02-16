@@ -216,8 +216,7 @@ footer{
 }
 .box h3{margin:0 0 6px; color:var(--text); font-size:13.5px}
 @media (max-width:820px){
-  .hero-brand{font-size:52px
-  display:inline-block;
+  .hero-brand{font-size:52px; display:inline-block;
   transform:scale(1.03);
   transform-origin:center;
 }
@@ -355,6 +354,16 @@ main { min-height: 100vh; }
   pointer-events:none !important;
 }
 
+
+
+/* v15 layout alignment (safe) */
+.nav{
+  max-width: none !important;
+  padding-left: 28px !important;
+  padding-right: 28px !important;
+}
+.brand{ letter-spacing:.30em; } /* slightly tighter */
+.menu{ justify-content:flex-end !important; margin-left:auto !important; }
 </style>
 </head>
 
@@ -417,6 +426,8 @@ window.addEventListener("DOMContentLoaded", () => {
       nav_coverage: "Coverage",
       nav_pricing: "Pricing",
       nav_contact: "Contact",
+      footer_s: "`We deliver what cannot be replaced. <span class=\"accent\">Anytime, anywhere.</span>`",
+      footer_k: "On Time \u00b7 Discreet \u00b7 Accountable",
       subline: "Worldwide Private Courier",
       headline: "",
       claim: "</b>",
@@ -447,7 +458,8 @@ window.addEventListener("DOMContentLoaded", () => {
         coverageTitle: "Coverage",
         coverageBody: `
           <p>Germany and EU are active. Worldwide on request.</p>
-          <p class="note small"><b>Availability:</b> short notice possible (24–48h), depending on route and flight situation.</p>
+          <p class="note small"><b>Availability:</b> 6 / 12 / 24 hours (subject to route & flight situation).</p>
+          <p class="note small"><b>Zones:</b> Germany · EU · Worldwide</p>
         `,
         pricingTitle: "Pricing",
         pricingBody: `
@@ -512,7 +524,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <p class="small">
             Contact:<br>
             Email: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
-            Phone: +49 173 884 73 74(temporary)
+            Phone: +49 173 884 7374 (temporary)
           </p>
           <p class="small">
             Responsible for content:<br>
@@ -549,9 +561,11 @@ window.addEventListener("DOMContentLoaded", () => {
       nav_coverage: "Einsatzgebiete",
       nav_pricing: "Preise",
       nav_contact: "Kontakt",
-      subline: "Weltweiter persönlicher Kurier",
-      headline: "Pünktlich. Diskret. Verlässlich.",
-      claim: "Wir übergeben, was nicht ersetzbar ist. <b>Jederzeit. Überall.</b>",
+      footer_s: "`Wir \u00fcbergeben, was nicht ersetzbar ist. <span class=\"accent\">Jederzeit. \u00dcberall.</span>`",
+      footer_k: "P\u00fcnktlich \u00b7 Diskret \u00b7 Verl\u00e4sslich",
+      subline: "Personal Courier",
+      headline: "",
+      claim: "",
       imprint: "Impressum",
       privacy: "Datenschutz",
       close: "Schließen",
@@ -579,7 +593,8 @@ window.addEventListener("DOMContentLoaded", () => {
         coverageTitle: "Einsatzgebiete",
         coverageBody: `
           <p>Deutschland und EU sind aktiv. Weltweit auf Anfrage.</p>
-          <p class="note small"><b>Verfügbarkeit:</b> kurzfristig möglich (24–48h), abhängig von Route und Abfluglage.</p>
+          <p class="note small"><b>Verfügbarkeit:</b> 6 / 12 / 24 Stunden (abhängig von Route & Abfluglage).</p>
+          <p class="note small"><b>Zonen:</b> Deutschland · EU · Weltweit</p>
         `,
         pricingTitle: "Preise",
         pricingBody: `
@@ -644,11 +659,11 @@ window.addEventListener("DOMContentLoaded", () => {
           <p class="small">
             Kontakt:<br>
             E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
-            Telefon: +49 173 884 73 74(vorläufig)
+            Telefon: +49 173 884 7374 (vorläufig)
           </p>
           <p class="small">
             Verantwortlich für den Inhalt:<br>
-            [Name], Anschrift wie oben
+            Thorsten Tenzer, Anschrift wie oben
           </p>
           <p class="note small">
             Diese Website bietet keinen Paketversand und keine Massenlogistik. Leistungen erfolgen individuell auf Anfrage, vorbehaltlich Verfügbarkeit und Vereinbarung.
@@ -659,7 +674,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <p><b>Datenschutzhinweise (Kurzfassung)</b></p>
           <p class="small">
             Verantwortlicher:<br>
-            [Name / Unternehmen], [Anschrift], Deutschland<br>
+            Thorsten Tenzer, Töpferweg 81, 23558 Lübeck, Deutschland<br>
             E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a>
           </p>
           <p class="small">
@@ -672,7 +687,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <p class="small">
             Sie haben Betroffenenrechte nach DSGVO (Auskunft, Berichtigung, Löschung, Widerspruch etc.) und können sich bei einer Aufsichtsbehörde beschweren.
           </p>
-          <p class="small">Stand: [Datum]</p>
+          <p class="small">Stand: 2026-02-16</p>
         `
       }
     }
@@ -740,16 +755,17 @@ window.addEventListener("DOMContentLoaded", () => {
   closeBtn.addEventListener("click", (e)=>{ e.preventDefault(); closeModal(); });
   document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
 
-  btnEN.addEventListener("click", ()=>applyLang("en"));
-  btnDE.addEventListener("click", ()=>applyLang("de"));
+  btnEN.addEventListener("click", ()=>{ applyLang("en"); try{localStorage.setItem("brings_lang","en");}catch(e){} });
+  btnDE.addEventListener("click", ()=>{ applyLang("de"); try{localStorage.setItem("brings_lang","de");}catch(e){} });
 
-  applyLang("en");
+  let saved="en";
+  try{ saved = localStorage.getItem("brings_lang") || "en"; }catch(e){}
+  applyLang(saved==="de" ? "de" : "en");
 });
 </script>
 <div class="footer-copy">
-  <div class="k">On Time · Discreet · Accountable</div>
-  <div class="s">We deliver what cannot be replaced. <span class="accent">Anytime, anywhere.</span></div>
+  <div class="k" data-i18n="footer_k"></div>
+  <div class="s" data-i18n="footer_s"></div>
 </div>
-
 </body>
 </html>

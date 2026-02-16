@@ -1,69 +1,80 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Datenschutz — BRINGS by tenzer</title>
-  <style>
-    body{margin:0;font-family: Arial, sans-serif;line-height:1.65;background:#0b1220;color:#e9eef7}
-    .wrap{max-width:900px;margin:0 auto;padding:42px 18px}
-    a{color:#e9eef7}
-    h1,h2{margin:0 0 10px}
-    h2{margin-top:22px;font-size:18px}
-    p,li{color:#b8c4d9}
-    .box{border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px;background:rgba(255,255,255,.02)}
-    .top{margin-bottom:18px}
-    code{background:rgba(255,255,255,.06);padding:2px 6px;border-radius:8px}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BRINGS — Datenschutz</title>
+<style>
+:root{ --bg:#0b1220; --panel:#0f1a2e; --text:#e9eef7; --muted:#b8c4d9; --line:rgba(255,255,255,.12); --accent:#c9b37e; }
+*{box-sizing:border-box} html,body{height:100%;margin:0}
+body{font-family: Arial, sans-serif; background: var(--bg); color: var(--text);}
+a{color:var(--text); text-decoration:underline}
+a:hover{color:var(--accent)}
+.top{position:fixed;top:0;left:0;right:0;height:70px;display:flex;align-items:center;justify-content:center;
+background:rgba(11,18,32,.92);border-bottom:1px solid var(--line);z-index:10}
+.nav{width:100%;max-width:none;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{letter-spacing:.30em;font-weight:700;white-space:nowrap;font-size:32px}
+.brand .by{font-weight:400;font-size:.40em;letter-spacing:normal}
+.brand .brings{font-weight:700;letter-spacing:0.10em;color: rgba(245,245,245,0.92);
+background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(225,225,225,0.92) 40%, rgba(255,255,255,0.92) 75%, rgba(205,205,205,0.92) 100%);
+-webkit-background-clip:text;background-clip:text}
+@supports (-webkit-background-clip:text){ .brand .brings{color:transparent;} }
+.menu{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.btn{background:rgba(255,255,255,.01);border:1px solid var(--line);color:var(--muted);padding:8px 12px;border-radius:999px;
+cursor:pointer;font-size:12.5px;line-height:1}
+.btn:hover{color:var(--text);border-color:rgba(255,255,255,.22)}
+.wrap{min-height:100vh;padding-top:70px;display:flex;align-items:flex-start;justify-content:center}
+.center{max-width:860px;width:100%;padding:28px 20px 90px}
+.card{border:1px solid rgba(255,255,255,.10);background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+border-radius:20px;padding:22px 20px}
+h1{margin:0 0 10px;font-size:18px;letter-spacing:.02em}
+p,li{margin:10px 0;color:var(--muted);font-size:13.5px;line-height:1.55}
+.small{font-size:12.8px}
+.note{border-left:3px solid rgba(201,179,126,.55);padding-left:10px;margin-top:10px}
+footer{position:fixed;bottom:14px;width:100%;text-align:center;font-size:12px;color:var(--muted);z-index:5}
+footer a{color:var(--muted); text-decoration:none}
+footer a:hover{color:var(--text); text-decoration:underline}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="top"><a href="index.html">← Zur Startseite</a></div>
-    <h1>Datenschutzerklärung</h1>
-
-    <div class="box">
-      <p><b>Verantwortlicher</b></p>
-      <p>
-        Thorsten Tenzer<br/>
-        Töpferweg 81<br/>
-        23558 Lübeck<br/>
-        Deutschland<br/>
-        E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a>
-      </p>
-
-      <h2>1. Hosting über GitHub Pages</h2>
-      <p>
-        Diese Website wird über <b>GitHub Pages</b> gehostet (GitHub, Inc.). Beim Aufruf der Seite werden technisch notwendige Zugriffsdaten
-        in Server-Logfiles verarbeitet (z. B. IP-Adresse, Datum/Uhrzeit, angeforderte Ressource, User-Agent, Referrer), um den sicheren Betrieb
-        der Website zu ermöglichen und Missbrauch abzuwehren. :contentReference{index=3}
-      </p>
-      <p>
-        Weitere Informationen finden Sie in der Datenschutzerklärung von GitHub:
-        <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Datenschutzerklärung</a>. :contentReference{index=4}
-      </p>
-
-      <h2>2. Kontaktaufnahme</h2>
-      <p>
-        Wenn Sie uns per E-Mail oder telefonisch kontaktieren, verarbeiten wir die von Ihnen übermittelten Daten (z. B. Name, E-Mail-Adresse,
-        Inhalt der Anfrage), um Ihre Anfrage zu bearbeiten und ggf. zu dokumentieren. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO
-        (vorvertragliche Maßnahmen/Vertrag) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an effizienter Kommunikation).
-      </p>
-
-      <h2>3. Cookies / Tracking / Analyse</h2>
-      <p>
-        Wir setzen keine Tracking-Tools, keine Analyse-Software und keine Marketing-Cookies ein. (Technisch notwendige Vorgänge des Hostings
-        können hiervon unberührt sein.)
-      </p>
-
-      <h2>4. Ihre Rechte</h2>
-      <p>
-        Sie haben nach DSGVO u. a. das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch.
-        Außerdem besteht ein Beschwerderecht bei einer Datenschutzaufsichtsbehörde.
-      </p>
-
-      <h2>5. Aktualität</h2>
-      <p>Stand: </p>
+<div class="top">
+  <div class="nav">
+    <div class="brand"><span class="brings">BRINGS</span><span class="by"> by tenzer</span></div>
+    <div class="menu">
+      <a class="btn" href="index.html">Home</a>
     </div>
   </div>
+</div>
+
+<div class="wrap">
+  <div class="center">
+    <section class="card">
+      <h1>Datenschutz</h1>
+      
+<p><b>Datenschutzhinweise (Kurzfassung)</b></p>
+<p class="small">
+Verantwortlicher:<br>
+Thorsten Tenzer, Töpferweg 81, 23558 Lübeck, Deutschland<br>
+E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a>
+</p>
+<p class="small">
+Wir verarbeiten Daten, die Sie uns übermitteln (z. B. Kontaktdaten, Start/Ziel, Zeitfenster), um Ihre Anfrage zu beantworten und die Leistung zu erbringen.
+Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertrag/Anbahnung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).
+</p>
+<p class="small">
+Hosting kann über GitHub Pages erfolgen. Server-Logs können zu Sicherheits- und Betriebszwecken verarbeitet werden.
+</p>
+<p class="small">
+Sie haben Betroffenenrechte nach DSGVO (Auskunft, Berichtigung, Löschung, Widerspruch etc.) und können sich bei einer Aufsichtsbehörde beschweren.
+</p>
+<p class="small">Stand: 2026-02-16</p>
+
+    </section>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html">Home</a>
+</footer>
 </body>
 </html>

@@ -1,52 +1,80 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BRINGS by tenzer — Privacy</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BRINGS — Privacy</title>
 <style>
-:root{--bg:#0b1220;--line:rgba(255,255,255,.12);--text:#e9eef7;--muted:#b8c4d9}
-*{box-sizing:border-box}
-html,body{height:100%;margin:0}
-body{font-family: Arial, sans-serif;background:var(--bg);color:var(--text)}
-a{color:var(--text);text-decoration:underline}
-.wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 16px}
-.card{max-width:860px;width:100%;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.02);padding:26px}
-h1{margin:0 0 14px;font-size:18px}
-p,li{color:var(--muted);line-height:1.55;font-size:13.5px}
-hr{border:none;border-top:1px solid var(--line);margin:16px 0}
+:root{ --bg:#0b1220; --panel:#0f1a2e; --text:#e9eef7; --muted:#b8c4d9; --line:rgba(255,255,255,.12); --accent:#c9b37e; }
+*{box-sizing:border-box} html,body{height:100%;margin:0}
+body{font-family: Arial, sans-serif; background: var(--bg); color: var(--text);}
+a{color:var(--text); text-decoration:underline}
+a:hover{color:var(--accent)}
+.top{position:fixed;top:0;left:0;right:0;height:70px;display:flex;align-items:center;justify-content:center;
+background:rgba(11,18,32,.92);border-bottom:1px solid var(--line);z-index:10}
+.nav{width:100%;max-width:none;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{letter-spacing:.30em;font-weight:700;white-space:nowrap;font-size:32px}
+.brand .by{font-weight:400;font-size:.40em;letter-spacing:normal}
+.brand .brings{font-weight:700;letter-spacing:0.10em;color: rgba(245,245,245,0.92);
+background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(225,225,225,0.92) 40%, rgba(255,255,255,0.92) 75%, rgba(205,205,205,0.92) 100%);
+-webkit-background-clip:text;background-clip:text}
+@supports (-webkit-background-clip:text){ .brand .brings{color:transparent;} }
+.menu{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.btn{background:rgba(255,255,255,.01);border:1px solid var(--line);color:var(--muted);padding:8px 12px;border-radius:999px;
+cursor:pointer;font-size:12.5px;line-height:1}
+.btn:hover{color:var(--text);border-color:rgba(255,255,255,.22)}
+.wrap{min-height:100vh;padding-top:70px;display:flex;align-items:flex-start;justify-content:center}
+.center{max-width:860px;width:100%;padding:28px 20px 90px}
+.card{border:1px solid rgba(255,255,255,.10);background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+border-radius:20px;padding:22px 20px}
+h1{margin:0 0 10px;font-size:18px;letter-spacing:.02em}
+p,li{margin:10px 0;color:var(--muted);font-size:13.5px;line-height:1.55}
+.small{font-size:12.8px}
+.note{border-left:3px solid rgba(201,179,126,.55);padding-left:10px;margin-top:10px}
+footer{position:fixed;bottom:14px;width:100%;text-align:center;font-size:12px;color:var(--muted);z-index:5}
+footer a{color:var(--muted); text-decoration:none}
+footer a:hover{color:var(--text); text-decoration:underline}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="card">
-    <h1>Privacy Policy</h1>
-    <hr>
-
-    <p><b>Controller</b><br>
-    Thorsten Tenzer<br>
-    Töpferweg 81<br>
-    23558 Lübeck<br>
-    Deutschland<br>
-    Email: <a href="mailto:contact@brings.global">contact@brings.global</a></p>
-
-    <p><b>What we process</b><br>
-    We process data you send us (e.g., contact details, origin/destination, time window) to respond to your request and to provide our service.</p>
-
-    <p><b>Legal basis</b><br>
-    Art. 6(1)(b) GDPR (contract / pre-contractual measures) and Art. 6(1)(f) GDPR (legitimate interest in communication and service delivery).</p>
-
-    <p><b>Hosting</b><br>
-    This website may be hosted via GitHub Pages. Server logs may be processed for security and operation.</p>
-
-    <p><b>Your rights</b><br>
-    You have rights under the GDPR (access, rectification, erasure, objection, etc.) and may lodge a complaint with a supervisory authority.</p>
-
-    <p><b>Contact</b><br>
-    <a href="mailto:contact@brings.global">contact@brings.global</a></p>
-
-    <p style="font-size:12.5px;color:var(--muted)">Last updated: </p>
+<div class="top">
+  <div class="nav">
+    <div class="brand"><span class="brings">BRINGS</span><span class="by"> by tenzer</span></div>
+    <div class="menu">
+      <a class="btn" href="index.html">Home</a>
+    </div>
   </div>
 </div>
+
+<div class="wrap">
+  <div class="center">
+    <section class="card">
+      <h1>Privacy</h1>
+      
+<p><b>Privacy Policy (short)</b></p>
+<p class="small">
+Controller:<br>
+Thorsten Tenzer, Töpferweg 81, 23558 Lübeck, Germany<br>
+Email: <a href="mailto:contact@brings.global">contact@brings.global</a>
+</p>
+<p class="small">
+We process data you send us (e.g., contact details, origin/destination, time window) to respond to your request and provide the service.
+Legal basis: Art. 6(1)(b) GDPR (contract/pre-contract) and Art. 6(1)(f) GDPR (legitimate interest).
+</p>
+<p class="small">
+Hosting may be provided via GitHub Pages. Server logs may be processed for security and operation.
+</p>
+<p class="small">
+You have rights under the GDPR (access, rectification, erasure, objection, etc.) and may lodge a complaint with a supervisory authority.
+</p>
+<p class="small">Last update: 2026-02-16</p>
+
+    </section>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html">Home</a>
+</footer>
 </body>
 </html>

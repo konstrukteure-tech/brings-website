@@ -1,16 +1,12 @@
-BRINGS V16 ROOT V2 (clean, bilingual legal pages)
+BRINGS V16 (FROM V15 — layout preserved)
 
-Upload these files to the repository ROOT:
-- index.html
-- privacy.html
-- datenschutz.html
-- imprint.html
-- impressum.html
-- favicon.ico
-- CNAME
-- BRINGS_Request_Form_EN.pdf
-- BRINGS_Request_Form_DE.pdf
+Goal:
+- Keep the original V15 layout 1:1
+- Fix DE placeholders in Imprint/Privacy
+- Add Availability 6/12/24 + Zones to Coverage modal
+- Add language persistence
+- Provide standalone legal pages (optional), plus favicon + CNAME
 
-Notes:
-- Legal pages are bilingual with EN/DE toggle and keep legacy DE/EN filenames.
-- Footer links switch by language and persist via localStorage brings_lang.
+Upload:
+- Put all files directly in repo ROOT (same level as index.html)
+- GitHub Pages source: main / root

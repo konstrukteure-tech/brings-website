@@ -1,126 +1,83 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Imprint / Impressum — BRINGS</title>
-  <meta name="theme-color" content="#0b1220" />
-  <link rel="icon" href="favicon.ico" />
-  <style>
-:root{
-  --bg:#0b1220;
-  --panel:#0f1a2e;
-  --text:#e7ecf7;
-  --muted:#a8b3cc;
-  --muted2:#7e89a6;
-  --line:rgba(255,255,255,.10);
-  --line2:rgba(255,255,255,.14);
-  --accent:#c7d3ff;
-  --shadow:0 18px 60px rgba(0,0,0,.55);
-  --r:18px;
-  --max:1120px;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  min-height:100vh;
-  color:var(--text);
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background:
-    radial-gradient(900px 520px at 22% 0%, rgba(199,211,255,.14), transparent 60%),
-    radial-gradient(900px 520px at 80% 10%, rgba(219,228,255,.10), transparent 60%),
-    linear-gradient(180deg, rgba(11,18,32,1) 0%, rgba(9,14,26,1) 100%);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:var(--max);margin:0 auto;padding:28px 18px 56px}
-.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
-.brand{display:flex;gap:10px;align-items:baseline;white-space:nowrap}
-.brand .mark{font-weight:650;letter-spacing:.7px;font-size:14px;color:var(--accent)}
-.brand .sub{font-size:12px;color:var(--muted2)}
-.lang{display:flex;gap:8px}
-.pill{border:1px solid var(--line2);background:rgba(255,255,255,.04);color:var(--text);padding:8px 10px;border-radius:999px;font-size:12px;cursor:pointer;user-select:none}
-.pill[aria-pressed="true"]{border-color:rgba(199,211,255,.55);background:rgba(199,211,255,.10)}
-.card{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
-.head{padding:14px 16px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.10);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-h1{margin:0;font-size:15px;color:var(--accent);font-weight:650;letter-spacing:.3px}
-.body{padding:16px}
-h2{margin:18px 0 8px;font-size:13px;color:var(--text);font-weight:650}
-p,li{color:var(--muted);font-size:13px;line-height:1.65}
-ul{margin:0;padding-left:18px}
-.links{display:flex;gap:10px;flex-wrap:wrap}
-.link{border:1px solid var(--line);background:rgba(255,255,255,.03);padding:8px 10px;border-radius:999px}
-.kv{display:grid;grid-template-columns:180px 1fr;gap:8px 12px}
-@media (max-width:640px){.kv{grid-template-columns:1fr}}
-.k{color:var(--muted2);font-size:12.5px}
-.v{color:var(--text);font-size:13px}
-.note{color:var(--muted2);font-size:12.5px;line-height:1.55;margin-top:10px}
-[data-lang]{display:none}
-[data-lang].active{display:block}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BRINGS — Impressum</title>
+<style>
+:root{ --bg:#0b1220; --panel:#0f1a2e; --text:#e9eef7; --muted:#b8c4d9; --line:rgba(255,255,255,.12); --accent:#c9b37e; }
+*{box-sizing:border-box} html,body{height:100%;margin:0}
+body{font-family: Arial, sans-serif; background: var(--bg); color: var(--text);}
+a{color:var(--text); text-decoration:underline}
+a:hover{color:var(--accent)}
+.top{position:fixed;top:0;left:0;right:0;height:70px;display:flex;align-items:center;justify-content:center;
+background:rgba(11,18,32,.92);border-bottom:1px solid var(--line);z-index:10}
+.nav{width:100%;max-width:none;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{letter-spacing:.30em;font-weight:700;white-space:nowrap;font-size:32px}
+.brand .by{font-weight:400;font-size:.40em;letter-spacing:normal}
+.brand .brings{font-weight:700;letter-spacing:0.10em;color: rgba(245,245,245,0.92);
+background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(225,225,225,0.92) 40%, rgba(255,255,255,0.92) 75%, rgba(205,205,205,0.92) 100%);
+-webkit-background-clip:text;background-clip:text}
+@supports (-webkit-background-clip:text){ .brand .brings{color:transparent;} }
+.menu{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.btn{background:rgba(255,255,255,.01);border:1px solid var(--line);color:var(--muted);padding:8px 12px;border-radius:999px;
+cursor:pointer;font-size:12.5px;line-height:1}
+.btn:hover{color:var(--text);border-color:rgba(255,255,255,.22)}
+.wrap{min-height:100vh;padding-top:70px;display:flex;align-items:flex-start;justify-content:center}
+.center{max-width:860px;width:100%;padding:28px 20px 90px}
+.card{border:1px solid rgba(255,255,255,.10);background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+border-radius:20px;padding:22px 20px}
+h1{margin:0 0 10px;font-size:18px;letter-spacing:.02em}
+p,li{margin:10px 0;color:var(--muted);font-size:13.5px;line-height:1.55}
+.small{font-size:12.8px}
+.note{border-left:3px solid rgba(201,179,126,.55);padding-left:10px;margin-top:10px}
+footer{position:fixed;bottom:14px;width:100%;text-align:center;font-size:12px;color:var(--muted);z-index:5}
+footer a{color:var(--muted); text-decoration:none}
+footer a:hover{color:var(--text); text-decoration:underline}
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="top">
-      <div class="brand"><div class="mark">BRINGS</div><div class="sub">by tenzer</div></div>
-      <div class="lang">
-        <button class="pill" id="btnEN" type="button" aria-pressed="true">EN</button>
-        <button class="pill" id="btnDE" type="button" aria-pressed="false">DE</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="head">
-        <h1 data-lang="en" class="active">Imprint</h1>
-        <h1 data-lang="de">Impressum</h1>
-        <div class="links"><a class="link" href="index.html" data-lang="en" class="active">Home</a><a class="link" href="index.html" data-lang="de">Start</a><a class="link" href="privacy.html" data-lang="en" class="active">Privacy</a><a class="link" href="datenschutz.html" data-lang="de">Datenschutz</a><a class="link" href="imprint.html" data-lang="en" class="active">Imprint</a><a class="link" href="impressum.html" data-lang="de">Impressum</a></div>
-      </div>
-      <div class="body">
-        <div data-lang="en" class="active">
-<div class="kv">
-  <div class="k">Operator</div><div class="v">Thorsten Tenzer</div>
-  <div class="k">Address</div><div class="v">Töpferweg 81, 23558 Lübeck, Germany</div>
-  <div class="k">Email</div><div class="v">contact@brings.global</div>
-  <div class="k">Phone</div><div class="v">+49 173 884 7374</div>
-</div>
-<p class="note">Add VAT-ID / register details if/when applicable.</p>
-</div>
-        <div data-lang="de">
-<div class="kv">
-  <div class="k">Betreiber</div><div class="v">Thorsten Tenzer</div>
-  <div class="k">Anschrift</div><div class="v">Töpferweg 81, 23558 Lübeck, Deutschland</div>
-  <div class="k">E-Mail</div><div class="v">contact@brings.global</div>
-  <div class="k">Telefon</div><div class="v">+49 173 884 7374</div>
-</div>
-<p class="note">USt-IdNr. / Registerangaben ergänzen, falls vorhanden.</p>
-</div>
-      </div>
+<div class="top">
+  <div class="nav">
+    <div class="brand"><span class="brings">BRINGS</span><span class="by"> by tenzer</span></div>
+    <div class="menu">
+      <a class="btn" href="index.html">Home</a>
     </div>
   </div>
+</div>
 
-  <script>
-    (function(){
-      "use strict";
-      var btnEN=document.getElementById("btnEN");
-      var btnDE=document.getElementById("btnDE");
-      function setLang(lang){
-        btnEN.setAttribute("aria-pressed", lang==="en"?"true":"false");
-        btnDE.setAttribute("aria-pressed", lang==="de"?"true":"false");
-        var nodes=document.querySelectorAll("[data-lang]");
-        for(var i=0;i<nodes.length;i++) {
-          var n=nodes[i];
-          n.classList.toggle("active", n.getAttribute("data-lang")===lang);
-        }
-        try{localStorage.setItem("brings_lang",lang);}catch(e){}
-      }
-      btnEN.addEventListener("click",function(){setLang("en");});
-      btnDE.addEventListener("click",function(){setLang("de");});
-      var saved="en";
-      try{saved=localStorage.getItem("brings_lang")||"en";}catch(e){}
-      setLang(saved==="de"?"de":"en");
-    })();
-  </script>
+<div class="wrap">
+  <div class="center">
+    <section class="card">
+      <h1>Impressum</h1>
+      
+<p><b>BRINGS by tenzer — Weltweiter persönlicher Kurier</b></p>
+<p class="small">
+Diensteanbieter:<br>
+Thorsten Tenzer<br>
+Töpferweg 81<br>
+23558 Lübeck<br>
+Deutschland
+</p>
+<p class="small">
+Kontakt:<br>
+E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
+Telefon: +49 173 884 7374
+</p>
+<p class="small">
+Verantwortlich für den Inhalt:<br>
+Thorsten Tenzer, Anschrift wie oben
+</p>
+<p class="note small">
+Diese Website bietet keinen Paketversand und keine Massenlogistik. Leistungen erfolgen individuell auf Anfrage, vorbehaltlich Verfügbarkeit und Vereinbarung.
+</p>
+
+    </section>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html">Home</a>
+</footer>
 </body>
 </html>

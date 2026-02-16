@@ -366,18 +366,35 @@ main { min-height: 100vh; }
 .brand{ letter-spacing:.30em; } /* slightly tighter */
 .menu{ justify-content:flex-end !important; margin-left:auto !important; }
 
-/* --- FINAL3: hero BRINGS 3x bigger, hero "by tenzer" 5x smaller --- */
+/* --- FINAL4: Hero brand sizing + centered stacked layout --- */
 .hero-brand{
-  font-size: clamp(140px, 16vw, 260px) !important;
-  letter-spacing: 0.22em !important;
+  /* override original inline-block sizing/letter-spacing */
+  letter-spacing: normal !important;
+  transform: none !important;
+  display: inline-flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin: 0 0 14px !important;
 }
-.hero-by{
-  font-size: clamp(8px, 1.15vw, 12px) !important;
+.hero-brand .brings{
+  font-size: clamp(140px, 16vw, 260px) !important; /* ~3x vs 64px base */
+  font-weight: 700 !important;
+  letter-spacing: .42em !important;
+  line-height: 1 !important;
+  display:block;
+}
+.hero-brand .by{
+  font-size: clamp(10px, 1.2vw, 12px) !important; /* ~5x smaller */
+  letter-spacing: normal !important;
   opacity: .95;
+  margin: 0 !important;
+  line-height: 1.1 !important;
+  display:block;
 }
 @media (max-width:820px){
-  .hero-brand{ font-size: clamp(78px, 15vw, 135px) !important; }
-  .hero-by{ font-size: clamp(8px, 2.4vw, 11px) !important; }
+  .hero-brand .brings{ font-size: clamp(78px, 15vw, 135px) !important; }
+  .hero-brand .by{ font-size: clamp(10px, 2.6vw, 12px) !important; }
 }
 
 </style>
@@ -416,10 +433,16 @@ main { min-height: 100vh; }
   </div>
 </div>
 
+
 <footer>
-  <a href="#" data-open="imprint" data-i18n="imprint">Imprint</a> ·
-  <a href="#" data-open="privacy" data-i18n="privacy">Privacy</a>
+  <span class="legal-en">
+    <a href="imprint.html">Imprint</a> · <a href="privacy.html">Privacy</a>
+  </span>
+  <span class="legal-de" style="display:none">
+    <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a>
+  </span>
 </footer>
+
 
 <!-- MODAL -->
 <div class="backdrop" id="backdrop" aria-hidden="true">
@@ -790,15 +813,19 @@ window.addEventListener("DOMContentLoaded", () => {
       de.style.display = (lang==='de') ? '' : 'none';
     }
   }
-  function currentLang(){
-    try{ return localStorage.getItem('brings_lang') || 'en'; }catch(e){ return 'en'; }
+  function getLang(){
+    // prefer the existing buttons state or localStorage used by the site
+    try{
+      var saved = localStorage.getItem('lang') || localStorage.getItem('brings_lang') || 'en';
+      return (saved === 'de') ? 'de' : 'en';
+    }catch(e){ return 'en'; }
   }
-  setLegal(currentLang());
+  setLegal(getLang());
   document.addEventListener('click', function(e){
     var t=e.target;
     if(!t) return;
-    if(t.id==='btnEN'){ setLegal('en'); try{localStorage.setItem('brings_lang','en');}catch(e){} }
-    if(t.id==='btnDE'){ setLegal('de'); try{localStorage.setItem('brings_lang','de');}catch(e){} }
+    if(t.id==='lang-en' || t.id==='btnEN'){ setLegal('en'); try{localStorage.setItem('lang','en');}catch(e){} }
+    if(t.id==='lang-de' || t.id==='btnDE'){ setLegal('de'); try{localStorage.setItem('lang','de');}catch(e){} }
   }, true);
 })();
 </script>

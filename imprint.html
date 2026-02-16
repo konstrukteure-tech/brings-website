@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BRINGS — Datenschutz</title>
+  <title>BRINGS — Imprint</title>
   <meta name="theme-color" content="#0b1220" />
   <style>
     :root{--bg:#0b1220;--text:#e7ecf7;--muted:#a8b3cc;--muted2:#7e89a6;--line:rgba(255,255,255,.10);--line2:rgba(255,255,255,.14);--accent:#c7d3ff;--shadow:0 18px 60px rgba(0,0,0,.55);--r:18px;--max:920px}
@@ -19,9 +19,12 @@
     .head{padding:14px 16px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.08)}
     h1{margin:0;font-size:15px;color:var(--accent);font-weight:650;letter-spacing:.3px}
     .body{padding:16px}
-    h2{margin:18px 0 8px;font-size:13px;color:var(--text);font-weight:650}
-    p,li{color:var(--muted);font-size:13px;line-height:1.65}
-    ul{margin:0;padding-left:18px}
+    p{color:var(--muted);font-size:13px;line-height:1.65;margin:0 0 10px}
+    .box{border:1px solid var(--line2);background:rgba(255,255,255,.03);border-radius:14px;padding:12px}
+    .kv{display:grid;grid-template-columns:180px 1fr;gap:8px 12px}
+    @media (max-width:640px){.kv{grid-template-columns:1fr}}
+    .k{color:var(--muted2);font-size:12.5px}
+    .v{color:var(--text);font-size:13px}
     .links{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
     .link{border:1px solid var(--line);background:rgba(255,255,255,.03);padding:8px 10px;border-radius:999px}
   </style>
@@ -31,40 +34,24 @@
     <div class="top">
       <div class="brand"><div class="mark">BRINGS</div><div class="sub">by tenzer</div></div>
       <div class="links">
-        <a class="link" href="index.html">Start</a>
-        <a class="link" href="impressum.html">Impressum</a>
+        <a class="link" href="index.html">Home</a>
+        <a class="link" href="privacy.html">Privacy</a>
       </div>
     </div>
 
     <div class="card">
-      <div class="head"><h1>Datenschutz (Projekt-Entwurf)</h1></div>
+      <div class="head"><h1>Imprint</h1></div>
       <div class="body">
-        <p>Dies ist ein <strong>Projekt-Entwurf</strong> und muss vor dem Launch rechtlich finalisiert werden. Minimal-Setup: kein Marketing-Tracking, kein Profiling.</p>
-
-        <h2>1. Verantwortlicher</h2>
-        <p>Thorsten Tenzer<br>Töpferweg 81, 23558 Lübeck, Deutschland<br>E-Mail: contact@brings.global<br>Telefon: +49 173 884 7374</p>
-
-        <h2>2. Verarbeitete Daten</h2>
-        <ul>
-          <li>Server-Logdaten (technische Auslieferung & Sicherheit).</li>
-          <li>E-Mail-Anfragen (Name, E-Mail, Nachrichteninhalt).</li>
-          <li>LocalStorage zur Sprachwahl (<code>brings_lang</code>).</li>
-        </ul>
-
-        <h2>3. Rechtsgrundlagen</h2>
-        <ul>
-          <li>Art. 6 Abs. 1 lit. b DSGVO — vorvertragliche Kommunikation/Koordination.</li>
-          <li>Art. 6 Abs. 1 lit. f DSGVO — berechtigtes Interesse (Sicherheit, Missbrauchsprävention).</li>
-        </ul>
-
-        <h2>4. Ihre Rechte</h2>
-        <ul>
-          <li>Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch.</li>
-          <li>Beschwerde bei einer Aufsichtsbehörde.</li>
-        </ul>
-
+        <div class="box">
+          <div class="kv">
+            <div class="k">Operator</div><div class="v">Thorsten Tenzer</div>
+            <div class="k">Address</div><div class="v">Töpferweg 81, 23558 Lübeck, Germany</div>
+            <div class="k">Email</div><div class="v">contact@brings.global</div>
+            <div class="k">Phone</div><div class="v">+49 173 884 7374</div>
+          </div>
+        </div>
         <p style="color:var(--muted2);font-size:12.5px;line-height:1.55;margin-top:10px">
-          Hosting-Daten, Auftragsverarbeitung und Speicherdauern nach Infrastruktur-Finalisierung ergänzen.
+          Add VAT-ID / register details if/when applicable.
         </p>
       </div>
     </div>

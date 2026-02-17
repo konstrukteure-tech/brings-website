@@ -400,6 +400,9 @@ main { min-height: 100vh; }
   }
 }
 
+
+/* v10 tweak: bring 'by tenzer' closer */
+.heroBrand .by{margin-left:10px !important;}
 </style>
 </head>
 
@@ -445,7 +448,6 @@ main { min-height: 100vh; }
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-head">
       <h2 id="modalTitle"></h2>
-      <button class="backBtn" id="backBtn" type="button" data-i18n="back">Back</button>
       <button class="closeBtn" id="closeBtn" type="button" data-i18n="close">Close</button>
     </div>
     <div id="modalBody"></div>
@@ -493,26 +495,48 @@ window.addEventListener("DOMContentLoaded", () => {
           </div>
         `,
         coverageTitle: "Coverage",
-        coverageBody: `
-          <p><b>Zones:</b> Germany · EU · Worldwide</p>
-          <p class="note small"><b>Availability:</b> 6 / 12 / 24 hours (depending on route & flight situation).</p>
-        `,
+        coverageBody: `<p>Germany and EU are active. Worldwide on request.</p>
+          <p class="note small"><b>Availability:</b> 6 / 12 / 24 hours (depending on route & flight situation).</p>`,
         pricingTitle: "Pricing",
         pricingBody: `
           <p>Pricing is individual and based on responsibility, time sensitivity and travel requirements. A minimum engagement applies.</p>
-          <ul class="small">
-            <li>Quote on request</li>
-            <li>NDA available on request</li>
-          </ul>
+          <div class="grid">
+            <div class="box">
+              <h3>Pricing principle</h3>
+              <ul class="small">
+                <li>Time + responsibility</li>
+                <li>Short notice surcharges may apply</li>
+                <li>No parcel rates / no standard logistics</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>Pricing example</h3>
+              <p class="small">Indicative orientation (not a price list):</p>
+              <button class="btn-mini" type="button" data-open="pricingExample">View</button>
+            </div>
+          </div>
+          <p class="note small"><b>Expenses:</b> flights, hotels, transfers and other travel costs are charged to the client unless agreed otherwise.</p>
         `,
         contactTitle: "Contact",
-        contactBody: `
-          <p class="small">
-            Email: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
-            Phone: +49&nbsp;173&nbsp;884&nbsp;7374
-          </p>
-          <p class="small">For urgent requests, include: pickup, destination, time window, item type (non-hazardous), and preferred availability (6/12/24h).</p>
-        `,
+        contactBody: `          <p>Please email a short request including origin, destination, time window, and delivery type.</p>
+          <div class="grid">
+            <div class="box" style="grid-column: span 12;">
+              <h3>Email</h3>
+              <p class="small"><a href="mailto:contact@brings.global">contact@brings.global</a></p>
+            </div>
+            <div class="box" style="grid-column: span 12;">
+              <h3>Phone</h3>
+              <p class="small">+49&nbsp;173&nbsp;884&nbsp;7374 <span class="small">(temporary)</span></p>
+            </div>
+            <div class="box" style="grid-column: span 12;">
+              <h3>Request form</h3>
+              <p class="small">
+                <a class="btn-mini" href="BRINGS_Request_Form_EN.pdf" target="_blank" rel="noopener">Download (EN)</a>
+                <a class="btn-mini" href="BRINGS_Request_Form_DE.pdf" target="_blank" rel="noopener">Download (DE)</a>
+              </p>
+            </div>
+          </div>
+          <p class="note small">Names and phone numbers are intentionally kept minimal. Details are confirmed bilaterally after first contact.</p>`,
         imprintTitle: "Imprint",
         imprintBody: `
           <p><b>Imprint</b></p>
@@ -563,7 +587,7 @@ window.addEventListener("DOMContentLoaded", () => {
             <div class="box" style="grid-column: span 12;">
               <h3>Kern</h3>
               <ul class="small">
-                <li>Direkte Übergabe — Person zu Person</li>
+                <li>Direkte Übergabe — von Mensch zu Mensch</li>
                 <li>Klare Verantwortung bis zur bestätigten Übergabe</li>
               </ul>
             </div>
@@ -577,26 +601,48 @@ window.addEventListener("DOMContentLoaded", () => {
           </div>
         `,
         coverageTitle: "Einsatzgebiete",
-        coverageBody: `
-          <p><b>Zonen:</b> Deutschland · Europa (EU) · Weltweit</p>
-          <p class="note small"><b>Verfügbarkeit:</b> 6 / 12 / 24 Stunden (abhängig von Route & Fluglage).</p>
-        `,
+        coverageBody: `<p>Deutschland und Europa (EU) sind aktiv. Weltweit auf Anfrage.</p>
+          <p class="note small"><b>Verfügbarkeit:</b> 6 / 12 / 24 Stunden (abhängig von Route & Fluglage).</p>`,
         pricingTitle: "Preise",
         pricingBody: `
-          <p>Preise sind individuell und richten sich nach Verantwortung, Zeitkritik und Reiseanforderungen. Es gilt eine Mindestbeauftragung.</p>
-          <ul class="small">
-            <li>Angebot auf Anfrage</li>
-            <li>NDA auf Anfrage</li>
-          </ul>
+          <p>Individuelle Kalkulation nach Verantwortung, Zeitkritik und Reiseaufwand. Ein Mindesthonorar gilt.</p>
+          <div class="grid">
+            <div class="box">
+              <h3>Preisprinzip</h3>
+              <ul class="small">
+                <li>Zeit + Verantwortung</li>
+                <li>Short-Notice-Zuschläge möglich</li>
+                <li>Keine Paketpreise / keine Standardlogistik</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>Preisbeispiel</h3>
+              <p class="small">Zur Orientierung (keine Preisliste):</p>
+              <button class="btn-mini" type="button" data-open="pricingExample">Ansehen</button>
+            </div>
+          </div>
+          <p class="note small"><b>Spesen:</b> Flüge, Hotel, Transfers und sonstige Reisekosten trägt der Auftraggeber (sofern nicht anders vereinbart).</p>
         `,
         contactTitle: "Kontakt",
-        contactBody: `
-          <p class="small">
-            E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
-            Telefon: +49&nbsp;173&nbsp;884&nbsp;7374
-          </p>
-          <p class="small">Für dringende Anfragen bitte: Abholung, Ziel, Zeitfenster, Art des Guts (nicht gefährlich) und gewünschte Verfügbarkeit (6/12/24h) angeben.</p>
-        `,
+        contactBody: `          <p>Bitte senden Sie eine kurze Anfrage mit Einsatzort, Zielort, Zeitfenster und Art der Sendung.</p>
+          <div class="grid">
+            <div class="box" style="grid-column: span 12;">
+              <h3>E-Mail</h3>
+              <p class="small"><a href="mailto:contact@brings.global">contact@brings.global</a></p>
+            </div>
+            <div class="box" style="grid-column: span 12;">
+              <h3>Telefon</h3>
+              <p class="small">+49&nbsp;173&nbsp;884&nbsp;7374 <span class="small">(vorläufig)</span></p>
+            </div>
+            <div class="box" style="grid-column: span 12;">
+              <h3>Anfrageformular</h3>
+              <p class="small">
+                <a class="btn-mini" href="BRINGS_Request_Form_DE.pdf" target="_blank" rel="noopener">Download (DE)</a>
+                <a class="btn-mini" href="BRINGS_Request_Form_EN.pdf" target="_blank" rel="noopener">Download (EN)</a>
+              </p>
+            </div>
+          </div>
+          <p class="note small">Klarnamen und Telefonnummern werden bewusst nur reduziert veröffentlicht. Details klären wir bilateral nach Erstkontakt.</p>`,
         imprintTitle: "Impressum",
         imprintBody: `
           <p><b>Impressum</b></p>

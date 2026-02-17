@@ -478,11 +478,11 @@ window.addEventListener("DOMContentLoaded", () => {
       nav_coverage: "Coverage",
       nav_pricing: "Pricing",
       nav_contact: "Contact",
-      footer_s: "`We deliver what cannot be replaced. <span class=\"accent\">Anytime, anywhere.</span>`",
-      footer_k: "On Time \u00b7 Discreet \u00b7 Accountable",
+      footer_k: "On Time · Discreet · Accountable",
+      footer_s: "We deliver what cannot be replaced. <span class=\"accent\">Anytime, anywhere.</span>",
       subline: "Worldwide Private Courier",
       headline: "",
-      claim: "</b>",
+      claim: "",
       imprint: "Imprint",
       privacy: "Privacy",
       close: "Close",
@@ -510,183 +510,136 @@ window.addEventListener("DOMContentLoaded", () => {
         `,
         coverageTitle: "Coverage",
         coverageBody: `
-<p><b>Zones:</b> Germany · EU · Worldwide</p>
-<p class="note small"><b>Availability:</b> 6 / 12 / 24 hours (depending on route & flight situation).</p>
-`,
+          <p><b>Zones:</b> Germany · EU · Worldwide</p>
+          <p class="note small"><b>Availability:</b> 6 / 12 / 24 hours (depending on route & flight situation).</p>
+        `,
         pricingTitle: "Pricing",
         pricingBody: `
           <p>Pricing is individual and based on responsibility, time sensitivity and travel requirements. A minimum engagement applies.</p>
-          <div class="grid">
-            <div class="box">
-              <h3>Pricing principle</h3>
-              <ul class="small">
-                <li>Time + responsibility</li>
-                <li>Short notice surcharges may apply</li>
-                <li>No parcel rates / no standard logistics</li>
-              </ul>
-            </div>
-            <div class="box">
-              <h3>Pricing example</h3>
-              <p class="small">Indicative orientation (not a price list):</p>
-              <button class="btn-mini" type="button" data-open="pricingExample">View</button>
-            </div>
-          </div>
-          <p class="note small"><b>Expenses:</b> flights, hotels, transfers and other travel costs are charged to the client unless agreed otherwise.</p>
-        `,
-        pricingExampleTitle: "Pricing Example (Indicative)",
-        pricingExampleBody: `
-          <p>Orientation only. Final pricing depends on assignment specifics.</p>
           <ul class="small">
-            <li><b>Germany:</b> from approx. €450–€750 per assignment / day rate approx. €900–€1,200</li>
-            <li><b>Europe (EU/CH/UK):</b> from approx. €1,200–€1,800 / day rate approx. €900–€1,200</li>
-            <li><b>Worldwide (on request):</b> from approx. €3,500 (day rates and travel time apply)</li>
+            <li>Quote on request</li>
+            <li>NDA available on request</li>
           </ul>
-          <p class="note small"><b>Expenses:</b> flights/hotel/transfers are charged unless agreed otherwise.</p>
         `,
         contactTitle: "Contact",
-        contactBody: `          <p>Please email a short request including origin, destination, time window, and delivery type.</p>
-          <div class="grid">
-            <div class="box" style="grid-column: span 12;">
-              <h3>Email</h3>
-              <p class="small"><a href="mailto:contact@brings.global">contact@brings.global</a></p>
-            </div>
-            <div class="box" style="grid-column: span 12;">
-              <h3>Phone</h3>
-              <p class="small">+49&nbsp;173&nbsp;884&nbsp;7374 <span class="small">(temporary)</span></p>
-            </div>
-            <div class="box" style="grid-column: span 12;">
-              <h3>Request form</h3>
-              <p class="small">
-                <a class="btn-mini" href="BRINGS_Request_Form_EN.pdf" target="_blank" rel="noopener">Download (EN)</a>
-                <a class="btn-mini" href="BRINGS_Request_Form_DE.pdf" target="_blank" rel="noopener">Download (DE)</a>
-              </p>
-            </div>
-          </div>
-          <p class="note small">Names and phone numbers are intentionally kept minimal. Details are confirmed bilaterally after first contact.</p>`,
+        contactBody: `
+          <p class="small">
+            Email: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
+            Phone: +49&nbsp;173&nbsp;884&nbsp;7374
+          </p>
+          <p class="small">For urgent requests, include: pickup, destination, time window, item type (non-hazardous), and preferred availability (6/12/24h).</p>
+        `,
         imprintTitle: "Imprint",
         imprintBody: `
-<p><b>Imprint</b></p>
-<p class="small"><b>Operator:</b> Thorsten Tenzer</p>
-<p class="small">
-  Thorsten Tenzer<br>
-  Töpferweg 81<br>
-  23558 Lübeck<br>
-  Germany
-</p>
-<p class="small">
-  Email: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
-  Phone: +49&nbsp;173&nbsp;884&nbsp;7374
-</p>
-<p class="small">Responsible for content (§ 18 MStV): Thorsten Tenzer</p>
-<p class="small">Last updated: 2026-02-17</p>
-`,
+          <p><b>Imprint</b></p>
+          <p class="small"><b>Operator:</b> Thorsten Tenzer</p>
+          <p class="small">Thorsten Tenzer<br>Töpferweg 81<br>23558 Lübeck<br>Germany</p>
+          <p class="small">
+            Email: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
+            Phone: +49&nbsp;173&nbsp;884&nbsp;7374
+          </p>
+          <p class="small">Responsible for content (§ 18 MStV): Thorsten Tenzer</p>
+          <p class="small">Last updated: 2026-02-17</p>
+        `,
         privacyTitle: "Privacy",
         privacyBody: `
-<p><b>Privacy Policy (short)</b></p>
-<p class="small"><b>Controller / Operator:</b> Thorsten Tenzer</p>
-<p class="small">
-  Thorsten Tenzer, Töpferweg 81, 23558 Lübeck, Germany<br>
-  Email: <a href="mailto:contact@brings.global">contact@brings.global</a>
-</p>
-<ul class="small">
-  <li><b>Purpose:</b> handling inquiries and providing courier services.</li>
-  <li><b>Legal basis:</b> Art. 6(1)(b) GDPR and Art. 6(1)(f) GDPR.</li>
-  <li><b>Hosting:</b> GitHub Pages (server logs for security/operations).</li>
-  <li><b>Your rights:</b> access, rectification, erasure, objection; complaint to authority.</li>
-</ul>
-<p class="small">Last updated: 2026-02-17</p>
-`,
+          <p><b>Privacy Policy (short)</b></p>
+          <p class="small"><b>Controller / Operator:</b> Thorsten Tenzer</p>
+          <p class="small">Thorsten Tenzer, Töpferweg 81, 23558 Lübeck, Germany<br>
+            Email: <a href="mailto:contact@brings.global">contact@brings.global</a></p>
+          <ul class="small">
+            <li><b>Purpose:</b> handling inquiries and providing courier services.</li>
+            <li><b>Legal basis:</b> Art. 6(1)(b) GDPR and Art. 6(1)(f) GDPR.</li>
+            <li><b>Hosting:</b> GitHub Pages (server logs for security/operations).</li>
+            <li><b>Your rights:</b> access, rectification, erasure, objection; complaint to authority.</li>
+          </ul>
+          <p class="small">Last updated: 2026-02-17</p>
+        `
+      }
+    },
+    de: {
+      nav_service: "Service",
+      nav_coverage: "Einsatzgebiete",
+      nav_pricing: "Preise",
+      nav_contact: "Kontakt",
+      footer_k: "Pünktlich · Diskret · Verlässlich",
+      footer_s: "Wir übergeben, was nicht ersetzbar ist. <span class=\"accent\">Jederzeit. Überall.</span>",
+      subline: "Weltweiter persönlicher Kurier",
+      headline: "",
+      claim: "",
+      imprint: "Impressum",
+      privacy: "Datenschutz",
+      close: "Schließen",
+      back: "Zurück",
+      modals: {
+        serviceTitle: "Service",
+        serviceBody: `
+          <p>Persönlicher Hand-Carry-Kurier für zeitkritische und vertrauliche Übergaben.</p>
+          <div class="grid">
+            <div class="box" style="grid-column: span 12;">
+              <h3>Kern</h3>
+              <ul class="small">
+                <li>Direkte Übergabe — Person zu Person</li>
+                <li>Klare Verantwortung bis zur bestätigten Übergabe</li>
+              </ul>
+            </div>
+            <div class="box" style="grid-column: span 12;">
+              <h3>Nicht angeboten</h3>
+              <ul class="small">
+                <li>Kein Paketversand</li>
+                <li>Keine Massenlogistik</li>
+              </ul>
+            </div>
+          </div>
+        `,
         coverageTitle: "Einsatzgebiete",
         coverageBody: `
           <p><b>Zonen:</b> Deutschland · Europa (EU) · Weltweit</p>
           <p class="note small"><b>Verfügbarkeit:</b> 6 / 12 / 24 Stunden (abhängig von Route & Fluglage).</p>
-`,
+        `,
         pricingTitle: "Preise",
         pricingBody: `
-          <p>Individuelle Kalkulation nach Verantwortung, Zeitkritik und Reiseaufwand. Ein Mindesthonorar gilt.</p>
-          <div class="grid">
-            <div class="box">
-              <h3>Preisprinzip</h3>
-              <ul class="small">
-                <li>Zeit + Verantwortung</li>
-                <li>Short-Notice-Zuschläge möglich</li>
-                <li>Keine Paketpreise / keine Standardlogistik</li>
-              </ul>
-            </div>
-            <div class="box">
-              <h3>Preisbeispiel</h3>
-              <p class="small">Zur Orientierung (keine Preisliste):</p>
-              <button class="btn-mini" type="button" data-open="pricingExample">Ansehen</button>
-            </div>
-          </div>
-          <p class="note small"><b>Spesen:</b> Flüge, Hotel, Transfers und sonstige Reisekosten trägt der Auftraggeber (sofern nicht anders vereinbart).</p>
-        `,
-        pricingExampleTitle: "Preisbeispiel (Orientierung)",
-        pricingExampleBody: `
-          <p>Nur zur Orientierung. Endpreis hängt vom Auftrag ab.</p>
+          <p>Preise sind individuell und richten sich nach Verantwortung, Zeitkritik und Reiseanforderungen. Es gilt eine Mindestbeauftragung.</p>
           <ul class="small">
-            <li><b>Deutschland:</b> ab ca. 450–750 € pro Auftrag / Tagespauschale ca. 900–1.200 €</li>
-            <li><b>Europa (EU/CH/UK):</b> ab ca. 1.200–1.800 € / Tageshonorar ca. 900–1.200 €</li>
-            <li><b>Weltweit (auf Anfrage):</b> ab ca. 3.500 € (Tageshonorare + Reisezeit nach Bedarf)</li>
+            <li>Angebot auf Anfrage</li>
+            <li>NDA auf Anfrage</li>
           </ul>
-          <p class="note small"><b>Spesen:</b> Flüge/Hotel/Transfers werden weiterberechnet (sofern nicht anders vereinbart).</p>
         `,
         contactTitle: "Kontakt",
-        contactBody: `          <p>Bitte senden Sie eine kurze Anfrage mit Einsatzort, Zielort, Zeitfenster und Art der Sendung.</p>
-          <div class="grid">
-            <div class="box" style="grid-column: span 12;">
-              <h3>E-Mail</h3>
-              <p class="small"><a href="mailto:contact@brings.global">contact@brings.global</a></p>
-            </div>
-            <div class="box" style="grid-column: span 12;">
-              <h3>Telefon</h3>
-              <p class="small">+49&nbsp;173&nbsp;884&nbsp;7374 <span class="small">(vorläufig)</span></p>
-            </div>
-            <div class="box" style="grid-column: span 12;">
-              <h3>Anfrageformular</h3>
-              <p class="small">
-                <a class="btn-mini" href="BRINGS_Request_Form_DE.pdf" target="_blank" rel="noopener">Download (DE)</a>
-                <a class="btn-mini" href="BRINGS_Request_Form_EN.pdf" target="_blank" rel="noopener">Download (EN)</a>
-              </p>
-            </div>
-          </div>
-          <p class="note small">Klarnamen und Telefonnummern werden bewusst nur reduziert veröffentlicht. Details klären wir bilateral nach Erstkontakt.</p>`,
+        contactBody: `
+          <p class="small">
+            E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
+            Telefon: +49&nbsp;173&nbsp;884&nbsp;7374
+          </p>
+          <p class="small">Für dringende Anfragen bitte: Abholung, Ziel, Zeitfenster, Art des Guts (nicht gefährlich) und gewünschte Verfügbarkeit (6/12/24h) angeben.</p>
+        `,
         imprintTitle: "Impressum",
         imprintBody: `
           <p><b>Impressum</b></p>
           <p class="small"><b>Betreiber:</b> Thorsten Tenzer</p>
-          <p class="small">
-            Thorsten Tenzer<br>
-            Töpferweg 81<br>
-            23558 Lübeck<br>
-            Deutschland
-          </p>
+          <p class="small">Thorsten Tenzer<br>Töpferweg 81<br>23558 Lübeck<br>Deutschland</p>
           <p class="small">
             E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
             Telefon: +49&nbsp;173&nbsp;884&nbsp;7374
           </p>
           <p class="small">Verantwortlich für den Inhalt (§ 18 MStV): Thorsten Tenzer</p>
-          <p class="small">Stand: 17.02.2026</p>
-`,
+          <p class="small">Stand: 17.02.</p>
+        `,
         privacyTitle: "Datenschutz",
         privacyBody: `
-          <p><b>Datenschutzhinweise (Kurzfassung)</b></p>
+          <p><b>Datenschutz (Kurzfassung)</b></p>
+          <p class="small"><b>Verantwortlicher / Betreiber:</b> Thorsten Tenzer</p>
           <p class="small">
-            Verantwortlicher:<br>
-            [Name / Unternehmen], Töpferweg 81, 23558 Lübeck, Deutschland<br>
+            Thorsten Tenzer, Töpferweg 81, 23558 Lübeck, Deutschland<br>
             E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a>
           </p>
-          <p class="small">
-            Wir verarbeiten Daten, die Sie uns übermitteln (z. B. Kontaktdaten, Start/Ziel, Zeitfenster), um Ihre Anfrage zu beantworten und die Leistung zu erbringen.
-            Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertrag/Anbahnung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).
-          </p>
-          <p class="small">
-            Hosting kann über GitHub Pages erfolgen. Server-Logs können zu Sicherheits- und Betriebszwecken verarbeitet werden.
-          </p>
-          <p class="small">
-            Sie haben Betroffenenrechte nach DSGVO (Auskunft, Berichtigung, Löschung, Widerspruch etc.) und können sich bei einer Aufsichtsbehörde beschweren.
-          </p>
-          <p class="small">Stand: 17.02.2026</p>
+          <ul class="small">
+            <li><b>Zweck:</b> Bearbeitung von Anfragen und Durchführung von Kurierleistungen.</li>
+            <li><b>Rechtsgrundlage:</b> Art. 6 Abs. 1 lit. b DSGVO und Art. 6 Abs. 1 lit. f DSGVO.</li>
+            <li><b>Hosting:</b> GitHub Pages (Server-Logs zu Sicherheits-/Betriebszwecken).</li>
+            <li><b>Rechte:</b> Auskunft, Berichtigung, Löschung, Widerspruch; Beschwerde bei Aufsicht.</li>
+          </ul>
+          <p class="small">Stand: 17.02.</p>
         `
       }
     }
@@ -712,7 +665,16 @@ window.addEventListener("DOMContentLoaded", () => {
     closeBtn.textContent = TEXT[lang].close;
   }
 
+  // if a modal is open, refresh its buttons/title/body to selected language
+  if (backdrop && backdrop.style.display === "flex") {
+    const openKind = backdrop.getAttribute("data-kind");
+    if (openKind) openModal(openKind);
+  }
+
+
   function openModal(kind){
+    backdrop.setAttribute("data-kind", kind);
+
     const M = TEXT[LANG].modals;
     let t="", b="";
     if (kind === "service"){ t=M.serviceTitle; b=M.serviceBody; }
@@ -734,6 +696,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function closeModal(){
     backdrop.style.display = "none";
+    backdrop.removeAttribute("data-kind");
     backdrop.setAttribute("aria-hidden","true");
     document.body.style.overflow = "";
   }

@@ -403,6 +403,7 @@ main { min-height: 100vh; }
 
 <footer>
   <a href="#" data-open="imprint" data-i18n="imprint">Imprint</a> ·
+  <a href="#" data-open="agb" data-i18n="agb">AGB</a> ·
   <a href="#" data-open="privacy" data-i18n="privacy">Privacy</a>
 </footer>
 
@@ -434,6 +435,7 @@ window.addEventListener("DOMContentLoaded", () => {
       claim: "</b>",
       imprint: "Imprint",
       privacy: "Privacy",
+      agb: "Terms",
       close: "Close",
       modals: {
         serviceTitle: "Service",
@@ -459,12 +461,7 @@ window.addEventListener("DOMContentLoaded", () => {
         coverageTitle: "Coverage",
         coverageBody: `
           <p>Germany and EU are active. Worldwide on request.</p>
-          <p class="note small"><b>Availability:</b><br>
-            Germany: 6 hours<br>
-            EU: 12 hours<br>
-            Worldwide: 24 hours<br>
-            Lead time depends on route, travel and flight conditions (air / rail / road).
-          </p>
+          <p class="note small"><b>Availability:</b> short notice possible (24–48h), depending on route and flight situation.</p>
         `,
         pricingTitle: "Pricing",
         pricingBody: `
@@ -557,7 +554,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <p class="small">
             You have rights under the GDPR (access, rectification, erasure, objection, etc.) and may lodge a complaint with a supervisory authority.
           </p>
-          <p class="small">Last update: 17.02.2026</p>
+          <p class="small">Last update: </p>
         `
       }
     },
@@ -573,6 +570,7 @@ window.addEventListener("DOMContentLoaded", () => {
       claim: "",
       imprint: "Impressum",
       privacy: "Datenschutz",
+      agb: "AGB",
       close: "Schließen",
       modals: {
         serviceTitle: "Service",
@@ -598,12 +596,7 @@ window.addEventListener("DOMContentLoaded", () => {
         coverageTitle: "Einsatzgebiete",
         coverageBody: `
           <p>Deutschland und EU sind aktiv. Weltweit auf Anfrage.</p>
-          <p class="note small"><b>Verfügbarkeit:</b><br>
-            Deutschland: 6 Stunden<br>
-            EU: 12 Stunden<br>
-            Weltweit: 24 Stunden<br>
-            Vorlauf in Abhängigkeit von Route sowie Reise- und Flugbedingungen (Luft / Bahn / Straße).
-          </p>
+          <p class="note small"><b>Verfügbarkeit:</b> kurzfristig möglich (24–48h), abhängig von Route und Abfluglage.</p>
         `,
         pricingTitle: "Preise",
         pricingBody: `
@@ -671,9 +664,8 @@ window.addEventListener("DOMContentLoaded", () => {
             Telefon: +49 173 884 73 74(vorläufig)
           </p>
           <p class="small">
-            Verantwortlich für den Inhalt (§ 18 Abs. 2 MStV):<br>
-            Thorsten Tenzer<br>
-            Anschrift wie oben
+            Verantwortlich für den Inhalt:<br>
+            [Name], Anschrift wie oben
           </p>
           <p class="note small">
             Diese Website bietet keinen Paketversand und keine Massenlogistik. Leistungen erfolgen individuell auf Anfrage, vorbehaltlich Verfügbarkeit und Vereinbarung.
@@ -684,10 +676,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <p><b>Datenschutzhinweise (Kurzfassung)</b></p>
           <p class="small">
             Verantwortlicher:<br>
-            Thorsten Tenzer<br>
-            Töpferweg 81<br>
-            23558 Lübeck<br>
-            Deutschland<br>
+            [Name / Unternehmen], [Anschrift], Deutschland<br>
             E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a>
           </p>
           <p class="small">
@@ -700,7 +689,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <p class="small">
             Sie haben Betroffenenrechte nach DSGVO (Auskunft, Berichtigung, Löschung, Widerspruch etc.) und können sich bei einer Aufsichtsbehörde beschweren.
           </p>
-          <p class="small">Stand: 17.02.2026</p>
+          <p class="small">Stand: [Datum]</p>
         `
       }
     }
@@ -736,6 +725,7 @@ window.addEventListener("DOMContentLoaded", () => {
     else if (kind === "contact"){ t=M.contactTitle; b=M.contactBody; }
     else if (kind === "imprint"){ t=M.imprintTitle; b=M.imprintBody; }
     else if (kind === "privacy"){ t=M.privacyTitle; b=M.privacyBody; }
+    else if (kind === "agb"){ t=M.agbTitle; b=M.agbBody; }
     else return;
 
     modalTitle.textContent = t;

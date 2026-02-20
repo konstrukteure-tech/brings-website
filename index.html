@@ -1,4 +1,6 @@
 <!doctype html>
+<!-- BRINGS FREEZE VERSION: 2026-02-17 | AGB integrated | AUTOLANG | STRUCTURE LOCKED -->
+
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -420,7 +422,11 @@ main { min-height: 100vh; }
 
 <script>
 window.addEventListener("DOMContentLoaded", () => {
-  let LANG = "en";
+  let LANG = (localStorage.getItem("brings_lang") || "").toLowerCase();
+  if (LANG !== "de" && LANG !== "en") {
+    const nav = (navigator.languages && navigator.languages[0]) ? navigator.languages[0] : (navigator.language || "en");
+    LANG = (String(nav).toLowerCase().startsWith("de")) ? "de" : "en";
+  }
 
   const TEXT = {
     en: {
@@ -704,6 +710,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function applyLang(lang){
     LANG = lang;
+    try{ localStorage.setItem("brings_lang", lang); }catch(e){}
     btnEN.classList.toggle("active", lang === "en");
     btnDE.classList.toggle("active", lang === "de");
 
@@ -761,7 +768,7 @@ window.addEventListener("DOMContentLoaded", () => {
   btnEN.addEventListener("click", ()=>applyLang("en"));
   btnDE.addEventListener("click", ()=>applyLang("de"));
 
-  applyLang("en");
+  applyLang(LANG);
 });
 </script>
 <div class="footer-copy">

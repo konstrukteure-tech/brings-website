@@ -26,31 +26,33 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== HERO BACKGROUND (HORSE) =====
-   Image file expected at: /hero.webp (repo root)
-   If you move it into /assets, change to: url("assets/hero.webp")
+/* ===== BACKGROUND (PFERD) =====
+   hero.webp liegt bei dir im REPO-ROOT, daher url("hero.webp") korrekt.
 */
 body::before{
   content:"";
   position:fixed;
   inset:0;
+  z-index:0;
   background-image: url("hero.webp");
   background-size: cover;
-  background-position: 70% 50%;
-  background-repeat: no-repeat;
-  transform: scale(1.04);
-  filter: blur(1px) saturate(0.9) contrast(1.02);
-  opacity: 0.62;
-  z-index:-2;
+  background-position: 65% center; /* leicht rechts, damit Pferd nicht mitten im Logo sitzt */
+  background-repeat:no-repeat;
+  filter: blur(1.4px) contrast(.92) brightness(.78) saturate(.92);
+  opacity:.95;
+  transform: scale(1.03);
+  pointer-events:none;
 }
 body::after{
   content:"";
   position:fixed;
   inset:0;
+  z-index:1;
+  /* dunkle, hochwertige Glas/Film-Overlay */
   background:
-    radial-gradient(1200px 700px at 45% 48%, rgba(11,18,32,.10) 0%, rgba(11,18,32,.55) 55%, rgba(11,18,32,.92) 100%),
-    linear-gradient(180deg, rgba(11,18,32,.55) 0%, rgba(11,18,32,.72) 55%, rgba(11,18,32,.88) 100%);
-  z-index:-1;
+    radial-gradient(1200px 520px at 50% 46%, rgba(255,255,255,.06), rgba(11,18,32,.0) 60%),
+    linear-gradient(180deg, rgba(11,18,32,.72), rgba(11,18,32,.88));
+  pointer-events:none;
 }
 
 /* links */
@@ -97,7 +99,6 @@ footer a:hover{color:var(--text); text-decoration:underline}
     rgba(205,205,205,0.92) 100%);
   -webkit-background-clip:text;
   background-clip:text;
-  color: rgba(245,245,245,0.92);
 }
 @supports (-webkit-background-clip:text){
   .brand .brings, .hero-brand .brings{ color:transparent; }
@@ -107,6 +108,7 @@ footer a:hover{color:var(--text); text-decoration:underline}
   font-weight:400;
   font-size:.40em !important;
   letter-spacing:normal !important;
+  color: rgba(245,245,245,0.82);
 }
 
 .menu{
@@ -146,42 +148,44 @@ footer a:hover{color:var(--text); text-decoration:underline}
   display:flex;
   align-items:center;
   justify-content:center;
+  position:relative;
+  z-index:2; /* über Overlay */
 }
 .center{
+  max-width:820px;
   width:100%;
-  max-width: 900px;
-  padding: 0 var(--edge);
-  transform: translateY(-10px);
+  transform: translateY(-24px);
 }
 
 /* HERO */
 .hero{
-  border:1px solid rgba(255,255,255,.12);
-  background: linear-gradient(180deg, rgba(15,26,46,.38), rgba(15,26,46,.18));
+  border:1px solid rgba(255,255,255,.10);
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
   border-radius:20px;
   padding:60px 36px 52px;
   text-align:center;
   position:relative;
-  z-index:10;
-  backdrop-filter: blur(6px);
+  z-index:3;
+  box-shadow: 0 18px 60px rgba(0,0,0,.35);
+  overflow: visible; /* wichtig: nix abschneiden */
 }
+
+/* === DAS ist die Stelle, die dein "by tenzer" stabil mittig hält === */
 .hero-brand{
   margin:0 0 10px;
-  display:flex;
+  display:flex;              /* statt inline-block */
   align-items:baseline;
   justify-content:center;
-  gap:.18em;
-  transform:none;
+  gap:14px;
+  white-space:nowrap;        /* verhindert Umbruch/Abschneiden */
 }
 .hero-brand .brings{
-  font-size: clamp(58px, 7vw, 96px) !important;
-  line-height:1;
-  white-space:nowrap;
+  font-size: clamp(72px, 8vw, 110px) !important;
 }
 .hero-brand .by{
-  font-size: .24em !important;
-  line-height:1;
-  white-space:nowrap;
+  font-size: .22em !important;
+  position: relative;
+  top: 2px;
 }
 .hero-subline{
   margin-top:12px;
@@ -197,7 +201,7 @@ footer a:hover{color:var(--text); text-decoration:underline}
   bottom: 22px;
   text-align:left;
   max-width: 640px;
-  z-index:9999;
+  z-index:50;
   pointer-events:none;
 }
 .footer-copy .k{ font-weight:700; font-size: 1.9em; }
@@ -212,7 +216,7 @@ footer{
   text-align:center;
   font-size:12px;
   color:var(--muted);
-  z-index:5;
+  z-index:40;
 }
 
 /* MODAL */
@@ -288,11 +292,12 @@ footer{
 /* Responsive */
 @media (max-width:820px){
   .hero{padding:52px 22px 46px}
-  .center{transform:translateY(-6px)}
+  .center{transform:translateY(-16px)}
   .box{grid-column: span 12}
   .brand{font-size:26px}
   .footer-copy .k{font-size:1.35em}
   .footer-copy .s{font-size:1.0em}
+  .hero-brand{gap:10px}
 }
 </style>
 </head>
@@ -321,7 +326,7 @@ footer{
 <div class="wrap">
   <div class="center">
     <section class="hero">
-      <div class="hero-brand"><span class="brings">BRINGS</span><span class="by"> by tenzer</span></div>
+      <div class="hero-brand"><span class="brings">BRINGS</span><span class="by">by tenzer</span></div>
       <div class="hero-subline" data-i18n="subline">Worldwide Private Courier</div>
     </section>
   </div>
@@ -392,7 +397,7 @@ window.addEventListener("DOMContentLoaded", () => {
         coverageTitle: "Coverage",
         coverageBody: `
           <p>Germany and EU are active. Worldwide on request.</p>
-          <p class="note small"><b>Availability:</b> 24/7 by request. Short notice possible (subject to route and flight situation).</p>
+          <p class="note small"><b>Availability:</b> short notice possible (24–48h), depending on route and flight situation.</p>
         `,
         pricingTitle: "Pricing",
         pricingBody: `
@@ -461,13 +466,8 @@ window.addEventListener("DOMContentLoaded", () => {
             Email: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
             Phone: +49 173 884 73 74 <span class="small">(temporary)</span>
           </p>
-          <p class="small">
-            VAT ID (Germany, §27a UStG): Pending (to be added).
-          </p>
-          <p class="small">
-            Responsible for content pursuant to §18 (2) MStV:<br>
-            Thorsten Tenzer, address as above
-          </p>
+          <p class="small">VAT ID (Germany, §27a UStG): Pending (to be added).</p>
+          <p class="small">Responsible for content pursuant to §18 (2) MStV:<br>Thorsten Tenzer, address as above</p>
           ${META_LINE_EN}
         `,
         privacyTitle: "Privacy",
@@ -519,10 +519,8 @@ window.addEventListener("DOMContentLoaded", () => {
             Higher liability may be agreed in writing prior to assignment and may require additional compensation or insurance.
           </p>
           <p class="small"><b>5. Fees & payment</b><br>
-            Fees are based on the agreed daily rates and, where applicable, additional individual agreements
-            (e.g., special transport requirements, add-on services, insurance).<br>
-            Invoices are payable within <b>7 days</b> of issuance.<br>
-            Advance payment may be required for first-time or higher-value assignments.
+            Fees are based on the agreed daily rates and, where applicable, additional individual agreements.
+            Invoices are payable within <b>7 days</b> of issuance. Advance payment may be required for first-time or higher-value assignments.
           </p>
           <p class="small"><b>6. Final provisions</b><br>
             German law applies. Place of jurisdiction is Lübeck, insofar as legally permissible.
@@ -531,7 +529,6 @@ window.addEventListener("DOMContentLoaded", () => {
         `
       }
     },
-
     de: {
       nav_service: "Service",
       nav_coverage: "Einsatzgebiete",
@@ -568,7 +565,7 @@ window.addEventListener("DOMContentLoaded", () => {
         coverageTitle: "Einsatzgebiete",
         coverageBody: `
           <p>Deutschland und EU sind aktiv. Weltweit auf Anfrage.</p>
-          <p class="note small"><b>Verfügbarkeit:</b> 24/7 auf Anfrage. Kurzfristig möglich (abhängig von Route und Abfluglage).</p>
+          <p class="note small"><b>Verfügbarkeit:</b> kurzfristig möglich (24–48h), abhängig von Route und Abfluglage.</p>
         `,
         pricingTitle: "Preise",
         pricingBody: `
@@ -637,14 +634,8 @@ window.addEventListener("DOMContentLoaded", () => {
             E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
             Telefon: +49 173 884 73 74 <span class="small">(vorläufig)</span>
           </p>
-          <p class="small">
-            Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG:<br>
-            Wird nachgereicht.
-          </p>
-          <p class="small">
-            Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:<br>
-            Thorsten Tenzer, Anschrift wie oben
-          </p>
+          <p class="small">USt-IdNr. gemäß § 27a UStG: Wird nachgereicht.</p>
+          <p class="small">Verantwortlich nach § 18 Abs. 2 MStV:<br>Thorsten Tenzer, Anschrift wie oben</p>
           ${META_LINE_DE}
         `,
         privacyTitle: "Datenschutz",
@@ -657,21 +648,18 @@ window.addEventListener("DOMContentLoaded", () => {
           </p>
           <p class="small"><b>2. Hosting (GitHub Pages)</b><br>
             Diese Website wird über GitHub Pages bereitgestellt. Anbieter ist GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.
-            Beim Aufruf der Website werden durch GitHub Server-Log-Daten verarbeitet (z. B. IP-Adresse, Datum/Uhrzeit, abgerufene Seite, Browsertyp, Betriebssystem, Referrer-URL).
-            Diese Verarbeitung ist erforderlich, um die Website bereitzustellen und die Sicherheit zu gewährleisten.
+            Beim Aufruf werden Server-Log-Daten verarbeitet (z. B. IP-Adresse, Datum/Uhrzeit, abgerufene Seite, Browsertyp, Betriebssystem, Referrer-URL).
           </p>
-          <p class="small">Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer sicheren und stabilen Bereitstellung).</p>
+          <p class="small">Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
           <p class="small"><b>3. Kontaktaufnahme</b><br>
             Wenn Sie per E-Mail Kontakt aufnehmen, werden die von Ihnen übermittelten Daten ausschließlich zur Bearbeitung Ihrer Anfrage verarbeitet.
-            Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche/vertragliche Kommunikation).
+            Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.
           </p>
           <p class="small"><b>4. Speicherdauer</b><br>
             Personenbezogene Daten werden gelöscht, sobald sie für den jeweiligen Zweck nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
           </p>
-          <p class="small"><b>5. Rechte der betroffenen Person</b><br>
-            Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO),
-            Einschränkung (Art. 18 DSGVO), Datenübertragbarkeit (Art. 20 DSGVO) und Widerspruch (Art. 21 DSGVO).
-            Zudem besteht ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde.
+          <p class="small"><b>5. Rechte</b><br>
+            Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18), Datenübertragbarkeit (Art. 20), Widerspruch (Art. 21).
           </p>
           ${META_LINE_DE}
         `,
@@ -679,27 +667,23 @@ window.addEventListener("DOMContentLoaded", () => {
         agbBody: `
           <p><b>Allgemeine Geschäftsbedingungen (AGB)</b></p>
           <p class="small"><b>1. Leistungsgegenstand</b><br>
-            BRINGS by tenzer erbringt individuelle, persönliche Kurierdienstleistungen für Dokumente und Wertgegenstände als Direkttransport ohne Umladung.
-            Art, Umfang, Zeitfenster und Übergabemodalitäten ergeben sich aus der jeweiligen Auftragsbestätigung.
+            Individuelle, persönliche Kurierdienstleistungen für Dokumente und Wertgegenstände als Direkttransport ohne Umladung.
           </p>
           <p class="small"><b>2. Vertragsabschluss</b><br>
-            Ein Vertrag kommt erst durch schriftliche Auftragsbestätigung (E-Mail genügt) zustande.
+            Vertrag erst durch schriftliche Auftragsbestätigung (E-Mail genügt).
           </p>
           <p class="small"><b>3. Transportausschlüsse</b><br>
-            Vom Transport ausgeschlossen sind insbesondere illegale Güter, Waffen, Betäubungsmittel, gefährliche Stoffe sowie Bargeld in erheblichem Umfang.
-            Der Anbieter ist berechtigt, Aufträge abzulehnen, wenn rechtliche oder sicherheitsrelevante Bedenken bestehen.
+            Insbesondere illegale Güter, Waffen, Betäubungsmittel, gefährliche Stoffe sowie Bargeld in erheblichem Umfang.
           </p>
           <p class="small"><b>4. Haftung</b><br>
-            Der Anbieter haftet im Rahmen der gesetzlichen Vorschriften.
-            Bei einfacher Fahrlässigkeit ist die Haftung auf den deklarierten Sendungswert, maximal jedoch auf <b>10.000 € je Auftrag</b>, begrenzt.<br>
-            Die Haftung für Schäden aus der Verletzung von Leben, Körper oder Gesundheit sowie bei Vorsatz und grober Fahrlässigkeit bleibt unbeschränkt.<br>
-            Eine weitergehende Haftung kann vor Auftragserteilung durch ausdrückliche schriftliche Vereinbarung sowie ggf. gegen gesonderte Vergütung oder Versicherung vereinbart werden.
+            Bei einfacher Fahrlässigkeit begrenzt auf den deklarierten Sendungswert, maximal <b>10.000 € je Auftrag</b>.
+            Unbeschränkt bei Vorsatz/grober Fahrlässigkeit sowie bei Schäden an Leben/Körper/Gesundheit.
           </p>
-          <p class="small"><b>5. Vergütung und Zahlungsbedingungen</b><br>
-            Rechnungen sind innerhalb von <b>7 Tagen</b> nach Rechnungsstellung ohne Abzug zur Zahlung fällig.
+          <p class="small"><b>5. Vergütung</b><br>
+            Zahlung innerhalb <b>7 Tagen</b>. Vorauszahlung bei Erstaufträgen/hohem Wert möglich.
           </p>
           <p class="small"><b>6. Schlussbestimmungen</b><br>
-            Es gilt deutsches Recht. Gerichtsstand ist Lübeck, sofern gesetzlich zulässig.
+            Deutsches Recht. Gerichtsstand Lübeck, soweit zulässig.
           </p>
           ${META_LINE_DE}
         `
@@ -726,7 +710,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     closeBtn.textContent = TEXT[lang].close;
-    applyFooter();
   }
 
   function openModal(kind){
@@ -782,6 +765,10 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   applyLang("en");
+  applyFooter();
+
+  btnEN.addEventListener("click", applyFooter);
+  btnDE.addEventListener("click", applyFooter);
 });
 </script>
 

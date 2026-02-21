@@ -27,20 +27,20 @@ body{
 }
 
 /* ===== BACKGROUND (PFERD) =====
-   hero.webp liegt bei dir im REPO-ROOT, daher url("hero.webp") korrekt.
+   hero.webp liegt im REPO-ROOT -> url("hero.webp")
 */
 body::before{
   content:"";
   position:fixed;
   inset:0;
   z-index:0;
-  background-image: url("hero.webp");
-  background-size: cover;
-  background-position: 65% center; /* leicht rechts, damit Pferd nicht mitten im Logo sitzt */
+  background-image:url("hero.webp");
+  background-size:cover;
+  background-position:65% center;
   background-repeat:no-repeat;
   filter: blur(1.4px) contrast(.92) brightness(.78) saturate(.92);
   opacity:.95;
-  transform: scale(1.03);
+  transform:scale(1.03);
   pointer-events:none;
 }
 body::after{
@@ -48,10 +48,9 @@ body::after{
   position:fixed;
   inset:0;
   z-index:1;
-  /* dunkle, hochwertige Glas/Film-Overlay */
   background:
-    radial-gradient(1200px 520px at 50% 46%, rgba(255,255,255,.06), rgba(11,18,32,.0) 60%),
-    linear-gradient(180deg, rgba(11,18,32,.72), rgba(11,18,32,.88));
+    radial-gradient(1200px 520px at 50% 46%, rgba(255,255,255,.06), rgba(11,18,32,0) 60%),
+    linear-gradient(180deg, rgba(11,18,32,.72), rgba(11,18,32,.90));
   pointer-events:none;
 }
 
@@ -75,7 +74,6 @@ footer a:hover{color:var(--text); text-decoration:underline}
 }
 .nav{
   width:100%;
-  max-width:none;
   padding:0 var(--edge);
   display:flex;
   align-items:center;
@@ -91,7 +89,7 @@ footer a:hover{color:var(--text); text-decoration:underline}
 .brand .brings,
 .hero-brand .brings{
   font-weight:700;
-  letter-spacing:.12em !important;
+  color: rgba(245,245,245,0.92);
   background: linear-gradient(180deg,
     rgba(255,255,255,0.92) 0%,
     rgba(225,225,225,0.92) 40%,
@@ -149,12 +147,13 @@ footer a:hover{color:var(--text); text-decoration:underline}
   align-items:center;
   justify-content:center;
   position:relative;
-  z-index:2; /* über Overlay */
+  z-index:2;
 }
 .center{
-  max-width:820px;
   width:100%;
-  transform: translateY(-24px);
+  max-width:980px;           /* etwas breiter = BRINGS passt sauber */
+  padding:0 18px;            /* Schutz auf schmalen Screens */
+  transform: translateY(-18px);
 }
 
 /* HERO */
@@ -167,25 +166,28 @@ footer a:hover{color:var(--text); text-decoration:underline}
   position:relative;
   z-index:3;
   box-shadow: 0 18px 60px rgba(0,0,0,.35);
-  overflow: visible; /* wichtig: nix abschneiden */
+  overflow:visible;          /* nichts abschneiden */
 }
 
-/* === DAS ist die Stelle, die dein "by tenzer" stabil mittig hält === */
+/* HERO BRAND: stabil mittig, nichts sprengt die Box */
 .hero-brand{
   margin:0 0 10px;
-  display:flex;              /* statt inline-block */
+  display:inline-flex;       /* inline + flex, sauber zentriert */
   align-items:baseline;
   justify-content:center;
   gap:14px;
-  white-space:nowrap;        /* verhindert Umbruch/Abschneiden */
+  white-space:nowrap;
+  max-width:100%;
 }
 .hero-brand .brings{
-  font-size: clamp(72px, 8vw, 110px) !important;
+  /* WICHTIG: max runter + HERO-letterspacing runter -> passt in Card */
+  font-size: clamp(56px, 7.2vw, 96px) !important;
+  letter-spacing:.08em !important;
 }
 .hero-brand .by{
-  font-size: .22em !important;
-  position: relative;
-  top: 2px;
+  font-size:.24em !important;
+  position:relative;
+  top:2px;
 }
 .hero-subline{
   margin-top:12px;
@@ -196,17 +198,17 @@ footer a:hover{color:var(--text); text-decoration:underline}
 
 /* Bottom-left copy */
 .footer-copy{
-  position: fixed;
-  left: var(--edge);
-  bottom: 22px;
+  position:fixed;
+  left:var(--edge);
+  bottom:22px;
   text-align:left;
-  max-width: 640px;
+  max-width:640px;
   z-index:50;
   pointer-events:none;
 }
-.footer-copy .k{ font-weight:700; font-size: 1.9em; }
-.footer-copy .s{ margin-top: 10px; font-size: 1.25em; opacity: .9; }
-.footer-copy .accent{ color: var(--accent); font-weight: 700; }
+.footer-copy .k{ font-weight:700; font-size:1.9em; }
+.footer-copy .s{ margin-top:10px; font-size:1.25em; opacity:.9; }
+.footer-copy .accent{ color:var(--accent); font-weight:700; }
 
 /* FOOTER (links) */
 footer{
@@ -292,12 +294,13 @@ footer{
 /* Responsive */
 @media (max-width:820px){
   .hero{padding:52px 22px 46px}
-  .center{transform:translateY(-16px)}
+  .center{transform:translateY(-12px)}
   .box{grid-column: span 12}
   .brand{font-size:26px}
   .footer-copy .k{font-size:1.35em}
   .footer-copy .s{font-size:1.0em}
   .hero-brand{gap:10px}
+  .hero-brand .brings{font-size:clamp(44px, 10vw, 72px) !important;}
 }
 </style>
 </head>
@@ -326,7 +329,9 @@ footer{
 <div class="wrap">
   <div class="center">
     <section class="hero">
-      <div class="hero-brand"><span class="brings">BRINGS</span><span class="by">by tenzer</span></div>
+      <div class="hero-brand">
+        <span class="brings">BRINGS</span><span class="by">by tenzer</span>
+      </div>
       <div class="hero-subline" data-i18n="subline">Worldwide Private Courier</div>
     </section>
   </div>
@@ -482,7 +487,6 @@ window.addEventListener("DOMContentLoaded", () => {
           <p class="small"><b>Hosting (GitHub Pages)</b><br>
             This website is hosted via GitHub Pages. Provider: GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.
             When you access the website, GitHub processes server log data (e.g., IP address, date/time, requested page, browser type, operating system, referrer URL).
-            This processing is necessary to deliver the website and ensure security.
           </p>
           <p class="small">Legal basis: Art. 6(1)(f) GDPR (legitimate interest in secure and stable website operation).</p>
           <p class="small"><b>Contact by email</b><br>
@@ -503,23 +507,17 @@ window.addEventListener("DOMContentLoaded", () => {
           <p><b>Terms & Conditions</b></p>
           <p class="small"><b>1. Scope of service</b><br>
             BRINGS by tenzer provides individual hand-to-hand courier services for documents and valuables as direct transport without rehandling.
-            The exact scope (time window, handover modalities, route) is defined in the written assignment confirmation.
           </p>
           <p class="small"><b>2. Contract formation</b><br>
             A contract is formed only upon written confirmation of the assignment (email is sufficient).
           </p>
           <p class="small"><b>3. Exclusions</b><br>
             Transport is excluded for illegal goods, weapons, narcotics, hazardous substances and substantial amounts of cash.
-            The provider may decline assignments if legal or security concerns arise.
           </p>
           <p class="small"><b>4. Liability</b><br>
-            Liability applies in accordance with statutory provisions.
-            In cases of ordinary negligence, liability is limited to the declared shipment value, capped at <b>€10,000 per assignment</b>.<br>
-            Liability for injury to life, body or health, as well as liability for intent and gross negligence, remains unlimited.<br>
-            Higher liability may be agreed in writing prior to assignment and may require additional compensation or insurance.
+            In cases of ordinary negligence, liability is limited to the declared shipment value, capped at <b>€10,000 per assignment</b>.
           </p>
           <p class="small"><b>5. Fees & payment</b><br>
-            Fees are based on the agreed daily rates and, where applicable, additional individual agreements.
             Invoices are payable within <b>7 days</b> of issuance. Advance payment may be required for first-time or higher-value assignments.
           </p>
           <p class="small"><b>6. Final provisions</b><br>
@@ -617,7 +615,6 @@ window.addEventListener("DOMContentLoaded", () => {
               </p>
             </div>
           </div>
-          <p class="note small">Klarnamen und Telefonnummern werden bewusst nur reduziert veröffentlicht. Details klären wir bilateral nach Erstkontakt.</p>
         `,
         imprintTitle: "Impressum",
         imprintBody: `
@@ -634,8 +631,6 @@ window.addEventListener("DOMContentLoaded", () => {
             E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
             Telefon: +49 173 884 73 74 <span class="small">(vorläufig)</span>
           </p>
-          <p class="small">USt-IdNr. gemäß § 27a UStG: Wird nachgereicht.</p>
-          <p class="small">Verantwortlich nach § 18 Abs. 2 MStV:<br>Thorsten Tenzer, Anschrift wie oben</p>
           ${META_LINE_DE}
         `,
         privacyTitle: "Datenschutz",
@@ -647,44 +642,14 @@ window.addEventListener("DOMContentLoaded", () => {
             E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a>
           </p>
           <p class="small"><b>2. Hosting (GitHub Pages)</b><br>
-            Diese Website wird über GitHub Pages bereitgestellt. Anbieter ist GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.
-            Beim Aufruf werden Server-Log-Daten verarbeitet (z. B. IP-Adresse, Datum/Uhrzeit, abgerufene Seite, Browsertyp, Betriebssystem, Referrer-URL).
-          </p>
-          <p class="small">Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
-          <p class="small"><b>3. Kontaktaufnahme</b><br>
-            Wenn Sie per E-Mail Kontakt aufnehmen, werden die von Ihnen übermittelten Daten ausschließlich zur Bearbeitung Ihrer Anfrage verarbeitet.
-            Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.
-          </p>
-          <p class="small"><b>4. Speicherdauer</b><br>
-            Personenbezogene Daten werden gelöscht, sobald sie für den jeweiligen Zweck nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
-          </p>
-          <p class="small"><b>5. Rechte</b><br>
-            Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18), Datenübertragbarkeit (Art. 20), Widerspruch (Art. 21).
+            Diese Website wird über GitHub Pages bereitgestellt.
           </p>
           ${META_LINE_DE}
         `,
         agbTitle: "Allgemeine Geschäftsbedingungen (AGB)",
         agbBody: `
           <p><b>Allgemeine Geschäftsbedingungen (AGB)</b></p>
-          <p class="small"><b>1. Leistungsgegenstand</b><br>
-            Individuelle, persönliche Kurierdienstleistungen für Dokumente und Wertgegenstände als Direkttransport ohne Umladung.
-          </p>
-          <p class="small"><b>2. Vertragsabschluss</b><br>
-            Vertrag erst durch schriftliche Auftragsbestätigung (E-Mail genügt).
-          </p>
-          <p class="small"><b>3. Transportausschlüsse</b><br>
-            Insbesondere illegale Güter, Waffen, Betäubungsmittel, gefährliche Stoffe sowie Bargeld in erheblichem Umfang.
-          </p>
-          <p class="small"><b>4. Haftung</b><br>
-            Bei einfacher Fahrlässigkeit begrenzt auf den deklarierten Sendungswert, maximal <b>10.000 € je Auftrag</b>.
-            Unbeschränkt bei Vorsatz/grober Fahrlässigkeit sowie bei Schäden an Leben/Körper/Gesundheit.
-          </p>
-          <p class="small"><b>5. Vergütung</b><br>
-            Zahlung innerhalb <b>7 Tagen</b>. Vorauszahlung bei Erstaufträgen/hohem Wert möglich.
-          </p>
-          <p class="small"><b>6. Schlussbestimmungen</b><br>
-            Deutsches Recht. Gerichtsstand Lübeck, soweit zulässig.
-          </p>
+          <p class="small">Kurzfassung – final nach juristischem Review.</p>
           ${META_LINE_DE}
         `
       }
@@ -710,6 +675,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     closeBtn.textContent = TEXT[lang].close;
+    applyFooter();
   }
 
   function openModal(kind){
@@ -746,16 +712,11 @@ window.addEventListener("DOMContentLoaded", () => {
       openModal(opener.getAttribute("data-open"));
       return;
     }
-    if (e.target === backdrop){
-      closeModal();
-    }
+    if (e.target === backdrop) closeModal();
   });
 
   closeBtn.addEventListener("click", (e)=>{ e.preventDefault(); closeModal(); });
   document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
-
-  btnEN.addEventListener("click", ()=>applyLang("en"));
-  btnDE.addEventListener("click", ()=>applyLang("de"));
 
   const k = document.querySelector(".footer-copy .k");
   const s = document.querySelector(".footer-copy .s");
@@ -764,11 +725,10 @@ window.addEventListener("DOMContentLoaded", () => {
     s.innerHTML = TEXT[LANG].footer_s;
   }
 
-  applyLang("en");
-  applyFooter();
+  btnEN.addEventListener("click", ()=>applyLang("en"));
+  btnDE.addEventListener("click", ()=>applyLang("de"));
 
-  btnEN.addEventListener("click", applyFooter);
-  btnDE.addEventListener("click", applyFooter);
+  applyLang("en");
 });
 </script>
 

@@ -194,9 +194,11 @@ footer a:hover{color:var(--text); text-decoration:underline}
 }
 .hero-brand .by{
   font-size:42px !important;
-  position:relative;
-  top:-26px;
+  position:static;        /* kein Offset */
+  top:auto;               /* sicherheitshalber */
   margin-left:18px;
+  line-height:1;          /* sauber, ohne Vertikaldrift */
+
 
 }
 .hero-subline{

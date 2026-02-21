@@ -278,9 +278,15 @@ footer{
 .closeBtn:hover{border-color:rgba(255,255,255,.25); color:var(--text)}
 .modal p,.modal li{
   color:var(--muted);
-  margin:10px 0;
+  margin:12px 0;
   font-size:13.5px;
-  line-height:1.55;
+  line-height:1.6;
+}
+
+/* calmer spacing in modals */
+.modal ul{
+  margin:10px 0 14px;
+  padding-left:18px;
 }
 .small{font-size:12.8px}
 .note{
@@ -397,20 +403,15 @@ serviceBody: `
   <p>Personal hand-carry courier for time-critical and confidential handovers.</p>
 
   <h3>Operational principle</h3>
+  <p>Direct custody from pickup to personal handover.</p>
 
-  <p>
-  Direct custody from pickup to personal handover.
-  </p>
+  <ul class="small">
+    <li>No rehandling</li>
+    <li>No subcontract chain</li>
+    <li>Single point of responsibility</li>
+  </ul>
 
-  <p class="small">
-  No rehandling.<br>
-  No subcontract chain.<br>
-  Single point of responsibility.
-  </p>
-
-  <p class="small">
-  Personal handover confirmation available upon request.
-  </p>
+  <p class="small">Personal handover confirmation available upon request.</p>
 `,
         coverageTitle: "Coverage",
         coverageBody: `
@@ -436,13 +437,13 @@ pricingBody: `
 
   <p>Complex, high-value or time-critical missions are individually assessed.</p>
 
-  <p class="note small">Minimum engagement applies.</p>
-
-  <p class="small">Each assignment is treated as a dedicated mission.</p>
-
   <p class="small">
     Travel expenses such as flights, accommodation and transfers are charged separately unless otherwise agreed.
   </p>
+
+  <p class="note small">Minimum engagement applies.</p>
+
+  <p class="small">Each assignment is treated as a dedicated mission.</p>
 `,
 contactTitle: "Contact",
         contactTitle: "Contact",

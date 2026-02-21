@@ -34,14 +34,16 @@ body::before{
   position:fixed;
   inset:0;
   z-index:0;
-  background-image:url("hero.webp");
+  background-image:url("bg.webp");   /* <<< HIER */
   background-size:cover;
   background-position:65% center;
   background-repeat:no-repeat;
-  filter: blur(1.4px) contrast(.92) brightness(.78) saturate(.92);
+
+  filter: blur(1.2px) contrast(.95) brightness(.75) saturate(.92);
   opacity:.95;
   transform:scale(1.03);
   pointer-events:none;
+
 }
 body::after{
   content:"";

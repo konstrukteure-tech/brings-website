@@ -153,7 +153,7 @@ footer a:hover{color:var(--text); text-decoration:underline}
   width:100%;
   max-width:980px;           /* etwas breiter = BRINGS passt sauber */
   padding:0 18px;            /* Schutz auf schmalen Screens */
-  transform: translateY(-18px);
+  transform: translateY(-24px);
 }
 
 /* HERO */
@@ -169,20 +169,20 @@ footer a:hover{color:var(--text); text-decoration:underline}
   overflow:visible;          /* nichts abschneiden */
 }
 
-/* HERO BRAND: stabil mittig, nichts sprengt die Box */
 .hero-brand{
   margin:0 0 10px;
-  display:inline-flex;       /* inline + flex, sauber zentriert */
+  display:flex;
   align-items:baseline;
   justify-content:center;
-  gap:14px;
+  gap:12px;
   white-space:nowrap;
   max-width:100%;
 }
+
 .hero-brand .brings{
-  /* WICHTIG: max runter + HERO-letterspacing runter -> passt in Card */
-  font-size: clamp(56px, 7.2vw, 96px) !important;
-  letter-spacing:.08em !important;
+  font-size: clamp(56px, 7vw, 96px) !important;  /* kleiner = kein Abschneiden */
+  letter-spacing:.10em !important;               /* etwas weniger Luft */
+
 }
 .hero-brand .by{
   font-size:.24em !important;

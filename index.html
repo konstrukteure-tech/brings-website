@@ -51,6 +51,7 @@ filter: blur(1.1px) contrast(.95) brightness(.74) saturate(.92);
 
   pointer-events:none;
 }
+}
 body::after{
   content:"";
   position:fixed;
@@ -376,308 +377,11 @@ footer{
   <div class="s"></div>
 </div>
 
-
-<!-- LEGAL TEMPLATES (SAFE: no JS template strings) -->
-
-<!-- MODAL CONTENT TEMPLATES (SAFE) -->
-<template id="tpl-service-en">
-  <p>Personal hand-carry courier for time-critical and confidential handovers.</p>
-
-  <h3>Operational principle</h3>
-  <p>Direct custody from pickup to personal handover.</p>
-
-  <ul class="small">
-    <li>No rehandling</li>
-    <li>No subcontract chain</li>
-    <li>Single point of responsibility</li>
-  </ul>
-
-  <p class="small">Personal handover confirmation available upon request.</p>
-</template>
-
-<template id="tpl-coverage-en">
-  <p>Germany and EU are active. Worldwide on request.</p>
-
-  <div class="grid">
-    <div class="box" style="grid-column: span 12;">
-      <h3>Operational availability</h3>
-      <ul class="small">
-        <li><b>Germany:</b> deployment within <b>6 hours</b></li>
-        <li><b>European Union:</b> deployment within <b>12 hours</b></li>
-        <li><b>Worldwide:</b> deployment within <b>24 hours</b></li>
-      </ul>
-      <p class="note small"><b>Note:</b> availability subject to confirmation prior to assignment (route / flight situation).</p>
-    </div>
-  </div>
-</template>
-
-<template id="tpl-pricing-en">
-  <p>Assignments are priced individually based on route, urgency, security requirements and declared value.</p>
-
-  <p>Standard assignments may be structured on a day-rate basis.</p>
-
-  <p>Complex, high-value or time-critical missions are individually assessed.</p>
-
-  <p class="small">
-    Travel expenses such as flights, accommodation and transfers are charged separately unless otherwise agreed.
-  </p>
-
-  <p class="note small">Minimum engagement applies.</p>
-
-  <p class="small">
-    <strong>Each assignment is treated as a dedicated mission.</strong>
-  </p>
-</template>
-
-<template id="tpl-contact-en">
-  <p>Please email a short request including origin, destination, time window, and delivery type.</p>
-
-  <p class="note small"><b>Assignment requirements</b><br>
-    Origin &amp; destination (pickup &amp; handover details) · requested time window · shipment type (documents / valuables / other) · declared value (for insurance structuring if required).
-    <br><br>
-    All transfers are hand-to-hand. Written handover confirmation available upon request. High-value assignments may require additional insurance coverage.
-  </p>
-
-  <div class="grid">
-    <div class="box" style="grid-column: span 12;">
-      <h3>Email</h3>
-      <p class="small"><a href="mailto:contact@brings.global">contact@brings.global</a></p>
-    </div>
-    <div class="box" style="grid-column: span 12;">
-      <h3>Phone</h3>
-      <p class="small">+49&nbsp;173&nbsp;884&nbsp;7374 <span class="small">(temporary)</span></p>
-    </div>
-    <div class="box" style="grid-column: span 12;">
-      <h3>Request form</h3>
-      <p class="small">
-        <a class="btn-mini" href="BRINGS_Request_Form_EN.pdf" target="_blank" rel="noopener">Download (EN)</a>
-        <a class="btn-mini" href="BRINGS_Request_Form_DE.pdf" target="_blank" rel="noopener">Download (DE)</a>
-      </p>
-    </div>
-  </div>
-
-  <p class="note small">Names and phone numbers are intentionally kept minimal. Details are confirmed bilaterally after first contact.</p>
-</template>
-
-<template id="tpl-service-de">
-  <p>Persönlicher Hand-Carry-Kurier für zeitkritische und vertrauliche Übergaben.</p>
-
-  <div class="grid">
-    <div class="box" style="grid-column: span 12;">
-      <h3>Kern</h3>
-      <ul class="small">
-        <li>Direkte Übergabe — von Mensch zu Mensch</li>
-        <li>Klare Verantwortung bis zur bestätigten Übergabe</li>
-      </ul>
-    </div>
-    <div class="box" style="grid-column: span 12;">
-      <h3>Nicht angeboten</h3>
-      <ul class="small">
-        <li>Kein Paketversand</li>
-        <li>Keine Massenlogistik</li>
-      </ul>
-    </div>
-  </div>
-</template>
-
-<template id="tpl-coverage-de">
-  <p>Deutschland und EU sind aktiv. Weltweit auf Anfrage.</p>
-
-  <div class="grid">
-    <div class="box" style="grid-column: span 12;">
-      <h3>Verfügbarkeit</h3>
-      <ul class="small">
-        <li><b>Deutschland:</b> Einsatz innerhalb von <b>6 Stunden</b></li>
-        <li><b>EU:</b> Einsatz innerhalb von <b>12 Stunden</b></li>
-        <li><b>Weltweit:</b> Einsatz innerhalb von <b>24 Stunden</b></li>
-      </ul>
-      <p class="note small"><b>Hinweis:</b> Verfügbarkeit vorbehaltlich Bestätigung vor Beauftragung (Route / Abfluglage).</p>
-    </div>
-  </div>
-</template>
-
-<template id="tpl-pricing-de">
-  <p>Individuelle Kalkulation nach Route, Zeitkritik, Sicherheitsanforderungen und deklariertem Wert.</p>
-
-  <p>Standardaufträge können auf Tageshonorar-Basis strukturiert werden.</p>
-
-  <p>Komplexe, besonders wertvolle oder zeitkritische Einsätze werden individuell bewertet.</p>
-
-  <p class="note small">Mindesthonorar gilt.</p>
-
-  <p class="small"><strong>Jeder Auftrag wird als eigenständiger Einsatz geführt.</strong></p>
-
-  <p class="small">
-    Reisekosten wie Flüge, Unterkunft und Transfers werden gesondert berechnet, sofern nicht anders vereinbart.
-  </p>
-</template>
-
-<template id="tpl-contact-de">
-  <p>Bitte senden Sie eine kurze Anfrage mit Einsatzort, Zielort, Zeitfenster und Art der Sendung.</p>
-
-  <div class="grid">
-    <div class="box" style="grid-column: span 12;">
-      <h3>E-Mail</h3>
-      <p class="small"><a href="mailto:contact@brings.global">contact@brings.global</a></p>
-    </div>
-    <div class="box" style="grid-column: span 12;">
-      <h3>Telefon</h3>
-      <p class="small">+49&nbsp;173&nbsp;884&nbsp;7374 <span class="small">(vorläufig)</span></p>
-    </div>
-    <div class="box" style="grid-column: span 12;">
-      <h3>Anfrageformular</h3>
-      <p class="small">
-        <a class="btn-mini" href="BRINGS_Request_Form_DE.pdf" target="_blank" rel="noopener">Download (DE)</a>
-        <a class="btn-mini" href="BRINGS_Request_Form_EN.pdf" target="_blank" rel="noopener">Download (EN)</a>
-      </p>
-    </div>
-  </div>
-</template>
-
-<template id="tpl-imprint-en">
-  <p><b>BRINGS by tenzer — Worldwide Private Courier</b></p>
-  <p class="small">
-    Service provider:<br>
-    Thorsten Tenzer<br>
-    Töpferweg 81<br>
-    23552 Lübeck<br>
-    Germany
-  </p>
-  <p class="small">
-    Contact:<br>
-    Email: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
-    Phone: +49 173 884 73 74 <span class="small">(temporary)</span>
-  </p>
-  <p class="small">VAT ID (Germany, §27a UStG): Pending (to be added).</p>
-  <p class="small">Responsible for content pursuant to §18 (2) MStV:<br>Thorsten Tenzer, address as above</p>
-  <p class="note small"><b>Status:</b> Service in preparation. <b>Last updated:</b> February 2026</p>
-</template>
-
-<template id="tpl-privacy-en">
-  <p><b>Privacy Policy</b></p>
-  <p class="small">
-    Controller:<br>
-    Thorsten Tenzer<br>
-    Töpferweg 81, 23552 Lübeck, Germany<br>
-    Email: <a href="mailto:contact@brings.global">contact@brings.global</a>
-  </p>
-  <p class="small"><b>Hosting (GitHub Pages)</b><br>
-    This website is hosted via GitHub Pages. Provider: GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.
-    When you access the website, GitHub processes server log data (e.g., IP address, date/time, requested page, browser type, operating system, referrer URL).
-  </p>
-  <p class="small">Legal basis: Art. 6(1)(f) GDPR (legitimate interest in secure and stable website operation).</p>
-  <p class="small"><b>Contact by email</b><br>
-    If you contact us by email, the data you provide is processed solely to handle your request and related correspondence.
-    Legal basis: Art. 6(1)(b) GDPR (pre-contractual/contractual communication).
-  </p>
-  <p class="small"><b>Retention</b><br>
-    Personal data is deleted as soon as it is no longer necessary for the respective purpose and no statutory retention obligations apply.
-  </p>
-  <p class="small"><b>Your rights</b><br>
-    You have the right to access (Art. 15), rectification (Art. 16), erasure (Art. 17), restriction (Art. 18),
-    data portability (Art. 20), and to object (Art. 21) under the GDPR. You also have the right to lodge a complaint with a supervisory authority.
-  </p>
-  <p class="note small"><b>Status:</b> Service in preparation. <b>Last updated:</b> February 2026</p>
-</template>
-
-<template id="tpl-agb-en">
-  <p><b>Terms &amp; Conditions</b></p>
-  <p class="small"><b>1. Scope of service</b><br>
-    BRINGS by tenzer provides individual hand-to-hand courier services for documents and valuables as direct transport without rehandling.
-  </p>
-  <p class="small"><b>2. Contract formation</b><br>
-    A contract is formed only upon written confirmation of the assignment (email is sufficient).
-  </p>
-  <p class="small"><b>3. Exclusions</b><br>
-    Transport is excluded for illegal goods, weapons, narcotics, hazardous substances and substantial amounts of cash.
-  </p>
-  <p class="small"><b>4. Liability</b><br>
-    In cases of ordinary negligence, liability is limited to the declared shipment value, capped at <b>€10,000 per assignment</b>.
-  </p>
-  <p class="small"><b>5. Fees &amp; payment</b><br>
-    Invoices are payable within <b>7 days</b> of issuance. Advance payment may be required for first-time or higher-value assignments.
-  </p>
-  <p class="small"><b>6. Final provisions</b><br>
-    German law applies. Place of jurisdiction is Lübeck, insofar as legally permissible.
-  </p>
-  <p class="note small"><b>Status:</b> Service in preparation. <b>Last updated:</b> February 2026</p>
-</template>
-
-<template id="tpl-imprint-de">
-  <p><b>BRINGS by tenzer — Worldwide Private Courier</b></p>
-  <p class="small">
-    Diensteanbieter:<br>
-    Thorsten Tenzer<br>
-    Töpferweg 81<br>
-    23552 Lübeck<br>
-    Deutschland
-  </p>
-  <p class="small">
-    Kontakt:<br>
-    E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
-    Telefon: +49 173 884 73 74 <span class="small">(vorläufig)</span>
-  </p>
-  <p class="note small"><b>Status:</b> Service im Aufbau. <b>Stand:</b> Februar 2026</p>
-</template>
-
-<template id="tpl-privacy-de">
-  <p><b>Datenschutzerklärung</b></p>
-  <p class="small"><b>1. Verantwortlicher</b><br>
-    Thorsten Tenzer<br>
-    Töpferweg 81<br>
-    23552 Lübeck<br>
-    Deutschland<br>
-    E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a>
-  </p>
-  <p class="small"><b>2. Hosting (GitHub Pages)</b><br>
-    Diese Website wird über GitHub Pages bereitgestellt. Anbieter ist GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.
-    Beim Zugriff auf die Website verarbeitet GitHub Server-Log-Daten (z. B. IP-Adresse, Datum/Uhrzeit, aufgerufene Seite, Browsertyp, Betriebssystem, Referrer-URL).
-  </p>
-  <p class="small">
-    Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am sicheren und stabilen Betrieb der Website).
-  </p>
-  <p class="small"><b>3. Kontaktaufnahme per E-Mail</b><br>
-    Wenn Sie uns per E-Mail kontaktieren, werden die von Ihnen übermittelten Daten ausschließlich zur Bearbeitung Ihrer Anfrage und der damit verbundenen Kommunikation verarbeitet.
-    Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche/vertragliche Kommunikation).
-  </p>
-  <p class="small"><b>4. Speicherdauer</b><br>
-    Personenbezogene Daten werden gelöscht, sobald sie für den jeweiligen Zweck nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten bestehen.
-  </p>
-  <p class="small"><b>5. Ihre Rechte</b><br>
-    Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung (Art. 18 DSGVO),
-    Datenübertragbarkeit (Art. 20 DSGVO) sowie Widerspruch (Art. 21 DSGVO).
-    Zudem besteht ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde.
-  </p>
-  <p class="note small"><b>Status:</b> Service im Aufbau. <b>Stand:</b> Februar 2026</p>
-</template>
-
-<template id="tpl-agb-de">
-  <p><b>Allgemeine Geschäftsbedingungen (AGB)</b></p>
-  <p class="small"><b>1. Leistungsgegenstand</b><br>
-    BRINGS by tenzer erbringt individuelle, persönliche Kurierdienstleistungen für Dokumente und Wertgegenstände als Direkttransport ohne Umladung.
-  </p>
-  <p class="small"><b>2. Vertragsabschluss</b><br>
-    Ein Vertrag kommt ausschließlich durch schriftliche Auftragsbestätigung zustande (E-Mail ausreichend).
-  </p>
-  <p class="small"><b>3. Ausschlüsse</b><br>
-    Vom Transport ausgeschlossen sind illegale Güter, Waffen, Betäubungsmittel, gefährliche Stoffe sowie erhebliche Bargeldbeträge.
-  </p>
-  <p class="small"><b>4. Haftung</b><br>
-    Bei einfacher Fahrlässigkeit ist die Haftung auf den deklarierten Sendungswert begrenzt, maximal <b>10.000 € je Auftrag</b>.
-  </p>
-  <p class="small"><b>5. Vergütung &amp; Zahlung</b><br>
-    Rechnungen sind innerhalb von <b>7 Tagen</b> nach Rechnungsstellung fällig. Bei Erstaufträgen oder Aufträgen mit erhöhtem Wert kann eine Vorauszahlung erforderlich sein.
-  </p>
-  <p class="small"><b>6. Schlussbestimmungen</b><br>
-    Es gilt deutsches Recht. Gerichtsstand ist Lübeck, soweit gesetzlich zulässig.
-  </p>
-  <p class="note small"><b>Status:</b> Service im Aufbau. <b>Stand:</b> Februar 2026</p>
-</template>
-
-
 <script>
 window.addEventListener("DOMContentLoaded", () => {
   let LANG = "en";
+  const META_LINE_EN = `<p class="note small"><b>Status:</b> Service in preparation. <b>Last updated:</b> February 2026</p>`;
+  const META_LINE_DE = `<p class="note small"><b>Status:</b> Service im Aufbau. <b>Stand:</b> Februar 2026</p>`;
 
   const TEXT = {
     en: {
@@ -691,23 +395,161 @@ window.addEventListener("DOMContentLoaded", () => {
       agb: "Terms",
       close: "Close",
       footer_k: "On Time · Discreet · Accountable",
-     footer_s: "We deliver what cannot be replaced. <span class=\"accent\">Anytime, anywhere.</span><br>Direct custody. Personal responsibility.",
+     footer_s: `
+  We deliver what cannot be replaced. 
+  <span class="accent">Anytime, anywhere.</span><br>
+  Direct custody. Personal responsibility.
+`,
       modals: {
         serviceTitle: "Service",
-        serviceBody: ""
+    
+serviceBody: `
+  <p>Personal hand-carry courier for time-critical and confidential handovers.</p>
+
+  <h3>Operational principle</h3>
+  <p>Direct custody from pickup to personal handover.</p>
+
+  <ul class="small">
+    <li>No rehandling</li>
+    <li>No subcontract chain</li>
+    <li>Single point of responsibility</li>
+  </ul>
+
+  <p class="small">Personal handover confirmation available upon request.</p>
+`,
         coverageTitle: "Coverage",
-        coverageBody: ""
+        coverageBody: `
+  <p>Germany and EU are active. Worldwide on request.</p>
+
+  <div class="grid">
+    <div class="box" style="grid-column: span 12;">
+      <h3>Operational availability</h3>
+      <ul class="small">
+        <li><b>Germany:</b> deployment within <b>6 hours</b></li>
+        <li><b>European Union:</b> deployment within <b>12 hours</b></li>
+        <li><b>Worldwide:</b> deployment within <b>24 hours</b></li>
+      </ul>
+      <p class="note small"><b>Note:</b> availability subject to confirmation prior to assignment (route / flight situation).</p>
+    </div>
+  </div>
+`,
 pricingTitle: "Pricing",
-        pricingBody: ""
+pricingBody: `
+  <p>Assignments are priced individually based on route, urgency, security requirements and declared value.</p>
+
+  <p>Standard assignments may be structured on a day-rate basis.</p>
+
+  <p>Complex, high-value or time-critical missions are individually assessed.</p>
+
+  <p class="small">
+    Travel expenses such as flights, accommodation and transfers are charged separately unless otherwise agreed.
+  </p>
+
+  <p class="note small">Minimum engagement applies.</p>
+
+ <p class="small">
+  <strong>Each assignment is treated as a dedicated mission.</strong>
+</p>
+`,
 contactTitle: "Contact",
         contactTitle: "Contact",
-        contactBody: ""
+        contactBody: `
+          <p>Please email a short request including origin, destination, time window, and delivery type.</p>
+          <p class="note small"><b>Assignment requirements</b><br>
+Origin & destination (pickup & handover details) · requested time window · shipment type (documents / valuables / other) · declared value (for insurance structuring if required).
+<br><br>
+All transfers are hand-to-hand. Written handover confirmation available upon request. High-value assignments may require additional insurance coverage.
+</p>
+          <div class="grid">
+          
+            <div class="box" style="grid-column: span 12;">
+              <h3>Email</h3>
+              <p class="small"><a href="mailto:contact@brings.global">contact@brings.global</a></p>
+            </div>
+            <div class="box" style="grid-column: span 12;">
+              <h3>Phone</h3>
+              <p class="small">+49&nbsp;173&nbsp;884&nbsp;7374 <span class="small">(temporary)</span></p>
+            </div>
+            <div class="box" style="grid-column: span 12;">
+              <h3>Request form</h3>
+              <p class="small">
+                <a class="btn-mini" href="BRINGS_Request_Form_EN.pdf" target="_blank" rel="noopener">Download (EN)</a>
+                <a class="btn-mini" href="BRINGS_Request_Form_DE.pdf" target="_blank" rel="noopener">Download (DE)</a>
+              </p>
+            </div>
+          </div>
+          <p class="note small">Names and phone numbers are intentionally kept minimal. Details are confirmed bilaterally after first contact.</p>
+        `,
         imprintTitle: "Imprint",
-        imprintBody: ""
+        imprintBody: `
+          <p><b>BRINGS by tenzer — Worldwide Private Courier</b></p>
+          <p class="small">
+            Service provider:<br>
+            Thorsten Tenzer<br>
+            Töpferweg 81<br>
+            23552 Lübeck<br>
+            Germany
+          </p>
+          <p class="small">
+            Contact:<br>
+            Email: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
+            Phone: +49 173 884 73 74 <span class="small">(temporary)</span>
+          </p>
+          <p class="small">VAT ID (Germany, §27a UStG): Pending (to be added).</p>
+          <p class="small">Responsible for content pursuant to §18 (2) MStV:<br>Thorsten Tenzer, address as above</p>
+          ${META_LINE_EN}
+        `,
         privacyTitle: "Privacy",
-        privacyBody: ""
+        privacyBody: `
+          <p><b>Privacy Policy</b></p>
+          <p class="small">
+            Controller:<br>
+            Thorsten Tenzer<br>
+            Töpferweg 81, 23552 Lübeck, Germany<br>
+            Email: <a href="mailto:contact@brings.global">contact@brings.global</a>
+          </p>
+          <p class="small"><b>Hosting (GitHub Pages)</b><br>
+            This website is hosted via GitHub Pages. Provider: GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.
+            When you access the website, GitHub processes server log data (e.g., IP address, date/time, requested page, browser type, operating system, referrer URL).
+          </p>
+          <p class="small">Legal basis: Art. 6(1)(f) GDPR (legitimate interest in secure and stable website operation).</p>
+          <p class="small"><b>Contact by email</b><br>
+            If you contact us by email, the data you provide is processed solely to handle your request and related correspondence.
+            Legal basis: Art. 6(1)(b) GDPR (pre-contractual/contractual communication).
+          </p>
+          <p class="small"><b>Retention</b><br>
+            Personal data is deleted as soon as it is no longer necessary for the respective purpose and no statutory retention obligations apply.
+          </p>
+          <p class="small"><b>Your rights</b><br>
+            You have the right to access (Art. 15), rectification (Art. 16), erasure (Art. 17), restriction (Art. 18),
+            data portability (Art. 20), and to object (Art. 21) under the GDPR. You also have the right to lodge a complaint with a supervisory authority.
+          </p>
+          ${META_LINE_EN}
+        `,
         agbTitle: "Terms & Conditions",
-        agbBody: ""}
+        agbBody: `
+          <p><b>Terms & Conditions</b></p>
+          <p class="small"><b>1. Scope of service</b><br>
+            BRINGS by tenzer provides individual hand-to-hand courier services for documents and valuables as direct transport without rehandling.
+          </p>
+          <p class="small"><b>2. Contract formation</b><br>
+            A contract is formed only upon written confirmation of the assignment (email is sufficient).
+          </p>
+          <p class="small"><b>3. Exclusions</b><br>
+            Transport is excluded for illegal goods, weapons, narcotics, hazardous substances and substantial amounts of cash.
+          </p>
+          <p class="small"><b>4. Liability</b><br>
+            In cases of ordinary negligence, liability is limited to the declared shipment value, capped at <b>€10,000 per assignment</b>.
+          </p>
+          <p class="small"><b>5. Fees & payment</b><br>
+            Invoices are payable within <b>7 days</b> of issuance. Advance payment may be required for first-time or higher-value assignments.
+          </p>
+          <p class="small"><b>6. Final provisions</b><br>
+            German law applies. Place of jurisdiction is Lübeck, insofar as legally permissible.
+          </p>
+          ${META_LINE_EN}
+        `
+      }
     },
     de: {
       nav_service: "Service",
@@ -720,23 +562,177 @@ contactTitle: "Contact",
       agb: "AGB",
       close: "Schließen",
       footer_k: "Pünktlich · Diskret · Verantwortlich",
-      footer_s: "Wir übergeben, was nicht ersetzbar ist. <span class=\"accent\">Jederzeit. Überall.</span><br>Direkte Obhut. Persönliche Verantwortung.",
+      footer_s: `
+  Wir übergeben, was nicht ersetzbar ist. 
+  <span class="accent">Jederzeit. Überall.</span><br>
+  Direkte Obhut. Persönliche Verantwortung.
+`,
       modals: {
         serviceTitle: "Service",
-        serviceBody: ""
+        serviceBody: `
+          <p>Persönlicher Hand-Carry-Kurier für zeitkritische und vertrauliche Übergaben.</p>
+          <div class="grid">
+            <div class="box" style="grid-column: span 12;">
+              <h3>Kern</h3>
+              <ul class="small">
+                <li>Direkte Übergabe — von Mensch zu Mensch</li>
+                <li>Klare Verantwortung bis zur bestätigten Übergabe</li>
+              </ul>
+            </div>
+            <div class="box" style="grid-column: span 12;">
+              <h3>Nicht angeboten</h3>
+              <ul class="small">
+                <li>Kein Paketversand</li>
+                <li>Keine Massenlogistik</li>
+              </ul>
+            </div>
+          </div>
+        `,
         coverageTitle: "Einsatzgebiete",
-        coverageBody: ""
+        coverageBody: `
+  <p>Deutschland und EU sind aktiv. Weltweit auf Anfrage.</p>
+
+  <div class="grid">
+    <div class="box" style="grid-column: span 12;">
+      <h3>Verfügbarkeit</h3>
+      <ul class="small">
+        <li><b>Deutschland:</b> Einsatz innerhalb von <b>6 Stunden</b></li>
+        <li><b>EU:</b> Einsatz innerhalb von <b>12 Stunden</b></li>
+        <li><b>Weltweit:</b> Einsatz innerhalb von <b>24 Stunden</b></li>
+      </ul>
+      <p class="note small"><b>Hinweis:</b> Verfügbarkeit vorbehaltlich Bestätigung vor Beauftragung (Route / Abfluglage).</p>
+    </div>
+  </div>
+`,
 pricingTitle: "Preise",
-        pricingBody: ""
+pricingBody: `
+  <p>Individuelle Kalkulation nach Route, Zeitkritik, Sicherheitsanforderungen und deklariertem Wert.</p>
+
+  <p>Standardaufträge können auf Tageshonorar-Basis strukturiert werden.</p>
+
+  <p>Komplexe, besonders wertvolle oder zeitkritische Einsätze werden individuell bewertet.</p>
+
+  <p class="note small">
+    Mindesthonorar gilt.
+  </p>
+
+  <p class="small">
+    <strong>Jeder Auftrag wird als eigenständiger Einsatz geführt.</strong>
+  </p>
+ 
+ <p class="small">
+    Reisekosten wie Flüge, Unterkunft und Transfers werden gesondert berechnet, sofern nicht anders vereinbart.
+  </p>
+
+        `,
         contactTitle: "Kontakt",
-        contactBody: ""
+        contactBody: `
+          <p>Bitte senden Sie eine kurze Anfrage mit Einsatzort, Zielort, Zeitfenster und Art der Sendung.</p>
+          <div class="grid">
+            <div class="box" style="grid-column: span 12;">
+              <h3>E-Mail</h3>
+              <p class="small"><a href="mailto:contact@brings.global">contact@brings.global</a></p>
+            </div>
+            <div class="box" style="grid-column: span 12;">
+              <h3>Telefon</h3>
+              <p class="small">+49&nbsp;173&nbsp;884&nbsp;7374 <span class="small">(vorläufig)</span></p>
+            </div>
+            <div class="box" style="grid-column: span 12;">
+              <h3>Anfrageformular</h3>
+              <p class="small">
+                <a class="btn-mini" href="BRINGS_Request_Form_DE.pdf" target="_blank" rel="noopener">Download (DE)</a>
+                <a class="btn-mini" href="BRINGS_Request_Form_EN.pdf" target="_blank" rel="noopener">Download (EN)</a>
+              </p>
+            </div>
+          </div>
+        `,
         imprintTitle: "Impressum",
-        imprintBody: ""
+        imprintBody: `
+          <p><b>BRINGS by tenzer — Worldwide Private Courier</b></p>
+          <p class="small">
+            Diensteanbieter:<br>
+            Thorsten Tenzer<br>
+            Töpferweg 81<br>
+            23552 Lübeck<br>
+            Deutschland
+          </p>
+          <p class="small">
+            Kontakt:<br>
+            E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a><br>
+            Telefon: +49 173 884 73 74 <span class="small">(vorläufig)</span>
+          </p>
+          ${META_LINE_DE}
+        `,
         privacyTitle: "Datenschutz",
-        privacyBody: ""
+privacyBody: `
+  <p><b>Datenschutzerklärung</b></p>
+
+  <p class="small"><b>1. Verantwortlicher</b><br>
+    Thorsten Tenzer<br>
+    Töpferweg 81<br>
+    23552 Lübeck<br>
+    Deutschland<br>
+    E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a>
+  </p>
+
+  <p class="small"><b>2. Hosting (GitHub Pages)</b><br>
+    Diese Website wird über GitHub Pages bereitgestellt. Anbieter ist GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.
+    Beim Zugriff auf die Website verarbeitet GitHub Server-Log-Daten (z. B. IP-Adresse, Datum/Uhrzeit, aufgerufene Seite, Browsertyp, Betriebssystem, Referrer-URL).
+  </p>
+
+  <p class="small">
+    Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am sicheren und stabilen Betrieb der Website).
+  </p>
+
+  <p class="small"><b>3. Kontaktaufnahme per E-Mail</b><br>
+    Wenn Sie uns per E-Mail kontaktieren, werden die von Ihnen übermittelten Daten ausschließlich zur Bearbeitung Ihrer Anfrage und der damit verbundenen Kommunikation verarbeitet.
+    Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche/vertragliche Kommunikation).
+  </p>
+
+  <p class="small"><b>4. Speicherdauer</b><br>
+    Personenbezogene Daten werden gelöscht, sobald sie für den jeweiligen Zweck nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten bestehen.
+  </p>
+
+  <p class="small"><b>5. Ihre Rechte</b><br>
+    Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung (Art. 18 DSGVO),
+    Datenübertragbarkeit (Art. 20 DSGVO) sowie Widerspruch (Art. 21 DSGVO).
+    Zudem besteht ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde.
+  </p>
+
+  ${META_LINE_DE}
+`,
   
  agbTitle: "Allgemeine Geschäftsbedingungen (AGB)",
-        agbBody: ""}
+agbBody: `
+  <p><b>Allgemeine Geschäftsbedingungen (AGB)</b></p>
+
+  <p class="small"><b>1. Leistungsgegenstand</b><br>
+    BRINGS by tenzer erbringt individuelle, persönliche Kurierdienstleistungen für Dokumente und Wertgegenstände als Direkttransport ohne Umladung.
+  </p>
+
+  <p class="small"><b>2. Vertragsabschluss</b><br>
+    Ein Vertrag kommt ausschließlich durch schriftliche Auftragsbestätigung zustande (E-Mail ausreichend).
+  </p>
+
+  <p class="small"><b>3. Ausschlüsse</b><br>
+    Vom Transport ausgeschlossen sind illegale Güter, Waffen, Betäubungsmittel, gefährliche Stoffe sowie erhebliche Bargeldbeträge.
+  </p>
+
+  <p class="small"><b>4. Haftung</b><br>
+    Bei einfacher Fahrlässigkeit ist die Haftung auf den deklarierten Sendungswert begrenzt, maximal <b>10.000 € je Auftrag</b>.
+  </p>
+
+  <p class="small"><b>5. Vergütung & Zahlung</b><br>
+    Rechnungen sind innerhalb von <b>7 Tagen</b> nach Rechnungsstellung fällig. Bei Erstaufträgen oder Aufträgen mit erhöhtem Wert kann eine Vorauszahlung erforderlich sein.
+  </p>
+
+  <p class="small"><b>6. Schlussbestimmungen</b><br>
+    Es gilt deutsches Recht. Gerichtsstand ist Lübeck, soweit gesetzlich zulässig.
+  </p>
+
+  ${META_LINE_DE}
+`
+      }
     }
   };
 
@@ -762,46 +758,26 @@ pricingTitle: "Preise",
     applyFooter();
   }
 
-  function renderTemplate(tplId){
-    const tpl = document.getElementById(tplId);
-    if (!tpl) return false;
-    modalBody.innerHTML = "";
-    modalBody.appendChild(tpl.content.cloneNode(true));
-    return true;
-  }
-
   function openModal(kind){
     const M = TEXT[LANG].modals;
-    let t="";
-    if (kind === "service"){ t=M.serviceTitle; }
-    else if (kind === "coverage"){ t=M.coverageTitle; }
-    else if (kind === "pricing"){ t=M.pricingTitle; }
-    else if (kind === "pricingExample"){ t=M.pricingExampleTitle; }
-    else if (kind === "contact"){ t=M.contactTitle; }
-    else if (kind === "imprint"){ t=M.imprintTitle; }
-    else if (kind === "privacy"){ t=M.privacyTitle; }
-    else if (kind === "agb"){ t=M.agbTitle; }
+    let t="", b="";
+    if (kind === "service"){ t=M.serviceTitle; b=M.serviceBody; }
+    else if (kind === "coverage"){ t=M.coverageTitle; b=M.coverageBody; }
+    else if (kind === "pricing"){ t=M.pricingTitle; b=M.pricingBody; }
+    else if (kind === "pricingExample"){ t=M.pricingExampleTitle; b=M.pricingExampleBody; }
+    else if (kind === "contact"){ t=M.contactTitle; b=M.contactBody; }
+    else if (kind === "imprint"){ t=M.imprintTitle; b=M.imprintBody; }
+    else if (kind === "privacy"){ t=M.privacyTitle; b=M.privacyBody; }
+    else if (kind === "agb"){ t=M.agbTitle; b=M.agbBody; }
     else return;
 
     modalTitle.textContent = t;
-
-    // Prefer safe <template> blocks for all modal content.
-    const tplId = "tpl-" + kind + "-" + (LANG === "de" ? "de" : "en");
-    const ok = renderTemplate(tplId);
-
-    // Fallback: legacy bodies (kept empty for safety).
-    if (!ok){
-      const bodyKey = kind + "Body";
-      const legacy = M[bodyKey];
-      modalBody.innerHTML = legacy ? legacy : "";
-    }
+    modalBody.innerHTML = b;
 
     backdrop.style.display = "flex";
     backdrop.setAttribute("aria-hidden","false");
     document.body.style.overflow = "hidden";
   }
-
-
 
   function closeModal(){
     backdrop.style.display = "none";

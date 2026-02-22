@@ -562,7 +562,11 @@ All transfers are hand-to-hand. Written handover confirmation available upon req
       agb: "AGB",
       close: "Schließen",
       footer_k: "Pünktlich · Diskret · Verantwortlich",
-      footer_s: `Wir übergeben, was nicht ersetzbar ist. <span class="accent">Jederzeit. Überall.</span>`,
+      footer_s: `
+  Wir übergeben, was nicht ersetzbar ist. 
+  <span class="accent">Jederzeit. Überall.</span><br>
+  Direkte Obhut. Persönliche Verantwortung.
+`,
       modals: {
         serviceTitle: "Service",
         serviceBody: `
@@ -615,8 +619,8 @@ pricingBody: `
   <p class="small">
     <strong>Jeder Auftrag wird als eigenständiger Einsatz geführt.</strong>
   </p>
-
-  <p class="small">
+ 
+ <p class="small">
     Reisekosten wie Flüge, Unterkunft und Transfers werden gesondert berechnet, sofern nicht anders vereinbart.
   </p>
 
@@ -660,24 +664,76 @@ pricingBody: `
           ${META_LINE_DE}
         `,
         privacyTitle: "Datenschutz",
-        privacyBody: `
-          <p><b>Datenschutzerklärung</b></p>
-          <p class="small"><b>1. Verantwortlicher</b><br>
-            Thorsten Tenzer<br>
-            Töpferweg 81, 23552 Lübeck, Deutschland<br>
-            E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a>
-          </p>
-          <p class="small"><b>2. Hosting (GitHub Pages)</b><br>
-            Diese Website wird über GitHub Pages bereitgestellt.
-          </p>
+privacyBody: `
+  <p><b>Datenschutzerklärung</b></p>
+
+  <p class="small"><b>1. Verantwortlicher</b><br>
+    Thorsten Tenzer<br>
+    Töpferweg 81<br>
+    23552 Lübeck<br>
+    Deutschland<br>
+    E-Mail: <a href="mailto:contact@brings.global">contact@brings.global</a>
+  </p>
+
+  <p class="small"><b>2. Hosting (GitHub Pages)</b><br>
+    Diese Website wird über GitHub Pages bereitgestellt. Anbieter ist GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.
+    Beim Zugriff auf die Website verarbeitet GitHub Server-Log-Daten (z. B. IP-Adresse, Datum/Uhrzeit, aufgerufene Seite, Browsertyp, Betriebssystem, Referrer-URL).
+  </p>
+
+  <p class="small">
+    Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am sicheren und stabilen Betrieb der Website).
+  </p>
+
+  <p class="small"><b>3. Kontaktaufnahme per E-Mail</b><br>
+    Wenn Sie uns per E-Mail kontaktieren, werden die von Ihnen übermittelten Daten ausschließlich zur Bearbeitung Ihrer Anfrage und der damit verbundenen Kommunikation verarbeitet.
+    Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche/vertragliche Kommunikation).
+  </p>
+
+  <p class="small"><b>4. Speicherdauer</b><br>
+    Personenbezogene Daten werden gelöscht, sobald sie für den jeweiligen Zweck nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten bestehen.
+  </p>
+
+  <p class="small"><b>5. Ihre Rechte</b><br>
+    Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung (Art. 18 DSGVO),
+    Datenübertragbarkeit (Art. 20 DSGVO) sowie Widerspruch (Art. 21 DSGVO).
+    Zudem besteht ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde.
+  </p>
+
+  ${META_LINE_DE}
+`,
+  
           ${META_LINE_DE}
         `,
-        agbTitle: "Allgemeine Geschäftsbedingungen (AGB)",
-        agbBody: `
-          <p><b>Allgemeine Geschäftsbedingungen (AGB)</b></p>
-          <p class="small">Kurzfassung – final nach juristischem Review.</p>
-          ${META_LINE_DE}
-        `
+ agbTitle: "Allgemeine Geschäftsbedingungen (AGB)",
+agbBody: `
+  <p><b>Allgemeine Geschäftsbedingungen (AGB)</b></p>
+
+  <p class="small"><b>1. Leistungsgegenstand</b><br>
+    BRINGS by tenzer erbringt individuelle, persönliche Kurierdienstleistungen für Dokumente und Wertgegenstände als Direkttransport ohne Umladung.
+  </p>
+
+  <p class="small"><b>2. Vertragsabschluss</b><br>
+    Ein Vertrag kommt ausschließlich durch schriftliche Auftragsbestätigung zustande (E-Mail ausreichend).
+  </p>
+
+  <p class="small"><b>3. Ausschlüsse</b><br>
+    Vom Transport ausgeschlossen sind illegale Güter, Waffen, Betäubungsmittel, gefährliche Stoffe sowie erhebliche Bargeldbeträge.
+  </p>
+
+  <p class="small"><b>4. Haftung</b><br>
+    Bei einfacher Fahrlässigkeit ist die Haftung auf den deklarierten Sendungswert begrenzt, maximal <b>10.000 € je Auftrag</b>.
+  </p>
+
+  <p class="small"><b>5. Vergütung & Zahlung</b><br>
+    Rechnungen sind innerhalb von <b>7 Tagen</b> nach Rechnungsstellung fällig. Bei Erstaufträgen oder Aufträgen mit erhöhtem Wert kann eine Vorauszahlung erforderlich sein.
+  </p>
+
+  <p class="small"><b>6. Schlussbestimmungen</b><br>
+    Es gilt deutsches Recht. Gerichtsstand ist Lübeck, soweit gesetzlich zulässig.
+  </p>
+
+  ${META_LINE_DE}
+`
       }
     }
   };

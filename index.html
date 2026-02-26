@@ -29,24 +29,22 @@ body{
 /* ===== BACKGROUND (PFERD) =====
    hero.webp liegt im REPO-ROOT -> url("hero.webp")
 */
+/* ===== BACKGROUND (PFERD) – STABIL ===== */
+body{ position:relative; }
+
 body::before{
   content:"";
   position:fixed;
   inset:0;
-  z-index:0;
+  z-index:-2;
 
   background-image:url("bg.webp");
   background-size:cover;
-
-  /* Pferd etwas weiter nach links holen */
   background-position:66% center;
-
   background-repeat:no-repeat;
 
-  /* weniger blur, weniger dunkel */
-filter: blur(1.1px) contrast(.95) brightness(.74) saturate(.92);
-
   opacity:1;
+  filter:none;
   transform:scale(1.01);
 
   pointer-events:none;
@@ -56,10 +54,13 @@ body::after{
   content:"";
   position:fixed;
   inset:0;
-  z-index:1;
+  z-index:-1;
+
+  /* nur leichtes Overlay, damit Pferd sichtbar bleibt */
   background:
-    radial-gradient(1200px 520px at 50% 46%, rgba(255,255,255,.06), rgba(11,18,32,0) 60%),
-    linear-gradient(180deg, rgba(11,18,32,.72), rgba(11,18,32,.90));
+    radial-gradient(1200px 520px at 50% 46%, rgba(255,255,255,.04), rgba(11,18,32,0) 60%),
+    linear-gradient(180deg, rgba(11,18,32,.40), rgba(11,18,32,.65));
+
   pointer-events:none;
 }
 

@@ -51,7 +51,7 @@ filter: blur(1.1px) contrast(.95) brightness(.74) saturate(.92);
 
   pointer-events:none;
 }
-}
+
 body::after{
   content:"";
   position:fixed;
@@ -112,12 +112,12 @@ footer a:hover{color:var(--text); text-decoration:underline}
 }
 .brand .by,
 .hero-brand .by{
-  font-weight:400;
-  font-size:.40em !important;
-  letter-spacing:normal !important;
-  color: rgba(245,245,245,0.82);
+  font-size:42px !important;
+  margin-left:18px;
+  line-height:1;
+  position:relative;
+  top:6px;   /* ↓ hier feinjustieren: 4–8px */
 }
-
 .menu{
   display:flex;
   gap:8px;
@@ -189,16 +189,15 @@ footer a:hover{color:var(--text); text-decoration:underline}
 }
 
 .hero-brand .brings{
-  font-size: clamp(120px, 7vw, 96px) !important;  /* kleiner = kein Abschneiden */
-  letter-spacing:.10em !important;               /* etwas weniger Luft */
+  font-size: clamp(56px, 12vw, 108px) !important;
+  letter-spacing: .08em !important;
 }
 .hero-brand .by{
   font-size:42px !important;
-  position:static;        /* kein Offset */
-  top:auto;               /* sicherheitshalber */
   margin-left:18px;
-  line-height:1;          /* sauber, ohne Vertikaldrift */
-
+  line-height:1;
+  position:relative;
+  top:6px;   /* hier sitzt der kleine Downshift */
 
 }
 .hero-subline{
